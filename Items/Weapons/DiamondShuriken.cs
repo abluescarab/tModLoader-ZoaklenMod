@@ -1,0 +1,37 @@
+using System;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace ZoaklenMod.Items.Weapons
+{
+	public class DiamondShuriken : ModItem
+	{
+		public override void SetDefaults()
+		{
+			item.CloneDefaults(ItemID.Shuriken);
+			item.name = "Diamond Shuriken";
+			item.width = 22;
+			item.height = 22;
+			item.rare = 2;
+			item.shootSpeed *= 1.2f;
+			item.damage = 25;
+			item.useTime -= 1;
+			item.autoReuse = false;
+			item.toolTip = "'Shine bright like a diamond'";
+			item.shoot = mod.ProjectileType("DiamondShuriken");
+			item.crit = 8;
+		}
+		
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.Shuriken, 50);
+			recipe.AddIngredient(ItemID.Diamond);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(this, 50);
+			recipe.AddRecipe();
+		}
+	}
+}
