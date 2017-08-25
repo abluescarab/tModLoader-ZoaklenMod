@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -24,12 +23,12 @@ namespace ZoaklenMod.Items.Armor
 			item.rare = 5;
 			item.defense = 13;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.thrownCrit += 20;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

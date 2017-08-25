@@ -5,22 +5,21 @@ using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ZoaklenMod.Items;
 
 namespace ZoaklenMod
 {
 	public class ZoaklenMod : Mod
 	{
 		private double zoaklenKeyTime;
-        public ZoaklenMod()
-        {
-            Properties = new ModProperties()
-            {
-                Autoload = true,
-                AutoloadGores = true,
-                AutoloadSounds = true
-            };
-        }
+		public ZoaklenMod()
+		{
+			Properties = new ModProperties()
+			{
+				Autoload = true,
+				AutoloadGores = true,
+				AutoloadSounds = true
+			};
+		}
 
 		public override void Load()
 		{
@@ -37,7 +36,7 @@ namespace ZoaklenMod
 		{
 			// Does nothing...
 		}
-		
+
 		private void Teleport(Vector2 newPos, int Style = 0, int extraInfo = 0)
 		{
 			Player player = Main.player[Main.myPlayer];
@@ -45,27 +44,27 @@ namespace ZoaklenMod
 			{
 				player.grappling[0] = -1;
 				player.grapCount = 0;
-				for (int i = 0; i < 1000; i++)
+				for(int i = 0; i < 1000; i++)
 				{
-					if (Main.projectile[i].active && Main.projectile[i].owner == player.whoAmI && Main.projectile[i].aiStyle == 7)
+					if(Main.projectile[i].active && Main.projectile[i].owner == player.whoAmI && Main.projectile[i].aiStyle == 7)
 					{
 						Main.projectile[i].Kill();
 					}
 				}
 				int extraInfo2 = 0;
-				if (Style == 4)
+				if(Style == 4)
 				{
 					extraInfo2 = player.lastPortalColorIndex;
 				}
 				float num = Vector2.Distance(player.position, newPos);
 				player.position = newPos;
 				player.fallStart = (int)(player.position.Y / 16f);
-				if (player.whoAmI == Main.myPlayer)
+				if(player.whoAmI == Main.myPlayer)
 				{
-					if (num < new Vector2((float)Main.screenWidth, (float)Main.screenHeight).Length() / 2f + 100f)
+					if(num < new Vector2((float)Main.screenWidth, (float)Main.screenHeight).Length() / 2f + 100f)
 					{
 						int time = 0;
-						if (Style == 1)
+						if(Style == 1)
 						{
 							time = 10;
 						}
@@ -80,21 +79,21 @@ namespace ZoaklenMod
 						Main.screenPosition.Y = player.position.Y + (float)(player.height / 2) - (float)(Main.screenHeight / 2);
 						Main.quickBG = 10;
 					}
-					if (Main.mapTime < 5)
+					if(Main.mapTime < 5)
 					{
 						Main.mapTime = 5;
 					}
 					Main.maxQ = true;
 					Main.renderNow = true;
 				}
-				if (Style == 4)
+				if(Style == 4)
 				{
 					player.lastPortalColorIndex = extraInfo;
 					extraInfo2 = player.lastPortalColorIndex;
 					player.portalPhysicsFlag = true;
 					player.gravity = 0f;
 				}
-				for (int j = 0; j < 3; j++)
+				for(int j = 0; j < 3; j++)
 				{
 					player.UpdateSocialShadow();
 				}
@@ -106,15 +105,15 @@ namespace ZoaklenMod
 			{
 			}
 		}
-		
+
 		public override void HotKeyPressed(string name)
 		{
-			if (name == "ZoaklenMod Active Buffs")
+			if(name == "ZoaklenMod Active Buffs")
 			{
 				bool StellarSet = false;
 				bool StellarGear = false;
 				Player player = Main.player[Main.myPlayer];
-				for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+				for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 				{
 					if(player.armor[l].type == this.ItemType("NinjaSkills"))
 					{
@@ -137,7 +136,7 @@ namespace ZoaklenMod
 					float num79 = (float)Main.mouseY + Main.screenPosition.Y - vector2.Y;
 					Vector2 vector14;
 					vector14.X = (float)Main.mouseX + Main.screenPosition.X;
-					if (player.gravDir == 1f)
+					if(player.gravDir == 1f)
 					{
 						vector14.Y = (float)Main.mouseY + Main.screenPosition.Y - (float)player.height;
 					}
@@ -146,20 +145,20 @@ namespace ZoaklenMod
 						vector14.Y = Main.screenPosition.Y + (float)Main.screenHeight - (float)Main.mouseY;
 					}
 					vector14.X -= (float)(player.width / 2);
-					if (vector14.X > 50f && vector14.X < (float)(Main.maxTilesX * 16 - 50) && vector14.Y > 50f && vector14.Y < (float)(Main.maxTilesY * 16 - 50))
+					if(vector14.X > 50f && vector14.X < (float)(Main.maxTilesX * 16 - 50) && vector14.Y > 50f && vector14.Y < (float)(Main.maxTilesY * 16 - 50))
 					{
 						int num245 = (int)(vector14.X / 16f);
 						int num246 = (int)(vector14.Y / 16f);
-						if ((Main.tile[num245, num246].wall != 87 || (double)num246 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector14, player.width, player.height))
+						if((Main.tile[num245, num246].wall != 87 || (double)num246 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector14, player.width, player.height))
 						{
 							if(Math.Abs(Main.time - zoaklenKeyTime) > 90)
 							{
-								for (int num648 = 0; num648 < 20; num648++)
+								for(int num648 = 0; num648 < 20; num648++)
 								{
 									int num649 = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, 31, 0f, 0f, 100, default(Color), 1.5f);
 									Main.dust[num649].velocity *= 1.4f;
 								}
-								for (int num650 = 0; num650 < 10; num650++)
+								for(int num650 = 0; num650 < 10; num650++)
 								{
 									int num651 = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, 6, 0f, 0f, 100, default(Color), 2.5f);
 									Main.dust[num651].noGravity = true;
@@ -169,17 +168,17 @@ namespace ZoaklenMod
 								}
 								zoaklenKeyTime = Main.time;
 								modPlayer.stockedTeleports--;
-								player.rocketTime += player.rocketTimeMax/2;
+								player.rocketTime += player.rocketTimeMax / 2;
 								player.rocketDelay = 0;
 								player.rocketFrame = false;
 								player.Teleport(vector14, 1, 0);
 								NetMessage.SendData(65, -1, -1, "", 0, (float)player.whoAmI, vector14.X, vector14.Y, 1, 0, 0);
-								for (int num648 = 0; num648 < 20; num648++)
+								for(int num648 = 0; num648 < 20; num648++)
 								{
 									int num649 = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, 31, 0f, 0f, 100, default(Color), 1.5f);
 									Main.dust[num649].velocity *= 1.4f;
 								}
-								for (int num650 = 0; num650 < 10; num650++)
+								for(int num650 = 0; num650 < 10; num650++)
 								{
 									int num651 = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, 6, 0f, 0f, 100, default(Color), 2.5f);
 									Main.dust[num651].noGravity = true;
@@ -203,14 +202,14 @@ namespace ZoaklenMod
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.Shuriken, 30);
 			recipe.AddRecipe();
-			
+
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.LeadBar);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.Shuriken, 30);
 			recipe.AddRecipe();
 		}
-				
+
 		public static bool NoInvasion(NPCSpawnInfo spawnInfo)
 		{
 			return !spawnInfo.invasion && ((!Main.pumpkinMoon && !Main.snowMoon) || spawnInfo.spawnTileY > Main.worldSurface || Main.dayTime) && (!Main.eclipse || spawnInfo.spawnTileY > Main.worldSurface || !Main.dayTime);

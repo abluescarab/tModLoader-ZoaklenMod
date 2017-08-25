@@ -1,8 +1,5 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Weapons
@@ -27,7 +24,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.shoot = mod.ProjectileType("ElementalDagger");
 			item.crit = 6;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -38,7 +35,7 @@ namespace ZoaklenMod.Items.Weapons
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-			
+
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.MagicDagger);
 			recipe.AddIngredient(mod.ItemType("IceEssence"), 5);
@@ -48,7 +45,7 @@ namespace ZoaklenMod.Items.Weapons
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
-		
+
 		public override DrawAnimation GetAnimation()
 		{
 			return new Terraria.DataStructures.DrawAnimationVertical(10, 9);

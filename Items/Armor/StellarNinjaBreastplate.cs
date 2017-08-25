@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,7 +22,7 @@ namespace ZoaklenMod.Items.Armor
 			item.rare = -11;
 			item.defense = 22;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.thrownDamage += 0.3f;

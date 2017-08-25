@@ -1,8 +1,6 @@
-using System;
-using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 
 namespace ZoaklenMod.Items.Ingredients
 {
@@ -18,7 +16,7 @@ namespace ZoaklenMod.Items.Ingredients
 			item.value = 100000;
 			item.rare = 5;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -26,7 +24,7 @@ namespace ZoaklenMod.Items.Ingredients
 			recipe.AddTile(TileID.CrystalBall);
 			recipe.SetResult(this, 3);
 			recipe.AddRecipe();
-			
+
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.FieryGreatsword);
 			recipe.AddTile(TileID.CrystalBall);
@@ -74,7 +72,7 @@ namespace ZoaklenMod.Items.Ingredients
 			recipe.AddTile(TileID.CrystalBall);
 			recipe.SetResult(this, 20);
 			recipe.AddRecipe();
-			
+
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.Flamelash);
 			recipe.AddTile(TileID.CrystalBall);
@@ -99,7 +97,7 @@ namespace ZoaklenMod.Items.Ingredients
 			recipe.SetResult(this, 3);
 			recipe.AddRecipe();
 		}
-		
+
 		public override DrawAnimation GetAnimation()
 		{
 			return new Terraria.DataStructures.DrawAnimationVertical(3, 11);

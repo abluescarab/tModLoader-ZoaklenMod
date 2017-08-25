@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,7 +18,7 @@ namespace ZoaklenMod.Items.Accessory
 			item.rare = 9;
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.rangedCrit += 10;
@@ -33,7 +31,7 @@ namespace ZoaklenMod.Items.Accessory
 				player.scope = true;
 			}
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

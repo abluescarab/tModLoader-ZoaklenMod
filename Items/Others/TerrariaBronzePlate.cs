@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -22,23 +20,23 @@ namespace ZoaklenMod.Items.Others
 			AddTooltip("'Thanks for downloading ZoaklenMod'");
 			item.value = 420;
 		}
-		
+
 		public override bool UseItem(Player player)
 		{
 			if(player.itemTime == 0 && player.itemAnimation > 0)
 			{
-				for(int i = 0;i < 3;i++)
+				for(int i = 0; i < 3; i++)
 				{
 					Vector2 pos = new Vector2(player.Center.X + Main.rand.Next(-4, 5), player.Center.Y + Main.rand.Next(-16, -8));
 					int dust = Dust.NewDust(pos, 6, 6, Main.rand.Next(59, 66), 0f, 0f, 6, default(Color), 2f);
-					Main.dust[dust].velocity.X = (pos.X-player.Center.X)/Main.rand.Next(-16, 17);
+					Main.dust[dust].velocity.X = (pos.X - player.Center.X) / Main.rand.Next(-16, 17);
 					Main.dust[dust].noGravity = false;
-					Main.dust[dust].velocity.Y = (pos.Y-player.Center.Y)/4;
+					Main.dust[dust].velocity.Y = (pos.Y - player.Center.Y) / 4;
 				}
 			}
 			return false;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

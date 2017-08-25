@@ -1,5 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,12 +27,12 @@ namespace ZoaklenMod.Items.Weapons
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
-		
+
 		public override void UpdateInventory(Player player)
 		{
 			item.shoot = GetRandomBullet();
 		}
-		
+
 		private int GetRandomBullet()
 		{
 			int arrow = 1;

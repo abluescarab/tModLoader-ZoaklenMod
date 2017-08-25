@@ -1,13 +1,6 @@
-using System;
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
-using Terraria.GameContent;
-using Terraria.GameContent.Achievements;
-using Terraria.Graphics.Shaders;
+using Terraria;
+using Terraria.ModLoader;
 
 namespace ZoaklenMod.Projectiles
 {
@@ -22,7 +15,7 @@ namespace ZoaklenMod.Projectiles
 			}
 			return null;
 		}
-		
+
 		public override bool PreAI(Projectile projectile)
 		{
 			Player player = Main.player[Main.myPlayer];
@@ -35,11 +28,11 @@ namespace ZoaklenMod.Projectiles
 			}
 			return true;
 		}
-		
+
 		private int SuperBees(Player player)
 		{
 			int have = -1;
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
 				if(player.armor[l].type == mod.ItemType("BeeEnrager"))
 				{
@@ -49,7 +42,7 @@ namespace ZoaklenMod.Projectiles
 			}
 			return have;
 		}
-		
+
 		private bool BeeProj(Projectile projectile)
 		{
 			if(!projectile.active)
@@ -63,16 +56,16 @@ namespace ZoaklenMod.Projectiles
 			}
 			return true;
 		}
-		
+
 		public override void ModifyHitNPC(Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit)
 		{
 			if((projectile.type >= 184 && projectile.type <= 188) || projectile.type == 654)
 				return;
-			
+
 			Player player = Main.player[projectile.owner];
 			if(SuperBees(player) >= 0 && BeeProj(projectile))
 			{
-				damage = (int)((damage / 2f)*2f);
+				damage = (int)((damage / 2f) * 2f);
 			}
 			if(crit && player.armor[0].type == mod.ItemType("HiddenShooterHood") && player.armor[1].type == mod.ItemType("HiddenShooterCoat") && player.armor[2].type == mod.ItemType("HiddenShooterPants"))
 			{
@@ -95,7 +88,7 @@ namespace ZoaklenMod.Projectiles
 				}
 			}
 			bool cardBonus2 = false;
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
 				if(player.armor[l].type == mod.ItemType("TeraCardGlove"))
 				{
@@ -111,7 +104,7 @@ namespace ZoaklenMod.Projectiles
 				}
 			}
 		}
-		
+
 		private bool StellarNinja(Player player)
 		{
 			bool have = false;

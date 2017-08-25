@@ -1,7 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Projectiles
@@ -20,7 +16,7 @@ namespace ZoaklenMod.Projectiles
 			projectile.timeLeft = 2;
 			projectile.light = 0;
 		}
-		
+
 		public override bool PreKill(int timeLeft)
 		{
 			projectile.type = 0;

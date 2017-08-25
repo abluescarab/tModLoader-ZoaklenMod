@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -21,14 +19,14 @@ namespace ZoaklenMod.Items.Accessory
 			item.rare = 6;
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.maxMinions += 3;
 			player.minionDamage += 0.3f;
 			player.AddBuff(BuffID.Summoning, 2, true);
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

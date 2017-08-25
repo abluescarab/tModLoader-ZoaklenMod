@@ -1,9 +1,7 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 
 namespace ZoaklenMod.Items.Weapons
 {
@@ -27,10 +25,10 @@ namespace ZoaklenMod.Items.Weapons
 			item.melee = true;
 			item.autoReuse = true;
 		}
-		
+
 		public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
-			for (int num258 = 0; num258 < 2; num258++)
+			for(int num258 = 0; num258 < 2; num258++)
 			{
 				int num259 = Dust.NewDust(new Vector2((float)hitbox.X, (float)hitbox.Y), hitbox.Width, hitbox.Height, 6, player.velocity.X * 0.2f + (float)(player.direction * 3), player.velocity.Y * 0.2f, 100, default(Color), 2.5f);
 				Main.dust[num259].noGravity = true;
@@ -40,7 +38,7 @@ namespace ZoaklenMod.Items.Weapons
 				expr_C4E3_cp_0.velocity.Y = expr_C4E3_cp_0.velocity.Y * 2f;
 			}
 		}
-		
+
 		public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
 		{
 			target.AddBuff(BuffID.OnFire, 300, true);
@@ -48,12 +46,12 @@ namespace ZoaklenMod.Items.Weapons
 			if(cursedId >= 0)
 			{
 				damage = (int)(damage * 2f);
-				for(int i = 0;i < 5;i++)
+				for(int i = 0; i < 5; i++)
 				{
 					if(target.buffType[i] == BuffID.CursedInferno)
 					{
-			target.buffTime[i] -= 30;
-			break;
+						target.buffTime[i] -= 30;
+						break;
 					}
 				}
 			}
@@ -63,7 +61,7 @@ namespace ZoaklenMod.Items.Weapons
 				knockBack = 0f;
 			}
 		}
-		
+
 		public override bool UseItem(Player player)
 		{
 			int damage = player.GetWeaponDamage(player.inventory[player.selectedItem]);
@@ -72,7 +70,7 @@ namespace ZoaklenMod.Items.Weapons
 				Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
 				float num78 = (float)Main.mouseX + Main.screenPosition.X - vector2.X;
 				float num79 = (float)Main.mouseY + Main.screenPosition.Y - vector2.Y;
-				for(int i = 0;i < 3;i++)
+				for(int i = 0; i < 3; i++)
 				{
 					float num200 = num78;
 					float num201 = num79;
@@ -93,7 +91,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return true;
 		}
-		
+
 		public override void UseStyle(Player player)
 		{
 			if(player.altFunctionUse == 2)
@@ -105,22 +103,22 @@ namespace ZoaklenMod.Items.Weapons
 				item.useStyle = 1;
 			}
 		}
-		
+
 		public override bool UseItemFrame(Player player)
 		{
 			return true;
 		}
-		
+
 		public override void PostUpdate()
 		{
 			Lighting.AddLight(item.position, Microsoft.Xna.Framework.Color.Orange.ToVector3());
 		}
-		
+
 		public override bool AltFunctionUse(Player player)
 		{
 			return true;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

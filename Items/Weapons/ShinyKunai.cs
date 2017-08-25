@@ -1,6 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,7 +28,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.shoot = mod.ProjectileType("ShinyKunai");
 			item.crit = 10;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

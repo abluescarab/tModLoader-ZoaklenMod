@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -23,32 +22,32 @@ namespace ZoaklenMod.Projectiles
 			projectile.timeLeft = 300;
 			projectile.light = 0;
 		}
-		
+
 		public override bool PreKill(int timeLeft)
 		{
 			projectile.type = 0;
 			return true;
 		}
-		
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			target.AddBuff(BuffID.ShadowFlame, 600, true);
 			target.AddBuff(BuffID.OnFire, 600, true);
 			target.AddBuff(BuffID.Frostburn, 600, true);
 		}
-		
+
 		public override bool PreAI()
 		{
 			projectile.alpha = 0;
 			projectile.frameCounter++;
-			if (projectile.frameCounter >= 10)
+			if(projectile.frameCounter >= 10)
 			{
 				projectile.frameCounter = 0;
 				projectile.frame = (projectile.frame + 1) % 9;
 			}
 			return true;
 		}
-		
+
 		public override void AI()
 		{
 			int effect;

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +24,7 @@ namespace ZoaklenMod.Items.Accessory
 			item.rare = 4;
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.statManaMax2 += 60;
@@ -40,7 +38,7 @@ namespace ZoaklenMod.Items.Accessory
 			player.AddBuff(BuffID.ManaRegeneration, 2, true);
 			player.AddBuff(BuffID.MagicPower, 2, true);
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

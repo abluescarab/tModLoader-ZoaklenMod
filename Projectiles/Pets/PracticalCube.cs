@@ -26,11 +26,11 @@ namespace ZoaklenMod.Projectiles.Pets
 		{
 			Player player = Main.player[projectile.owner];
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
-			if (player.dead)
+			if(player.dead)
 			{
 				modPlayer.practicalCube = false;
 			}
-			if (modPlayer.practicalCube)
+			if(modPlayer.practicalCube)
 			{
 				projectile.timeLeft = 2;
 			}

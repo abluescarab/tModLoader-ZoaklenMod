@@ -1,7 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Projectiles
@@ -20,7 +18,7 @@ namespace ZoaklenMod.Projectiles
 			projectile.noDropItem = true;
 			projectile.ranged = true;
 		}
-		
+
 		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
 		{
 			Player player = Main.player[projectile.owner];
@@ -29,7 +27,7 @@ namespace ZoaklenMod.Projectiles
 				crit = true;
 			}
 		}
-		
+
 		private int GetWeaponCrit(Player player)
 		{
 			Item item = player.inventory[player.selectedItem];
@@ -52,7 +50,7 @@ namespace ZoaklenMod.Projectiles
 			}
 			return crit;
 		}
-		
+
 		public override void AI()
 		{
 			if(projectile.localAI[0] == 0f)
@@ -67,20 +65,20 @@ namespace ZoaklenMod.Projectiles
 				projectile.Kill();
 			}
 			projectile.rotation += 0.11f;
-			
-			for(int i = 0;i < 3;i++)
+
+			for(int i = 0; i < 3; i++)
 			{
 				int dust = Dust.NewDust(new Vector2(projectile.position.X+Main.rand.Next(projectile.width), projectile.position.Y+Main.rand.Next(projectile.height)), projectile.width, projectile.height, GetBitColor(), 0f, 0f, 0, default(Color), 2f);
 				Main.dust[dust].velocity = Vector2.Zero;
 				Main.dust[dust].noGravity = true;
 			}
 		}
-		
+
 		private int GetBitColor()
 		{
-			return (59+Main.rand.Next(3));
+			return (59 + Main.rand.Next(3));
 		}
-		
+
 		public override bool PreKill(int timeLeft)
 		{
 			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0f, 0f, mod.ProjectileType("BitHole"), projectile.damage, 0f, projectile.owner);

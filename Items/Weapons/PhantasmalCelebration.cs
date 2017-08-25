@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -19,7 +18,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.shoot = mod.ProjectileType("PhantasmalCelebration");
 			item.value = Item.sellPrice(0, 50, 0, 0);
 		}
-		
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
@@ -32,12 +31,12 @@ namespace ZoaklenMod.Items.Weapons
 			Main.projectile[gun].alpha = 0;
 			return true;
 		}
-		
+
 		public override Vector2? HoldoutOffset()
 		{
 			return new Vector2(12, 0);
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

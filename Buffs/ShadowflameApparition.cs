@@ -1,4 +1,3 @@
-using System;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -17,11 +16,11 @@ namespace ZoaklenMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
-			if (player.ownedProjectileCounts[mod.ProjectileType("ShadowflameApparition")] > 0)
+			if(player.ownedProjectileCounts[mod.ProjectileType("ShadowflameApparition")] > 0)
 			{
 				modPlayer.sfaMinion = true;
 			}
-			if (!modPlayer.sfaMinion)
+			if(!modPlayer.sfaMinion)
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;

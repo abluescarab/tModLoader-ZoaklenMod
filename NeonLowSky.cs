@@ -28,10 +28,10 @@ namespace ZoaklenMod
 		{
 			return new Color(185, 32, 32);
 		}
-		
+
 		public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
 		{
-			if (maxDepth >= 0 && minDepth < 0)
+			if(maxDepth >= 0 && minDepth < 0)
 			{
 				spriteBatch.Draw(Main.blackTileTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), new Color(185, 32, 32) * 1f);
 			}

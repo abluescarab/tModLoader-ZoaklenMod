@@ -1,9 +1,6 @@
-using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace ZoaklenMod.Projectiles.Minions
 {
@@ -34,26 +31,26 @@ namespace ZoaklenMod.Projectiles.Minions
 		{
 			Player player = Main.player[projectile.owner];
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
-			if (player.dead)
+			if(player.dead)
 			{
 				modPlayer.sfaMinion = false;
 			}
-			if (modPlayer.sfaMinion)
+			if(modPlayer.sfaMinion)
 			{
 				projectile.timeLeft = 2;
 			}
 		}
-		
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			target.AddBuff(BuffID.ShadowFlame, 300, true);
 		}
-		
+
 		public override bool PreAI()
 		{
 			projectile.alpha = 0;
 			projectile.frameCounter++;
-			if (projectile.frameCounter >= 8)
+			if(projectile.frameCounter >= 8)
 			{
 				projectile.frameCounter = 0;
 				projectile.frame = (projectile.frame + 1) % 6;
@@ -61,7 +58,7 @@ namespace ZoaklenMod.Projectiles.Minions
 			int dust = Dust.NewDust(new Vector2(projectile.position.X+Main.rand.Next(0, projectile.width+1), projectile.position.Y+Main.rand.Next(0, projectile.height+1)), projectile.width, projectile.height, 27, 0f, 0f, 100, default(Color), 1f);
 			return true;
 		}
-		
+
 		public override bool MinionContactDamage()
 		{
 			return true;

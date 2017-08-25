@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace ZoaklenMod.Items.Accessory
 {
@@ -24,7 +24,7 @@ namespace ZoaklenMod.Items.Accessory
 			item.rare = 10;
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			frameCounter++;

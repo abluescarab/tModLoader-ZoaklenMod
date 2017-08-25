@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -28,7 +27,7 @@ namespace ZoaklenMod.Items.Accessory
 			item.rare = 9;
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.magicQuiver = true;
@@ -38,7 +37,7 @@ namespace ZoaklenMod.Items.Accessory
 			player.spikedBoots = 2;
 			player.panic = true;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

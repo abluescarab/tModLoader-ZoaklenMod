@@ -1,5 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -23,7 +21,7 @@ namespace ZoaklenMod.Projectiles
 			projectile.tileCollide = false;
 			aiType = ProjectileID.Shuriken;
 		}
-		
+
 		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
 		{
 			Player player = Main.player[projectile.owner];
@@ -32,7 +30,7 @@ namespace ZoaklenMod.Projectiles
 				crit = true;
 			}
 		}
-		
+
 		private int GetWeaponCrit(Player player)
 		{
 			Item item = player.inventory[player.selectedItem];
@@ -55,7 +53,7 @@ namespace ZoaklenMod.Projectiles
 			}
 			return crit;
 		}
-		
+
 		public override bool PreKill(int timeLeft)
 		{
 			projectile.type = 0;

@@ -1,9 +1,7 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 
 namespace ZoaklenMod.Items.Weapons
 {
@@ -30,7 +28,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.useSound = 20;
 			item.autoReuse = true;
 		}
-		
+
 		public override bool UseItem(Player player)
 		{
 			int damage = player.GetWeaponDamage(player.inventory[player.selectedItem]);
@@ -65,20 +63,20 @@ namespace ZoaklenMod.Items.Weapons
 				float num78 = (float)Main.mouseX + Main.screenPosition.X - vector2.X;
 				float num79 = (float)Main.mouseY + Main.screenPosition.Y - vector2.Y;
 				float num115 = value7.Y;
-				if (num115 > player.Center.Y - 200f)
+				if(num115 > player.Center.Y - 200f)
 				{
 					num115 = player.Center.Y - 200f;
 				}
-				for (int num116 = 0; num116 < 3; num116++)
+				for(int num116 = 0; num116 < 3; num116++)
 				{
 					vector2 = player.Center + new Vector2((float)(-(float)Main.rand.Next(0, 401) * player.direction), -600f);
 					vector2.Y -= (float)(100 * num116);
 					Vector2 value8 = value7 - vector2;
-					if (value8.Y < 0f)
+					if(value8.Y < 0f)
 					{
 						value8.Y *= -1f;
 					}
-					if (value8.Y < 20f)
+					if(value8.Y < 20f)
 					{
 						value8.Y = 20f;
 					}
@@ -88,7 +86,7 @@ namespace ZoaklenMod.Items.Weapons
 					num79 = value8.Y;
 					float speedX5 = num78;
 					float speedY6 = num79 + (float)Main.rand.Next(-40, 41) * 0.02f;
-					Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, mod.ProjectileType("Sun"), (int)(damage*0.4f), knockBack, player.whoAmI);
+					Projectile.NewProjectile(vector2.X, vector2.Y, speedX5, speedY6, mod.ProjectileType("Sun"), (int)(damage * 0.4f), knockBack, player.whoAmI);
 				}
 				if(num78 < 0)
 				{
@@ -101,7 +99,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return true;
 		}
-		
+
 		public override bool AltFunctionUse(Player player)
 		{
 			return true;

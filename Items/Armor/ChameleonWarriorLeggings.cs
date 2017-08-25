@@ -1,10 +1,8 @@
-using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using ZoaklenMod;
 
 namespace ZoaklenMod.Items.Armor
 {
@@ -15,7 +13,7 @@ namespace ZoaklenMod.Items.Armor
 			equips.Add(EquipType.Legs);
 			return true;
 		}
-		
+
 		public override void DrawArmorColor(Player drawPlayer, float shadow, ref Color color, ref int glowMask, ref Color glowMaskColor)
 		{
 			if(Main.gameMenu || !((PlayerChanges)drawPlayer.GetModPlayer(mod, "PlayerChanges")).chameleonMode)
@@ -30,7 +28,7 @@ namespace ZoaklenMod.Items.Armor
 				color = biome.color;
 			}
 		}
-		
+
 		public override void SetDefaults()
 		{
 			item.width = 18;
@@ -42,13 +40,13 @@ namespace ZoaklenMod.Items.Armor
 			item.rare = 7;
 			item.defense = 12;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.thrownCrit += 10;
 			player.moveSpeed += 0.07f;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

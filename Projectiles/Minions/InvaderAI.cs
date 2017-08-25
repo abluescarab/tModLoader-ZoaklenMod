@@ -1,9 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace ZoaklenMod.Projectiles.Minions
 {
@@ -29,15 +27,15 @@ namespace ZoaklenMod.Projectiles.Minions
 			projectile.extraUpdates = 10;
 			CustomDefaults();
 		}
-		
+
 		public virtual void CustomDefaults()
 		{
 		}
-		
+
 		public virtual void Attack()
 		{
 		}
-		
+
 		public override void CheckActive()
 		{
 			Player player = Main.player[projectile.owner];
@@ -48,17 +46,17 @@ namespace ZoaklenMod.Projectiles.Minions
 		{
 			Player player = Main.player[projectile.owner];
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
-			if (player.dead)
+			if(player.dead)
 			{
 				modPlayer.invaderMinion = false;
 			}
-			if (modPlayer.invaderMinion)
+			if(modPlayer.invaderMinion)
 			{
 				projectile.timeLeft = 2;
 			}
 			projectile.alpha = 0;
 			projectile.frameCounter++;
-			if (projectile.frameCounter >= 80)
+			if(projectile.frameCounter >= 80)
 			{
 				projectile.frameCounter = 0;
 				projectile.frame = (projectile.frame + 1) % 2;
@@ -67,7 +65,7 @@ namespace ZoaklenMod.Projectiles.Minions
 			int target = -1;
 			float minDistance = 9999f;
 			bool eyesAlive = false;
-			for(int i = 0;i < 200;i++)
+			for(int i = 0; i < 200; i++)
 			{
 				NPC npc = Main.npc[i];
 				if(npc.active && (npc.type == NPCID.MoonLordHead || npc.type == NPCID.MoonLordHand) && !npc.dontTakeDamage)
@@ -76,7 +74,7 @@ namespace ZoaklenMod.Projectiles.Minions
 					break;
 				}
 			}
-			for(int i = 0;i < 200;i++)
+			for(int i = 0; i < 200; i++)
 			{
 				NPC npc = Main.npc[i];
 				if(npc.active && !npc.friendly && player.Distance(npc.Center) < minDistance && player.Distance(npc.Center) < 500f && npc.lifeMax > 5 && !npc.dontTakeDamage)
@@ -90,7 +88,7 @@ namespace ZoaklenMod.Projectiles.Minions
 				}
 			}
 			int thisId = 1;
-			for(int i = 0;i < 256;i++)
+			for(int i = 0; i < 256; i++)
 			{
 				Projectile proj = Main.projectile[i];
 				if(proj.active && proj.name.Contains("Invader"))
@@ -105,13 +103,13 @@ namespace ZoaklenMod.Projectiles.Minions
 					}
 				}
 			}
-			
+
 			int invaders = GetTotalInvaders(player);
-			
+
 			if(target != -1)
 			{
 				NPC npc = Main.npc[target];
-				
+
 				if(npc.position.Y - (30 * thisId) < projectile.Center.Y)
 				{
 					projectile.position.Y--;
@@ -120,7 +118,7 @@ namespace ZoaklenMod.Projectiles.Minions
 				{
 					projectile.position.Y++;
 				}
-				
+
 				if(npc.Center.X < projectile.Center.X)
 				{
 					projectile.position.X--;
@@ -129,7 +127,7 @@ namespace ZoaklenMod.Projectiles.Minions
 				{
 					projectile.position.X++;
 				}
-			
+
 				if(Math.Abs(projectile.Center.X - npc.Center.X) < 100)
 				{
 					if(projectile.frameCounter % 79 == 0 && projectile.frame == 1)
@@ -151,7 +149,7 @@ namespace ZoaklenMod.Projectiles.Minions
 				{
 					projectile.position.X++;
 				}
-				
+
 				if(player.Center.Y - getFormPosition(thisId, groupQuantity).Y < projectile.Center.Y)
 				{
 					projectile.position.Y--;
@@ -162,19 +160,19 @@ namespace ZoaklenMod.Projectiles.Minions
 				}
 			}
 		}
-		
+
 		private Vector2 getFormPosition(int tId, int total)
 		{
 			Vector2 final;
 			float ftId = (float)tId;
 			int groupId = (int)Math.Floor(ftId/5f);
-			groupId = (int)Math.Floor((float)tId/5f);
+			groupId = (int)Math.Floor((float)tId / 5f);
 			int groupT = total;
-			final.X = groupId*30-groupT*15;
-			final.Y = ((ftId % 5f)+1)*30;
+			final.X = groupId * 30 - groupT * 15;
+			final.Y = ((ftId % 5f) + 1) * 30;
 			return final;
 		}
-		
+
 		private int GetTotalInvaders(Player player)
 		{
 			return (player.ownedProjectileCounts[mod.ProjectileType("Invader1")] + player.ownedProjectileCounts[mod.ProjectileType("Invader2")] + player.ownedProjectileCounts[mod.ProjectileType("Invader3")]);

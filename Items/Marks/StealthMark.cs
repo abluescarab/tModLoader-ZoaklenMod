@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.DataStructures;
 
 namespace ZoaklenMod.Items.Marks
 {
@@ -21,7 +17,7 @@ namespace ZoaklenMod.Items.Marks
 			item.rare = -11;
 			markId = 5;
 		}
-		
+
 		public override void MarkEffect(Player player)
 		{
 			int t = player.inventory[player.selectedItem].type;
@@ -29,7 +25,7 @@ namespace ZoaklenMod.Items.Marks
 			if(itemname.Contains("Shuriken") || itemname.Contains("Kunai"))
 			{
 				player.thrownCrit = 100;
-				
+
 				currentTick += 0.1f;
 				if(currentTick > 1f)
 				{
@@ -54,7 +50,7 @@ namespace ZoaklenMod.Items.Marks
 				Main.dust[num1014].velocity *= 0f;
 			}
 		}
-		
+
 		public override DrawAnimation GetAnimation()
 		{
 			return new Terraria.DataStructures.DrawAnimationVertical(30, 2);

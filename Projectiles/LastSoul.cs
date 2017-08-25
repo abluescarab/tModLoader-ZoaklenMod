@@ -1,7 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Projectiles
@@ -20,15 +19,15 @@ namespace ZoaklenMod.Projectiles
 			projectile.magic = true;
 			projectile.penetrate = -1;
 		}
-		
+
 		public override void AI()
 		{
-			if (projectile.soundDelay == 0 && Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y) > 2f)
+			if(projectile.soundDelay == 0 && Math.Abs(projectile.velocity.X) + Math.Abs(projectile.velocity.Y) > 2f)
 			{
 				projectile.soundDelay = 10;
 				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 9);
 			}
-			for (int num110 = 0; num110 < 8; num110++)
+			for(int num110 = 0; num110 < 8; num110++)
 			{
 				int num111 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 66, 0f, 0f, 100, new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB), 2.5f);
 				Main.dust[num111].velocity *= 0.1f;

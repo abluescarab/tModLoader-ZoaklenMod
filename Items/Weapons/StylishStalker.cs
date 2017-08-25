@@ -1,6 +1,4 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -29,7 +27,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.ranged = true;
 			AddTooltip("'Boom, deadshot.'");
 		}
-		
+
 		public override Vector2? HoldoutOffset()
 		{
 			return new Vector2(-12, 0);

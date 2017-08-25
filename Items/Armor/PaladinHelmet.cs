@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -22,12 +21,12 @@ namespace ZoaklenMod.Items.Armor
 			item.rare = 9;
 			item.defense = 17;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.thrownVelocity += 0.15f;
 		}
-		
+
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == mod.ItemType("PaladinBreastplate") && legs.type == mod.ItemType("PaladinLeggings");
@@ -42,7 +41,7 @@ namespace ZoaklenMod.Items.Armor
 			player.setBonus = bonus;
 			player.AddBuff(BuffID.Shine, 2, false);
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

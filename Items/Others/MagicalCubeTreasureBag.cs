@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Others
@@ -18,7 +17,7 @@ namespace ZoaklenMod.Items.Others
 			item.rare = 10;
 			bossBagNPC = mod.NPCType("MagicalCube");
 		}
-		
+
 		public override void UpdateInventory(Player player)
 		{
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");

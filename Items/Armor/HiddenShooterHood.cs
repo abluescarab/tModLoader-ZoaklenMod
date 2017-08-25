@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -23,7 +22,7 @@ namespace ZoaklenMod.Items.Armor
 			item.rare = 6;
 			item.defense = 6;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.thrownCrit += 15;
@@ -43,7 +42,7 @@ namespace ZoaklenMod.Items.Armor
 			player.AddBuff(BuffID.Warmth, 2, true);
 			player.setBonus = bonus;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -52,7 +51,7 @@ namespace ZoaklenMod.Items.Armor
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-			
+
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("IceEssence"), 5);
 			recipe.AddIngredient(ItemID.AdamantiteBar, 13);

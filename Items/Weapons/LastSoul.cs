@@ -1,6 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -29,7 +26,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.value = 200000;
 			item.magic = true;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

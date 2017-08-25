@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -24,7 +23,7 @@ namespace ZoaklenMod.Projectiles
 			projectile.extraUpdates = 100;
 			aiType = ProjectileID.Bullet;
 		}
-		
+
 		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
 		{
 			Player player = Main.player[projectile.owner];
@@ -34,7 +33,7 @@ namespace ZoaklenMod.Projectiles
 			}
 			target.AddBuff(mod.BuffType("Virus"), 600, true);
 		}
-		
+
 		private int GetWeaponCrit(Player player)
 		{
 			Item item = player.inventory[player.selectedItem];
@@ -57,7 +56,7 @@ namespace ZoaklenMod.Projectiles
 			}
 			return crit;
 		}
-		
+
 		public override void AI()
 		{
 			projectile.alpha = 255;
@@ -69,10 +68,10 @@ namespace ZoaklenMod.Projectiles
 				Main.dust[dust].color = new Color(0, 255, 255);
 			}
 		}
-		
+
 		public override bool PreKill(int timeLeft)
 		{
-			for(int i = 0;i < 5;i++)
+			for(int i = 0; i < 5; i++)
 			{
 				int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, mod.DustType("Neon"), 0f, 0f, 0, default(Color), 1f);
 				Main.dust[dust].velocity.X = (int)(Main.rand.Next(-8, 9));

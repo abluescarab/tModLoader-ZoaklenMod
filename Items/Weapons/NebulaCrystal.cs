@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -28,14 +27,14 @@ namespace ZoaklenMod.Items.Weapons
 			item.shoot = mod.ProjectileType("NebulaCrystal");
 			item.shootSpeed = 10f;
 		}
-		
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			Vector2 value18 = Main.screenPosition + new Vector2((float)Main.mouseX, (float)Main.mouseY);
 			position = value18;
 			return true;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

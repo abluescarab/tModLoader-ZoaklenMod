@@ -1,7 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Projectiles
@@ -25,7 +23,7 @@ namespace ZoaklenMod.Projectiles
 			aiType = 14;
 			projectile.extraUpdates = 100;
 		}
-		
+
 		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
 		{
 			Player player = Main.player[projectile.owner];
@@ -46,7 +44,7 @@ namespace ZoaklenMod.Projectiles
 			a = Dust.NewDust(new Vector2(projectile.Center.X, projectile.Center.Y), 5, 5, mod.DustType("Neon"), 0f, 0f, 0, default(Color), 0.75f);
 			Main.dust[a].velocity = new Vector2(1.5f, 1.5f);
 			Main.dust[a].color = new Color(0, 255, 255);
-			
+
 			a = Dust.NewDust(new Vector2(projectile.Center.X, projectile.Center.Y), 5, 5, mod.DustType("Neon"), 0f, 0f, 0, default(Color), 0.75f);
 			Main.dust[a].velocity = new Vector2(0f, 1.5f);
 			Main.dust[a].color = new Color(0, 255, 255);
@@ -60,7 +58,7 @@ namespace ZoaklenMod.Projectiles
 			Main.dust[a].velocity = new Vector2(-1.5f, 0f);
 			Main.dust[a].color = new Color(0, 255, 255);
 		}
-		
+
 		private int GetWeaponCrit(Player player)
 		{
 			Item item = player.inventory[player.selectedItem];
@@ -83,12 +81,12 @@ namespace ZoaklenMod.Projectiles
 			}
 			return crit;
 		}
-	
+
 		public bool Touching(Player player)
 		{
 			return (projectile.Distance(player.Center) < 50);
 		}
-		
+
 		public override void AI()
 		{
 			Player player = Main.player[projectile.owner];

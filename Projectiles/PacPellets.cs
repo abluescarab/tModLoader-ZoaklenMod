@@ -1,7 +1,4 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Projectiles
@@ -23,10 +20,10 @@ namespace ZoaklenMod.Projectiles
 			projectile.minion = true;
 			aiType = 14;
 		}
-		
+
 		public override void AI()
 		{
-			for(int i = 0;i < 256;i++)
+			for(int i = 0; i < 256; i++)
 			{
 				Projectile proj = Main.projectile[i];
 				if(proj.active && proj.timeLeft > 0 && proj.type == mod.ProjectileType("Pacman") && proj.Distance(projectile.Center) < 30)

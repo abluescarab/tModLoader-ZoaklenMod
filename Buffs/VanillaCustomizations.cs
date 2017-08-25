@@ -1,13 +1,6 @@
-using System;
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
-using Terraria.GameContent;
-using Terraria.GameContent.Achievements;
-using Terraria.Graphics.Shaders;
+using Terraria;
+using Terraria.ModLoader;
 
 namespace ZoaklenMod.Buffs
 {
@@ -32,7 +25,7 @@ namespace ZoaklenMod.Buffs
 				a = Dust.NewDust(new Vector2(player.Center.X, player.Center.Y), 5, 5, mod.DustType("Neon"), 0f, 0f, 0, default(Color), 1f);
 				Main.dust[a].velocity = new Vector2(2f, 2f);
 				Main.dust[a].color = new Color(255, 0, 0);
-				
+
 				a = Dust.NewDust(new Vector2(player.Center.X, player.Center.Y), 5, 5, mod.DustType("Neon"), 0f, 0f, 0, default(Color), 1f);
 				Main.dust[a].velocity = new Vector2(0f, 2f);
 				Main.dust[a].color = new Color(255, 0, 0);

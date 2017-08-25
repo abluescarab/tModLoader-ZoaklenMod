@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -28,7 +27,7 @@ namespace ZoaklenMod.Items.Accessory
 			item.rare = 9;
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.manaMagnet = true;
@@ -49,7 +48,7 @@ namespace ZoaklenMod.Items.Accessory
 			player.thrownDamage += 0.1f;
 			player.thrownCrit += 2;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -60,7 +59,7 @@ namespace ZoaklenMod.Items.Accessory
 			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-			
+
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.Shackle);
 			recipe.AddIngredient(ItemID.Diamond);

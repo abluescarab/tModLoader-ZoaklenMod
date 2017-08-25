@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
-using Terraria.GameContent;
-using Terraria.GameContent.Achievements;
+using Terraria;
+using Terraria.DataStructures;
 
 namespace ZoaklenMod.Items.Marks
 {
@@ -24,7 +18,7 @@ namespace ZoaklenMod.Items.Marks
 			item.rare = -11;
 			markId = 4;
 		}
-		
+
 		public override void MarkEffect(Player player)
 		{
 			string t = player.inventory[player.selectedItem].name;
@@ -32,7 +26,7 @@ namespace ZoaklenMod.Items.Marks
 			{
 				player.thrownCrit += 20;
 				player.thrownDamage += 0.3f;
-				for(int i = 0;i < 10;i++)
+				for(int i = 0; i < 10; i++)
 				{
 					Vector2 pos = new Vector2(player.Center.X + (32+((i-5)*7)), player.Center.Y + (32-((i-5)*9)));
 					int dust = Dust.NewDust(pos, 6, 6, 60, 0f, 0f, 6, default(Color), 2f);
@@ -40,7 +34,7 @@ namespace ZoaklenMod.Items.Marks
 					Main.dust[dust].velocity.Y = (pos.Y-player.Center.Y)/-16;*/
 					Main.dust[dust].noGravity = true;
 				}
-				for(int i = 0;i < 10;i++)
+				for(int i = 0; i < 10; i++)
 				{
 					Vector2 pos = new Vector2(player.Center.X - (32+((i-5)*7)), player.Center.Y + (32-((i-5)*9)));
 					int dust = Dust.NewDust(pos, 6, 6, 60, 0f, 0f, 6, default(Color), 2f);
@@ -48,7 +42,7 @@ namespace ZoaklenMod.Items.Marks
 					Main.dust[dust].velocity.Y = (pos.Y-player.Center.Y)/-16;*/
 					Main.dust[dust].noGravity = true;
 				}
-				for(int i = 0;i < 10;i++)
+				for(int i = 0; i < 10; i++)
 				{
 					Vector2 pos = new Vector2(player.Center.X - (32+((i-5)*7)), player.Center.Y - (32-((i-5)*9)));
 					int dust = Dust.NewDust(pos, 6, 6, 60, 0f, 0f, 6, default(Color), 2f);
@@ -56,7 +50,7 @@ namespace ZoaklenMod.Items.Marks
 					Main.dust[dust].velocity.Y = (pos.Y-player.Center.Y)/-16;*/
 					Main.dust[dust].noGravity = true;
 				}
-				for(int i = 0;i < 10;i++)
+				for(int i = 0; i < 10; i++)
 				{
 					Vector2 pos = new Vector2(player.Center.X + (32+((i-5)*7)), player.Center.Y - (32-((i-5)*9)));
 					int dust = Dust.NewDust(pos, 6, 6, 60, 0f, 0f, 6, default(Color), 2f);
@@ -66,7 +60,7 @@ namespace ZoaklenMod.Items.Marks
 				}
 			}
 		}
-		
+
 		public override DrawAnimation GetAnimation()
 		{
 			return new Terraria.DataStructures.DrawAnimationVertical(3, 11);

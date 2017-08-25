@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 
 namespace ZoaklenMod.Items.Accessory
 {
@@ -26,7 +24,7 @@ namespace ZoaklenMod.Items.Accessory
 			item.accessory = true;
 			item.expert = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.thrownCrit += 15;
@@ -50,7 +48,7 @@ namespace ZoaklenMod.Items.Accessory
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
-		
+
 		public override DrawAnimation GetAnimation()
 		{
 			return new Terraria.DataStructures.DrawAnimationVertical(5, 19);

@@ -1,9 +1,5 @@
-using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace ZoaklenMod.Projectiles.Minions
 {
@@ -34,16 +30,16 @@ namespace ZoaklenMod.Projectiles.Minions
 		{
 			Player player = Main.player[projectile.owner];
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
-			if (player.dead)
+			if(player.dead)
 			{
 				modPlayer.creeperMinion = false;
 			}
-			if (modPlayer.creeperMinion)
+			if(modPlayer.creeperMinion)
 			{
 				projectile.timeLeft = 2;
 			}
 		}
-		
+
 		public override bool MinionContactDamage()
 		{
 			return true;

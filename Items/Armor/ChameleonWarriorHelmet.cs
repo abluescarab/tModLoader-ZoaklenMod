@@ -1,23 +1,21 @@
-using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using ZoaklenMod;
 
 namespace ZoaklenMod.Items.Armor
 {
 	public class ChameleonWarriorHelmet : ModItem
 	{
 		BiomeInformations biome = new BiomeInformations();
-		
+
 		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
 		{
 			equips.Add(EquipType.Head);
 			return true;
 		}
-		
+
 		public override void DrawArmorColor(Player drawPlayer, float shadow, ref Color color, ref int glowMask, ref Color glowMaskColor)
 		{
 			if(Main.gameMenu || !((PlayerChanges)drawPlayer.GetModPlayer(mod, "PlayerChanges")).chameleonMode)
@@ -31,7 +29,7 @@ namespace ZoaklenMod.Items.Armor
 				color = biome.color;
 			}
 		}
-		
+
 		public override void SetDefaults()
 		{
 			item.name = "Chameleon Warrior Helmet";
@@ -40,14 +38,14 @@ namespace ZoaklenMod.Items.Armor
 			item.rare = 7;
 			item.defense = 9;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.yoraiz0rDarkness = true;
 			player.thrownDamage += 0.16f;
 			biome.player = player;
 		}
-		
+
 		public override void UpdateVanity(Player player, EquipType type)
 		{
 			if(player.armor[10].type == item.type && player.armor[11].type == mod.ItemType("ChameleonWarriorBreastplate") && player.armor[12].type == mod.ItemType("ChameleonWarriorLeggings"))
@@ -56,7 +54,7 @@ namespace ZoaklenMod.Items.Armor
 			}
 			player.yoraiz0rDarkness = true;
 		}
-		
+
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == mod.ItemType("ChameleonWarriorBreastplate") && legs.type == mod.ItemType("ChameleonWarriorLeggings");
@@ -102,10 +100,10 @@ namespace ZoaklenMod.Items.Armor
 			else if(biome.name == "Mushroom")
 			{
 				player.shroomiteStealth = true;
-				player.thrownDamage += ((1f-player.stealth)*0.3f);
-				player.thrownCrit += (int)(((1f-player.stealth)*0.1f)*100f);
-				player.rangedDamage -= ((1f-player.stealth)*0.6f);
-				player.rangedCrit -= (int)(((1f-player.stealth)*0.1f)*100f);
+				player.thrownDamage += ((1f - player.stealth) * 0.3f);
+				player.thrownCrit += (int)(((1f - player.stealth) * 0.1f) * 100f);
+				player.rangedDamage -= ((1f - player.stealth) * 0.6f);
+				player.rangedCrit -= (int)(((1f - player.stealth) * 0.1f) * 100f);
 			}
 			else if(biome.name == "Desert")
 			{
@@ -131,7 +129,7 @@ namespace ZoaklenMod.Items.Armor
 			string bonus = "You instantly adapts to any biome";
 			player.setBonus = bonus;
 		}
-		
+
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			Player player = biome.player;
@@ -143,7 +141,7 @@ namespace ZoaklenMod.Items.Armor
 				tooltips.Add(tp);
 			}
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -152,6 +150,6 @@ namespace ZoaklenMod.Items.Armor
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
-		
+
 	}
 }

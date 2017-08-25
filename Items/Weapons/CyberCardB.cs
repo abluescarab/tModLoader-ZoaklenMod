@@ -1,7 +1,4 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Weapons
@@ -30,11 +27,11 @@ namespace ZoaklenMod.Items.Weapons
 			item.shoot = mod.ProjectileType("CyberCardB");
 			item.crit = 6;
 		}
-		
+
 		public override bool ConsumeItem(Player player)
 		{
 			bool cardBonus = false;
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
 				if(player.armor[l].type == mod.ItemType("CardGlove"))
 				{
@@ -47,7 +44,7 @@ namespace ZoaklenMod.Items.Weapons
 				return false;
 			}
 			bool cardBonus2 = false;
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
 				if(player.armor[l].type == mod.ItemType("TeraCardGlove"))
 				{
@@ -61,7 +58,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return true;
 		}
-				
+
 		public override bool AltFunctionUse(Player player)
 		{
 			return true;
@@ -71,7 +68,7 @@ namespace ZoaklenMod.Items.Weapons
 		{
 			bool returnValue = base.CanUseItem(player);
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
-			if (player.altFunctionUse == 2)
+			if(player.altFunctionUse == 2)
 			{
 				if(modPlayer.lastChange <= 0)
 				{
@@ -88,10 +85,10 @@ namespace ZoaklenMod.Items.Weapons
 			return returnValue;
 		}
 
-		
+
 		private int FindPlayerItemSlot(int type, Player player)
 		{
-			for(int i = 0;i < 59;i++)
+			for(int i = 0; i < 59; i++)
 			{
 				if(player.inventory[i].type == type)
 				{

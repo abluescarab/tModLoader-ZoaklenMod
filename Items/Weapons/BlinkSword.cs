@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -30,12 +29,12 @@ namespace ZoaklenMod.Items.Weapons
 			item.toolTip = "'The closer you are, the less you see'";
 			item.shoot = mod.ProjectileType("CyberCut");
 		}
-		
+
 		public override bool AltFunctionUse(Player player)
 		{
 			return true;
 		}
-		
+
 		public override bool CanUseItem(Player player)
 		{
 			bool can = false;
@@ -47,7 +46,7 @@ namespace ZoaklenMod.Items.Weapons
 				item.useAnimation = 60;
 				item.crit = 100;
 				item.shoot = mod.ProjectileType("CyberCut");
-				
+
 				Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
 				Vector2 vector9;
 				vector9.X = (float)Main.mouseX + Main.screenPosition.X;
@@ -56,7 +55,7 @@ namespace ZoaklenMod.Items.Weapons
 				float num79 = (float)Main.mouseY + Main.screenPosition.Y - vector2.Y;
 				Vector2 vector14;
 				vector14.X = (float)Main.mouseX + Main.screenPosition.X;
-				if (player.gravDir == 1f)
+				if(player.gravDir == 1f)
 				{
 					vector14.Y = (float)Main.mouseY + Main.screenPosition.Y - (float)player.height;
 				}
@@ -65,11 +64,11 @@ namespace ZoaklenMod.Items.Weapons
 					vector14.Y = Main.screenPosition.Y + (float)Main.screenHeight - (float)Main.mouseY;
 				}
 				vector14.X -= (float)(player.width / 2);
-				if (vector14.X > 50f && vector14.X < (float)(Main.maxTilesX * 16 - 50) && vector14.Y > 50f && vector14.Y < (float)(Main.maxTilesY * 16 - 50))
+				if(vector14.X > 50f && vector14.X < (float)(Main.maxTilesX * 16 - 50) && vector14.Y > 50f && vector14.Y < (float)(Main.maxTilesY * 16 - 50))
 				{
 					int num245 = (int)(vector14.X / 16f);
 					int num246 = (int)(vector14.Y / 16f);
-					if ((Main.tile[num245, num246].wall != 87 || (double)num246 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector14, player.width, player.height))
+					if((Main.tile[num245, num246].wall != 87 || (double)num246 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector14, player.width, player.height))
 					{
 						if(Collision.CanHit(player.Center, 1, 1, vector14, 1, 1))
 						{
@@ -98,7 +97,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return can;
 		}
-		
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			if(player.altFunctionUse == 2)
@@ -111,7 +110,7 @@ namespace ZoaklenMod.Items.Weapons
 				float num79 = (float)Main.mouseY + Main.screenPosition.Y - vector2.Y;
 				Vector2 vector14;
 				vector14.X = (float)Main.mouseX + Main.screenPosition.X;
-				if (player.gravDir == 1f)
+				if(player.gravDir == 1f)
 				{
 					vector14.Y = (float)Main.mouseY + Main.screenPosition.Y - (float)player.height;
 				}
@@ -120,11 +119,11 @@ namespace ZoaklenMod.Items.Weapons
 					vector14.Y = Main.screenPosition.Y + (float)Main.screenHeight - (float)Main.mouseY;
 				}
 				vector14.X -= (float)(player.width / 2);
-				if (vector14.X > 50f && vector14.X < (float)(Main.maxTilesX * 16 - 50) && vector14.Y > 50f && vector14.Y < (float)(Main.maxTilesY * 16 - 50))
+				if(vector14.X > 50f && vector14.X < (float)(Main.maxTilesX * 16 - 50) && vector14.Y > 50f && vector14.Y < (float)(Main.maxTilesY * 16 - 50))
 				{
 					int num245 = (int)(vector14.X / 16f);
 					int num246 = (int)(vector14.Y / 16f);
-					if ((Main.tile[num245, num246].wall != 87 || (double)num246 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector14, player.width, player.height))
+					if((Main.tile[num245, num246].wall != 87 || (double)num246 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector14, player.width, player.height))
 					{
 						player.Teleport(vector14, 1, 0);
 						NetMessage.SendData(65, -1, -1, "", 0, (float)player.whoAmI, vector14.X, vector14.Y, 1, 0, 0);
@@ -133,7 +132,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return true;
 		}
-		
+
 		private void Teleport(Vector2 newPos, int Style = 0, int extraInfo = 0)
 		{
 			Player player = Main.player[Main.myPlayer];
@@ -141,27 +140,27 @@ namespace ZoaklenMod.Items.Weapons
 			{
 				player.grappling[0] = -1;
 				player.grapCount = 0;
-				for (int i = 0; i < 1000; i++)
+				for(int i = 0; i < 1000; i++)
 				{
-					if (Main.projectile[i].active && Main.projectile[i].owner == player.whoAmI && Main.projectile[i].aiStyle == 7)
+					if(Main.projectile[i].active && Main.projectile[i].owner == player.whoAmI && Main.projectile[i].aiStyle == 7)
 					{
 						Main.projectile[i].Kill();
 					}
 				}
 				int extraInfo2 = 0;
-				if (Style == 4)
+				if(Style == 4)
 				{
 					extraInfo2 = player.lastPortalColorIndex;
 				}
 				float num = Vector2.Distance(player.position, newPos);
 				player.position = newPos;
 				player.fallStart = (int)(player.position.Y / 16f);
-				if (player.whoAmI == Main.myPlayer)
+				if(player.whoAmI == Main.myPlayer)
 				{
-					if (num < new Vector2((float)Main.screenWidth, (float)Main.screenHeight).Length() / 2f + 100f)
+					if(num < new Vector2((float)Main.screenWidth, (float)Main.screenHeight).Length() / 2f + 100f)
 					{
 						int time = 0;
-						if (Style == 1)
+						if(Style == 1)
 						{
 							time = 10;
 						}
@@ -176,21 +175,21 @@ namespace ZoaklenMod.Items.Weapons
 						Main.screenPosition.Y = player.position.Y + (float)(player.height / 2) - (float)(Main.screenHeight / 2);
 						Main.quickBG = 10;
 					}
-					if (Main.mapTime < 5)
+					if(Main.mapTime < 5)
 					{
 						Main.mapTime = 5;
 					}
 					Main.maxQ = true;
 					Main.renderNow = true;
 				}
-				if (Style == 4)
+				if(Style == 4)
 				{
 					player.lastPortalColorIndex = extraInfo;
 					extraInfo2 = player.lastPortalColorIndex;
 					player.portalPhysicsFlag = true;
 					player.gravity = 0f;
 				}
-				for (int j = 0; j < 3; j++)
+				for(int j = 0; j < 3; j++)
 				{
 					player.UpdateSocialShadow();
 				}
@@ -202,7 +201,7 @@ namespace ZoaklenMod.Items.Weapons
 			{
 			}
 		}
-		
+
 		public override void HoldStyle(Player player)
 		{
 			player.itemLocation = player.Center;
@@ -218,26 +217,26 @@ namespace ZoaklenMod.Items.Weapons
 					break;
 			}
 		}
-				
+
 		private int GetWeaponCrit(Player player)
 		{
 			Item item = player.inventory[player.selectedItem];
 			int crit = item.crit;
 			if(item.melee)
 			{
-			crit += player.meleeCrit;
+				crit += player.meleeCrit;
 			}
 			else if(item.magic)
 			{
-			crit += player.magicCrit;
+				crit += player.magicCrit;
 			}
 			else if(item.ranged)
 			{
-			crit += player.rangedCrit;
+				crit += player.rangedCrit;
 			}
 			else if(item.thrown)
 			{
-			crit += player.thrownCrit;
+				crit += player.thrownCrit;
 			}
 			return crit;
 		}

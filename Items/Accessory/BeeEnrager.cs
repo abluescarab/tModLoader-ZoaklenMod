@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 
 namespace ZoaklenMod.Items.Accessory
 {
@@ -19,17 +17,17 @@ namespace ZoaklenMod.Items.Accessory
 			item.rare = 6;
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.strongBees = true;
 		}
-		
+
 		public override DrawAnimation GetAnimation()
 		{
 			return new Terraria.DataStructures.DrawAnimationVertical(30, 4);
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

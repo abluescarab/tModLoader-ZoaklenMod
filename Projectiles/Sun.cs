@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -21,7 +20,7 @@ namespace ZoaklenMod.Projectiles
 			projectile.noDropItem = true;
 			aiType = ProjectileID.Bullet;
 		}
-		
+
 		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
 		{
 			Player player = Main.player[projectile.owner];
@@ -31,7 +30,7 @@ namespace ZoaklenMod.Projectiles
 				crit = true;
 			}
 		}
-		
+
 		private int GetWeaponCrit(Player player)
 		{
 			Item item = player.inventory[player.selectedItem];
@@ -54,22 +53,22 @@ namespace ZoaklenMod.Projectiles
 			}
 			return crit;
 		}
-		
+
 		public override bool PreAI()
 		{
-			for(int i = 0;i < 3;i++)
+			for(int i = 0; i < 3; i++)
 			{
 				int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 64, 0f, 0f, 100, default(Color), 5f);
-				Main.dust[dust].velocity.X = projectile.velocity.X/2f;
-				Main.dust[dust].velocity.Y = projectile.velocity.Y/2f;
+				Main.dust[dust].velocity.X = projectile.velocity.X / 2f;
+				Main.dust[dust].velocity.Y = projectile.velocity.Y / 2f;
 				Main.dust[dust].noGravity = true;
 			}
 			return true;
 		}
-		
+
 		public override bool PreKill(int timeLeft)
 		{
-			for(int i = 0;i < 15;i++)
+			for(int i = 0; i < 15; i++)
 			{
 				int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 64, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[dust].velocity.X = Main.rand.Next(-8, 9);

@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -23,7 +22,7 @@ namespace ZoaklenMod.Projectiles
 			Main.projFrames[projectile.type] = 4;
 			aiType = ProjectileID.Bullet;
 		}
-		
+
 		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
 		{
 			Player player = Main.player[projectile.owner];
@@ -32,7 +31,7 @@ namespace ZoaklenMod.Projectiles
 				crit = true;
 			}
 		}
-		
+
 		private int GetWeaponCrit(Player player)
 		{
 			Item item = player.inventory[player.selectedItem];
@@ -55,11 +54,11 @@ namespace ZoaklenMod.Projectiles
 			}
 			return crit;
 		}
-		
+
 		public override bool PreAI()
 		{
 			projectile.frameCounter++;
-			if (projectile.frameCounter >= 8)
+			if(projectile.frameCounter >= 8)
 			{
 				projectile.frameCounter = 0;
 				projectile.frame = (projectile.frame + 1) % 4;
@@ -71,14 +70,14 @@ namespace ZoaklenMod.Projectiles
 		{
 			if(timeLeft <= 0)
 			{
-				for(int i = -1;i <= 1;i++)
+				for(int i = -1; i <= 1; i++)
 				{
 					int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X, projectile.velocity.Y, mod.ProjectileType("CrystalCardM"), (int)(projectile.damage * 0.4f), 0, projectile.owner);
 					Main.projectile[proj].velocity = new Vector2((float)(projectile.velocity.X + Main.rand.Next(-2, 3)), (float)(projectile.velocity.Y + Main.rand.Next(-2, 3)));
 				}
 			}
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
-			for(int i = 0;i < 6;i++)
+			for(int i = 0; i < 6; i++)
 			{
 				int dust = Dust.NewDust(new Vector2(projectile.Center.X, projectile.Center.Y), projectile.width, projectile.height, 70, 0f, 0f, 50, default(Color), 1f);
 				Main.dust[dust].velocity.X = Main.rand.Next(-4, 5);

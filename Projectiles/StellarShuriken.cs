@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -23,10 +22,10 @@ namespace ZoaklenMod.Projectiles
 			projectile.noDropItem = true;
 			aiType = ProjectileID.Shuriken;
 		}
-		
+
 		public override bool PreKill(int timeLeft)
 		{
-			for(int i = 0;i < 5;i++)
+			for(int i = 0; i < 5; i++)
 			{
 				int num111 = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 64, 0f, 0f, 100, default(Color), 1f);
 				Main.dust[num111].velocity.X = Main.rand.Next(-6, 7);
@@ -36,7 +35,7 @@ namespace ZoaklenMod.Projectiles
 			projectile.type = 0;
 			return true;
 		}
-		
+
 		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
 		{
 			Player player = Main.player[projectile.owner];
@@ -45,7 +44,7 @@ namespace ZoaklenMod.Projectiles
 				crit = true;
 			}
 		}
-		
+
 		private int GetWeaponCrit(Player player)
 		{
 			Item item = player.inventory[player.selectedItem];
@@ -68,7 +67,7 @@ namespace ZoaklenMod.Projectiles
 			}
 			return crit;
 		}
-		
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			float projX;
@@ -80,7 +79,7 @@ namespace ZoaklenMod.Projectiles
 			{
 				projX = Main.rand.Next(-600, -150);
 			}
-			
+
 			float projY;
 			if(Main.rand.Next(2) == 0)
 			{
@@ -90,8 +89,8 @@ namespace ZoaklenMod.Projectiles
 			{
 				projY = Main.rand.Next(-600, -150);
 			}
-			
-			for(int i = 0;i < 3;i++)
+
+			for(int i = 0; i < 3; i++)
 			{
 				int proj = Projectile.NewProjectile(projectile.Center.X + projX, projectile.Center.Y + projY, (projX/48)*-2, (projY/48)*-2, mod.ProjectileType("GhostShuriken"), (int)(projectile.damage / 5f), 0, projectile.owner);
 			}

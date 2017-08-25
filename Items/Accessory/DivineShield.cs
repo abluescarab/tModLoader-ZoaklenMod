@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -30,7 +29,7 @@ namespace ZoaklenMod.Items.Accessory
 			item.defense = 10;
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.buffImmune[46] = true;
@@ -46,7 +45,7 @@ namespace ZoaklenMod.Items.Accessory
 			player.buffImmune[23] = true;
 			player.buffImmune[22] = true;
 		}
-				
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

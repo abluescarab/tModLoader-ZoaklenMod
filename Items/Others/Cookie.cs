@@ -1,4 +1,3 @@
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,13 +24,13 @@ namespace ZoaklenMod.Items.Others
 			item.value = 1000;
 			item.rare = 3;
 		}
-		
+
 		public override bool UseItem(Player player)
 		{
 			player.AddBuff(BuffID.Sunflower, 14400, true);
 			return false;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

@@ -1,7 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Weapons
@@ -30,7 +28,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.ranged = true;
 			item.autoReuse = true;
 		}
-		
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			speedY += (float)Main.rand.Next(-4, 5);
@@ -39,7 +37,7 @@ namespace ZoaklenMod.Items.Weapons
 			damage = (int)(damage * 0.5f);
 			return true;
 		}
-		
+
 		public override Vector2? HoldoutOffset()
 		{
 			return new Vector2(-8, -8);

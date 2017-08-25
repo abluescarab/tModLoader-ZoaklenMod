@@ -3,10 +3,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using Terraria.GameContent;
-using Terraria.GameContent.Achievements;
-using Terraria.Graphics.Shaders;
 
 namespace ZoaklenMod.Projectiles
 {
@@ -25,28 +21,28 @@ namespace ZoaklenMod.Projectiles
 			projectile.type = ProjectileID.Phantasm;
 			return true;
 		}
-		
+
 		public override void AI()
 		{
 			Player player = Main.player[projectile.owner];
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
 			float num;
 			num = 0f;
-			if (projectile.spriteDirection == -1)
+			if(projectile.spriteDirection == -1)
 			{
 				num = 3.14159274f;
 			}
 			//projectile.ai[0] += 1f;
 			int num39 = 0;
-			if (projectile.ai[0] >= 40f)
+			if(projectile.ai[0] >= 40f)
 			{
 				num39++;
 			}
-			if (projectile.ai[0] >= 80f)
+			if(projectile.ai[0] >= 80f)
 			{
 				num39++;
 			}
-			if (projectile.ai[0] >= 120f)
+			if(projectile.ai[0] >= 120f)
 			{
 				num39++;
 			}
@@ -54,61 +50,61 @@ namespace ZoaklenMod.Projectiles
 			int num41 = 2;
 			projectile.ai[1] -= 1f;
 			bool flag15 = false;
-			if (projectile.ai[1] <= 0f)
+			if(projectile.ai[1] <= 0f)
 			{
 				projectile.ai[1] = (float)(num40 - num41 * num39);
 				flag15 = true;
 				int arg_1F5C_0 = (int)projectile.ai[0] / (num40 - num41 * num39);
 			}
 			bool flag16 = player.channel && player.HasAmmo(player.inventory[player.selectedItem], true) && !player.noItems && !player.CCed;
-			if (projectile.localAI[0] > 0f)
+			if(projectile.localAI[0] > 0f)
 			{
 				projectile.localAI[0] -= 1f;
 			}
-			if (projectile.soundDelay <= 0 && flag16)
+			if(projectile.soundDelay <= 0 && flag16)
 			{
 				projectile.soundDelay = num40 - num41 * num39;
-				if (projectile.ai[0] != 1f)
+				if(projectile.ai[0] != 1f)
 				{
 					Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 5);
 				}
 				projectile.localAI[0] = 12f;
 			}
 			player.phantasmTime = 2;
-			if (flag15 && Main.myPlayer == projectile.owner)
+			if(flag15 && Main.myPlayer == projectile.owner)
 			{
 				int num42 = 14;
 				float scaleFactor11 = 14f;
 				int weaponDamage2 = player.GetWeaponDamage(player.inventory[player.selectedItem]);
 				float weaponKnockback2 = player.inventory[player.selectedItem].knockBack;
-				if (flag16)
+				if(flag16)
 				{
 					player.PickAmmo(player.inventory[player.selectedItem], ref num42, ref scaleFactor11, ref flag16, ref weaponDamage2, ref weaponKnockback2, false);
 					weaponKnockback2 = player.GetWeaponKnockback(player.inventory[player.selectedItem], weaponKnockback2);
 					float scaleFactor12 = player.inventory[player.selectedItem].shootSpeed * projectile.scale;
 					Vector2 vector19 = vector;
 					Vector2 value18 = Main.screenPosition + new Vector2((float)Main.mouseX, (float)Main.mouseY) - vector19;
-					if (player.gravDir == -1f)
+					if(player.gravDir == -1f)
 					{
 						value18.Y = (float)(Main.screenHeight - Main.mouseY) + Main.screenPosition.Y - vector19.Y;
 					}
 					Vector2 value19 = Vector2.Normalize(value18);
-					if (float.IsNaN(value19.X) || float.IsNaN(value19.Y))
+					if(float.IsNaN(value19.X) || float.IsNaN(value19.Y))
 					{
 						value19 = -Vector2.UnitY;
 					}
 					value19 *= scaleFactor12;
-					if (value19.X != projectile.velocity.X || value19.Y != projectile.velocity.Y)
+					if(value19.X != projectile.velocity.X || value19.Y != projectile.velocity.Y)
 					{
 						projectile.netUpdate = true;
 					}
 					projectile.velocity = value19 * 0.55f;
-					for (int num43 = 0; num43 < 4; num43++)
+					for(int num43 = 0; num43 < 4; num43++)
 					{
 						Vector2 vector20 = Vector2.Normalize(projectile.velocity) * scaleFactor11 * (0.6f + Main.rand.NextFloat() * 0.8f);
-						if (float.IsNaN(vector20.X) || float.IsNaN(vector20.Y))
+						if(float.IsNaN(vector20.X) || float.IsNaN(vector20.Y))
 						{
-						vector20 = -Vector2.UnitY;
+							vector20 = -Vector2.UnitY;
 						}
 						Vector2 vector21 = vector19 + Utils.RandomVector2(Main.rand, -15f, 15f);
 						int num44 = Projectile.NewProjectile(vector21.X, vector21.Y, vector20.X, vector20.Y, num42, weaponDamage2, weaponKnockback2, projectile.owner, 0f, 0f);

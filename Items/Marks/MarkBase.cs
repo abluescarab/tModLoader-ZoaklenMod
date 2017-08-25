@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Marks
@@ -11,23 +8,23 @@ namespace ZoaklenMod.Items.Marks
 		public int markId;
 		public bool activated;
 		public int itemDuration = 300;
-		
+
 		public override void SetDefaults()
 		{
 			item.toolTip2 = "Right-click to activate\n'Worths like a trove'";
 			MarkDefaults();
 		}
-		
+
 		public override bool CanRightClick()
 		{
 			return true;
 		}
-		
+
 		public override bool ConsumeItem(Player player)
 		{
 			return false;
 		}
-		
+
 		public override void RightClick(Player player)
 		{
 			player.QuickSpawnItem(item.type);
@@ -39,7 +36,7 @@ namespace ZoaklenMod.Items.Marks
 				Main.NewText("<" + player.name + "> just set it mark to " + item.name + ".", 255, 0, 255);
 			}
 		}
-		
+
 		public override void UpdateInventory(Player player)
 		{
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
@@ -62,9 +59,9 @@ namespace ZoaklenMod.Items.Marks
 				activated = false;
 			}
 		}
-		
+
 		public abstract void MarkEffect(Player player);
-		
+
 		public abstract void MarkDefaults();
 	}
 }

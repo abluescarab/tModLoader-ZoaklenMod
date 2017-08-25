@@ -1,7 +1,4 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Projectiles
@@ -23,7 +20,7 @@ namespace ZoaklenMod.Projectiles
 			projectile.minion = true;
 			aiType = 14;
 		}
-		
+
 		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
 		{
 			Player player = Main.player[projectile.owner];

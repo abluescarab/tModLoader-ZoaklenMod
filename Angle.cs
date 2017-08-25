@@ -13,7 +13,7 @@ namespace ExampleMod
 			float remainder = Value % (2f * (float)Math.PI);
 			float rotations = Value - remainder;
 			Value -= rotations;
-			if (Value < 0f)
+			if(Value < 0f)
 			{
 				Value += 2f * (float)Math.PI;
 			}
@@ -36,7 +36,7 @@ namespace ExampleMod
 
 		public bool ClockwiseFrom(Angle other)
 		{
-			if (other.Value >= (float)Math.PI)
+			if(other.Value >= (float)Math.PI)
 			{
 				return this.Value < other.Value && this.Value >= other.Opposite().Value;
 			}
@@ -45,7 +45,7 @@ namespace ExampleMod
 
 		public bool Between(Angle cLimit, Angle ccLimit)
 		{
-			if (cLimit.Value < ccLimit.Value)
+			if(cLimit.Value < ccLimit.Value)
 			{
 				return this.Value >= cLimit.Value && this.Value <= ccLimit.Value;
 			}

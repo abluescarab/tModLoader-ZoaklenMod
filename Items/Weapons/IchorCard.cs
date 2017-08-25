@@ -1,5 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -31,11 +29,11 @@ namespace ZoaklenMod.Items.Weapons
 			item.shoot = mod.ProjectileType("IchorCard");
 			item.crit = 6;
 		}
-		
+
 		public override bool ConsumeItem(Player player)
 		{
 			bool cardBonus = false;
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
 				if(player.armor[l].type == mod.ItemType("CardGlove"))
 				{
@@ -48,7 +46,7 @@ namespace ZoaklenMod.Items.Weapons
 				return false;
 			}
 			bool cardBonus2 = false;
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
 				if(player.armor[l].type == mod.ItemType("TeraCardGlove"))
 				{
@@ -62,7 +60,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return true;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

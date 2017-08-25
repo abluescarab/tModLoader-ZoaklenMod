@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -12,7 +11,7 @@ namespace ZoaklenMod.Dusts
 			dust.noGravity = true;
 			dust.color = new Color(255, 255, 255);
 		}
-		
+
 		public override bool MidUpdate(Dust dust)
 		{
 			dust.rotation = 0f;

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -33,14 +31,14 @@ namespace ZoaklenMod.Items.Accessory
 			item.accessory = true;
 			item.expert = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.dash = 2;
 			player.longInvince = true;
 			player.brainOfConfusion = true;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

@@ -1,9 +1,9 @@
 using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace ZoaklenMod.Items.Ingredients
 {
@@ -29,29 +29,29 @@ namespace ZoaklenMod.Items.Ingredients
 			recipe.AddIngredient(ItemID.FragmentSolar);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-			
+
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.FragmentVortex);
 			recipe.AddIngredient(ItemID.FragmentNebula);
-			recipe.AddIngredient(ItemID.FragmentStardust);			
+			recipe.AddIngredient(ItemID.FragmentStardust);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-			
+
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.FragmentVortex);
 			recipe.AddIngredient(ItemID.FragmentSolar);
-			recipe.AddIngredient(ItemID.FragmentStardust);			
+			recipe.AddIngredient(ItemID.FragmentStardust);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-			
+
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.FragmentNebula);
 			recipe.AddIngredient(ItemID.FragmentSolar);
-			recipe.AddIngredient(ItemID.FragmentStardust);			
+			recipe.AddIngredient(ItemID.FragmentStardust);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
-		
+
 		public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale)
 		{
 			item.scale -= 0.02f;
@@ -62,7 +62,7 @@ namespace ZoaklenMod.Items.Ingredients
 			scale = Math.Abs(item.scale);
 			return true;
 		}
-		
+
 		public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
 		{
 			item.scale -= 0.02f;
@@ -73,7 +73,7 @@ namespace ZoaklenMod.Items.Ingredients
 			scale = Math.Abs(item.scale);
 			return true;
 		}
-		
+
 		public override void Update(ref float gravity, ref float maxFallSpeed)
 		{
 			Lighting.AddLight(item.position, Microsoft.Xna.Framework.Color.Gold.ToVector3());

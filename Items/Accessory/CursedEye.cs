@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Accessory
@@ -20,7 +17,7 @@ namespace ZoaklenMod.Items.Accessory
 			item.rare = 4;
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.buffImmune[39] = true;

@@ -1,5 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -21,11 +19,11 @@ namespace ZoaklenMod.Dusts
 			dust.position += dust.velocity;
 			int oldAlpha = dust.alpha;
 			dust.alpha = (int)(dust.alpha * 2.1f);
-			if (dust.alpha == oldAlpha)
+			if(dust.alpha == oldAlpha)
 			{
 				dust.alpha++;
 			}
-			if (dust.alpha >= 255)
+			if(dust.alpha >= 255)
 			{
 				dust.alpha = 255;
 				dust.active = false;

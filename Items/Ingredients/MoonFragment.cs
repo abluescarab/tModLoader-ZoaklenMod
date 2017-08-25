@@ -1,8 +1,5 @@
-using System;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.DataStructures;
+using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Ingredients
 {
@@ -18,7 +15,7 @@ namespace ZoaklenMod.Items.Ingredients
 			item.value = 10000;
 			item.rare = 10;
 		}
-		
+
 		public override DrawAnimation GetAnimation()
 		{
 			return new Terraria.DataStructures.DrawAnimationVertical(10, 3);

@@ -1,5 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -24,7 +22,7 @@ namespace ZoaklenMod.Items.Armor
 			item.rare = -11;
 			item.defense = 19;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.thrownCost50 = true;
@@ -42,7 +40,7 @@ namespace ZoaklenMod.Items.Armor
 			Lighting.AddLight(player.position, Microsoft.Xna.Framework.Color.Gold.ToVector3());
 			string bonus = "Major life regeneration";
 			bool StellarGear = false;
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
 				if(player.armor[l].type == mod.ItemType("NinjaSkills"))
 				{
@@ -54,7 +52,7 @@ namespace ZoaklenMod.Items.Armor
 			{
 				bonus += " and press [Z] to quick teleport to your cursor position";
 			}
-			if (player.name == "Zoaklen")
+			if(player.name == "Zoaklen")
 			{
 				bonus += "\n'Strange things are happening with you...'";
 				player.lifeRegen += 30;
@@ -62,11 +60,11 @@ namespace ZoaklenMod.Items.Armor
 				player.AddBuff(BuffID.Shine, 2);
 				player.iceBarrier = true;
 				player.iceBarrierFrameCounter += 1;
-				if (player.iceBarrierFrameCounter > 2)
+				if(player.iceBarrierFrameCounter > 2)
 				{
 					player.iceBarrierFrameCounter = 0;
 					player.iceBarrierFrame += 1;
-					if (player.iceBarrierFrame >= 12)
+					if(player.iceBarrierFrame >= 12)
 					{
 						player.iceBarrierFrame = 0;
 					}
@@ -75,10 +73,10 @@ namespace ZoaklenMod.Items.Armor
 			player.lifeRegen += 4;
 			player.setBonus = bonus;
 		}
-		
+
 		public override void ArmorSetShadows(Player player, ref bool longTrail, ref bool smallPulse, ref bool largePulse, ref bool shortTrail)
 		{
-			longTrail=true;
+			longTrail = true;
 		}
 
 		public override void AddRecipes()

@@ -1,6 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,7 +28,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.shoot = mod.ProjectileType("Kunai");
 			item.crit = 10;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -41,7 +38,7 @@ namespace ZoaklenMod.Items.Weapons
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this, 10);
 			recipe.AddRecipe();
-			
+
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.LeadBar);
 			recipe.AddIngredient(ItemID.Cobweb, 2);

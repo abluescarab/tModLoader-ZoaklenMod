@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.DataStructures;
 
 namespace ZoaklenMod.Items.Marks
 {
@@ -22,19 +18,19 @@ namespace ZoaklenMod.Items.Marks
 			item.rare = -11;
 			markId = 3;
 		}
-		
+
 		public override void MarkEffect(Player player)
 		{
 			player.statDefense += 20; // 10 > 30
-			player.statDefense += (int)((player.statDefense*1.25f)-player.statDefense); // 30 > 45
+			player.statDefense += (int)((player.statDefense * 1.25f) - player.statDefense); // 30 > 45
 			if(cD > 128)
 			{
 				cD = 0;
 			}
 			cD++;
-			
+
 			float dN = (float)(cD);
-			
+
 			int level = 0;
 			if(cD >= 0)
 			{
@@ -52,7 +48,7 @@ namespace ZoaklenMod.Items.Marks
 			{
 				level = 3;
 			}
-			
+
 			if(level == 0)
 			{
 				int dust1 = Dust.NewDust(new Vector2(player.Center.X - 32, player.Center.Y + ((dN % 32f)*1.4f)), 6, 6, 67, 0f, 0f, 6, default(Color), 2f);
@@ -73,7 +69,7 @@ namespace ZoaklenMod.Items.Marks
 				int dust1 = Dust.NewDust(new Vector2(player.Center.X - ((dN % 32f)*1.4f), player.Center.Y - 32), 6, 6, 67, 0f, 0f, 6, default(Color), 2f);
 				Main.dust[dust1].noGravity = true;
 			}
-						
+
 			/*for(int i = 0;i < dusts;i++)
 			{
 				int dust1 = Dust.NewDust(new Vector2(player.Center.X, player.Center.Y), 6, 6, 67, 0f, 0f, 6, default(Color), 1f);
@@ -82,7 +78,7 @@ namespace ZoaklenMod.Items.Marks
 				Main.dust[dust1].velocity.Y = (float)Main.rand.Next(-16, 17);
 			}*/
 		}
-		
+
 		public override DrawAnimation GetAnimation()
 		{
 			return new Terraria.DataStructures.DrawAnimationVertical(3, 4);

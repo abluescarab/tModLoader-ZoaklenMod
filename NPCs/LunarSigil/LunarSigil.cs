@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -39,7 +37,7 @@ namespace ZoaklenMod.NPCs.LunarSigil
 			npc.soundHit = 1;
 			npc.soundKilled = 0;
 			npc.alpha = 0;
-			for (int k = 0; k < npc.buffImmune.Length; k++)
+			for(int k = 0; k < npc.buffImmune.Length; k++)
 			{
 				npc.buffImmune[k] = true;
 			}
@@ -74,40 +72,40 @@ namespace ZoaklenMod.NPCs.LunarSigil
 				stage++;
 				stageCounter = 0;
 			}
-			if (stage > 0 && targets.Count == 0)
+			if(stage > 0 && targets.Count == 0)
 			{
 				attackProgress = 0;
 				stage = -1;
 			}
 			damageTotal -= dpsCap;
-			if (damageTotal < 0)
+			if(damageTotal < 0)
 			{
 				damageTotal = 0;
 			}
-			if (Main.netMode == 1)
+			if(Main.netMode == 1)
 			{
 				return;
 			}
-			if (stage == 2)
+			if(stage == 2)
 			{
 				stage++;
 			}
-			if (stage == 3)
+			if(stage == 3)
 			{
 				//SetupCrystals(arenaWidth / 3, false);
 				stage++;
 			}
-			if (stage == 4)
+			if(stage == 4)
 			{
 				//Projectile.NewProjectile(npc.Center.X, npc.Center.Y - arenaHeight / 2, 0f, NegativeWall.speed, mod.ProjectileType("NegativeWall"), 0, 0f, Main.myPlayer, npc.whoAmI, -arenaWidth);
 				//shieldTimer = 600;
 				stage++;
 			}
-			if (stage == 5)
+			if(stage == 5)
 			{
 				stage++;
 			}
-			switch (stage)
+			switch(stage)
 			{
 				case -1:
 					RunAway();
@@ -119,7 +117,7 @@ namespace ZoaklenMod.NPCs.LunarSigil
 				case 12:
 					//attack = 4;
 					//UltimateAttack();
-					if (attackProgress == 0)
+					if(attackProgress == 0)
 					{
 						stage++;
 						//attackTimer = 160f * timeMultiplier;
@@ -140,13 +138,13 @@ namespace ZoaklenMod.NPCs.LunarSigil
 					//DoShield(2);
 					break;
 				case 10:
-					if (attackProgress == 0)
+					if(attackProgress == 0)
 					{
 						stage++;
 					}
 					else
 					{
-					//	DoAttack(5);
+						//	DoAttack(5);
 					}
 					break;
 				case 11:
@@ -210,9 +208,9 @@ namespace ZoaklenMod.NPCs.LunarSigil
 		public void FindPlayers()
 		{
 			targets.Clear();
-			for (int k = 0; k < 255; k++)
+			for(int k = 0; k < 255; k++)
 			{
-				if (Main.player[k].active)
+				if(Main.player[k].active)
 				{
 					targets.Add(k);
 				}
@@ -222,7 +220,7 @@ namespace ZoaklenMod.NPCs.LunarSigil
 		public void RunAway()
 		{
 			attackProgress++;
-			if (attackProgress == 180)
+			if(attackProgress == 180)
 			{
 				Talk("So, the earth defensor is running from my wrath?");
 			}
@@ -231,11 +229,11 @@ namespace ZoaklenMod.NPCs.LunarSigil
 		public void Initialize()
 		{
 			attackProgress++;
-			if (attackProgress == 90)
+			if(attackProgress == 90)
 			{
 				Talk("So, you are the protector of earth...");
 			}
-			if (attackProgress == 180)
+			if(attackProgress == 180)
 			{
 				stage = 2;
 			}
@@ -520,11 +518,11 @@ namespace ZoaklenMod.NPCs.LunarSigil
 		public void FinishFight1()
 		{
 			attackProgress++;
-			if (attackProgress == 60)
+			if(attackProgress == 60)
 			{
 				Talk("This is... I thank you for demonstrating your power.");
 			}
-			if (attackProgress >= 240)
+			if(attackProgress >= 240)
 			{
 				Talk("Please take this as a farewell gift.");
 				stage++;
@@ -535,11 +533,11 @@ namespace ZoaklenMod.NPCs.LunarSigil
 		public void FinishFight2()
 		{
 			attackProgress++;
-			if (attackProgress == 120)
+			if(attackProgress == 120)
 			{
 				Talk("I wish you luck in your future endeavors.");
 			}
-			if (attackProgress >= 180)
+			if(attackProgress >= 180)
 			{
 				//npc.dontTakeDamage = false;
 				//npc.StrikeNPCNoInteraction(9999, 0f, 0);
@@ -627,13 +625,13 @@ namespace ZoaklenMod.NPCs.LunarSigil
 
 		private bool? CanBeHitByPlayer(Player player)
 		{
-			if (!targets.Contains(player.whoAmI))
+			if(!targets.Contains(player.whoAmI))
 			{
 				return false;
 			}
-			for (int k = 0; k < 200; k++)
+			for(int k = 0; k < 200; k++)
 			{
-				if (Main.npc[k].active && Main.npc[k].type == mod.NPCType("PurityShield") && Main.npc[k].ai[0] == npc.whoAmI)
+				if(Main.npc[k].active && Main.npc[k].type == mod.NPCType("PurityShield") && Main.npc[k].ai[0] == npc.whoAmI)
 				{
 					return false;
 				}
@@ -643,7 +641,7 @@ namespace ZoaklenMod.NPCs.LunarSigil
 
 		private void ModifyHit(ref int damage)
 		{
-			if (damage > npc.lifeMax / 8)
+			if(damage > npc.lifeMax / 8)
 			{
 				damage = npc.lifeMax / 8;
 			}
@@ -657,9 +655,9 @@ namespace ZoaklenMod.NPCs.LunarSigil
 
 		public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
 		{
-			if (damageTotal >= dpsCap * 60)
+			if(damageTotal >= dpsCap * 60)
 			{
-				if (!saidRushMessage)
+				if(!saidRushMessage)
 				{
 					Talk("Oh, in a rush now, are we?");
 					saidRushMessage = true;

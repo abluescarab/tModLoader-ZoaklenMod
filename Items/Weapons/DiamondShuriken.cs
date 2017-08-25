@@ -1,6 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -23,7 +20,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.shoot = mod.ProjectileType("DiamondShuriken");
 			item.crit = 8;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

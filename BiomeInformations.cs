@@ -1,8 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
-using System.Collections.Generic;
 
 namespace ZoaklenMod
 {
@@ -23,7 +20,7 @@ namespace ZoaklenMod
 				name = "Sky";
 				color = new Color(255, 255, 194);
 			}
-			else if(player.position.Y > (Main.maxTilesY - 200)*16)
+			else if(player.position.Y > (Main.maxTilesY - 200) * 16)
 			{
 				name = "Underworld";
 				color = new Color(255, 101, 31);
@@ -75,7 +72,7 @@ namespace ZoaklenMod
 					name = "Caverns";
 					color = new Color(116, 66, 80);
 				}
-				else if(player.position.X < 4000 || player.position.X > (Main.maxTilesX-250)*16)
+				else if(player.position.X < 4000 || player.position.X > (Main.maxTilesX - 250) * 16)
 				{
 					name = "Ocean";
 					color = new Color(43, 140, 255);

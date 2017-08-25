@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,12 +17,12 @@ namespace ZoaklenMod.Items.Accessory
 			item.rare = 9;
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.arrowDamage += 0.05f;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -34,7 +32,7 @@ namespace ZoaklenMod.Items.Accessory
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-			
+
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.WoodenArrow, 500);
 			recipe.AddIngredient(ItemID.LeadBar, 5);

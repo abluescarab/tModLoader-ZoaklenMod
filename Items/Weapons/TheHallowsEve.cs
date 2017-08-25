@@ -1,9 +1,7 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 
 namespace ZoaklenMod.Items.Weapons
 {
@@ -32,7 +30,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.knockBack = 1.5f;
 			AddTooltip("33% chance to not consume ammo");
 		}
-		
+
 		public override bool ConsumeAmmo(Player player)
 		{
 			if(Main.rand.Next(3) == 0)
@@ -41,7 +39,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return true;
 		}
-				
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			speedX += (float)Main.rand.Next(-4, 5);
@@ -52,7 +50,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return true;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

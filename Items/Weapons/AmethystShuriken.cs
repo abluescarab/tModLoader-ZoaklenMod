@@ -1,6 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,7 +18,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.shoot = mod.ProjectileType("AmethystShuriken");
 			item.crit = 4;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

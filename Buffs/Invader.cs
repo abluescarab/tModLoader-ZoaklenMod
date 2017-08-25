@@ -1,4 +1,3 @@
-using System;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -17,11 +16,11 @@ namespace ZoaklenMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
-			if (GetTotalInvaders(player) > 0)
+			if(GetTotalInvaders(player) > 0)
 			{
 				modPlayer.invaderMinion = true;
 			}
-			if (!modPlayer.invaderMinion)
+			if(!modPlayer.invaderMinion)
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;
@@ -31,7 +30,7 @@ namespace ZoaklenMod.Buffs
 				player.buffTime[buffIndex] = 18000;
 			}
 		}
-		
+
 		private int GetTotalInvaders(Player player)
 		{
 			return (player.ownedProjectileCounts[mod.ProjectileType("Invader1")] + player.ownedProjectileCounts[mod.ProjectileType("Invader2")] + player.ownedProjectileCounts[mod.ProjectileType("Invader3")]);

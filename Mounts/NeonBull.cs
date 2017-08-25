@@ -24,7 +24,7 @@ namespace ZoaklenMod.Mounts
 			mountData.totalFrames = 1;
 			mountData.constantJump = false;
 			int[] array = new int[mountData.totalFrames];
-			for (int l = 0; l < array.Length; l++)
+			for(int l = 0; l < array.Length; l++)
 			{
 				array[l] = 46;
 			}
@@ -52,7 +52,7 @@ namespace ZoaklenMod.Mounts
 			mountData.swimFrameCount = mountData.inAirFrameCount;
 			mountData.swimFrameDelay = mountData.inAirFrameDelay;
 			mountData.swimFrameStart = mountData.inAirFrameStart;
-			if (Main.netMode != 2)
+			if(Main.netMode != 2)
 			{
 				mountData.textureWidth = mountData.backTexture.Width + 20;
 				mountData.textureHeight = mountData.backTexture.Height;
@@ -61,7 +61,7 @@ namespace ZoaklenMod.Mounts
 
 		public override void UpdateEffects(Player player)
 		{
-			if (Math.Abs(player.velocity.X) > 4f)
+			if(Math.Abs(player.velocity.X) > 4f)
 			{
 				Rectangle rect = player.getRect();
 				Dust.NewDust(new Vector2(rect.X, rect.Y), rect.Width, rect.Height, mod.DustType("Neon"));

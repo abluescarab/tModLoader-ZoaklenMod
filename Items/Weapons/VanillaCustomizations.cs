@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent;
-using Terraria.GameContent.Achievements;
 
 namespace ZoaklenMod.Items.Weapons
 {
@@ -90,7 +84,7 @@ namespace ZoaklenMod.Items.Weapons
 			{
 				item.ammo = 162;
 			}
-			
+
 			if(item.type == ItemID.GladiatorHelmet)
 			{
 				item.defense = 5;
@@ -109,33 +103,33 @@ namespace ZoaklenMod.Items.Weapons
 				item.rare = 3;
 				item.toolTip = "10% increased movement speed";
 			}
-			if (item.type == ItemID.MagicDagger)
+			if(item.type == ItemID.MagicDagger)
 			{
 				item.damage = 35;
 				item.autoReuse = true;
 				item.toolTip2 = "Does not consume on use";
 			}
-			
-			if (item.type == ItemID.ObsidianHelm)
+
+			if(item.type == ItemID.ObsidianHelm)
 			{
 				item.defense = 6;
 				item.rare = 3;
 				item.toolTip = "15% increased throwing velocity";
 			}
-			if (item.type == ItemID.ObsidianShirt)
+			if(item.type == ItemID.ObsidianShirt)
 			{
 				item.defense = 10;
 				item.rare = 3;
 				item.toolTip = "15% increased throwing damage";
 			}
-			if (item.type == ItemID.ObsidianPants)
+			if(item.type == ItemID.ObsidianPants)
 			{
 				item.defense = 4;
 				item.rare = 3;
 				item.toolTip = "25% increased throwing critical strike chance";
 			}
 		}
-		
+
 		public override bool CanRightClick(Item item)
 		{
 			if(IsThrowableItem(item))
@@ -144,7 +138,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return false;
 		}
-		
+
 		public override void RightClick(Item item, Player player)
 		{
 			int t = item.type;
@@ -221,7 +215,7 @@ namespace ZoaklenMod.Items.Weapons
 				player.QuickSpawnItem(mod.ItemType("FlyingKnife"));
 			}
 		}
-		
+
 		private bool IsThrowableItem(Item item)
 		{
 			int t = item.type;
@@ -231,18 +225,18 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return false;
 		}
-		
+
 		public override void UpdateEquip(Item item, Player player)
 		{
-			if (item.type == ItemID.ObsidianHelm)
+			if(item.type == ItemID.ObsidianHelm)
 			{
 				player.thrownVelocity += 15;
 			}
-			else if (item.type == ItemID.ObsidianShirt)
+			else if(item.type == ItemID.ObsidianShirt)
 			{
 				player.thrownDamage += 0.15f;
 			}
-			else if (item.type == ItemID.ObsidianPants)
+			else if(item.type == ItemID.ObsidianPants)
 			{
 				player.thrownCrit += 25;
 			}
@@ -259,7 +253,7 @@ namespace ZoaklenMod.Items.Weapons
 				player.moveSpeed += 0.1f;
 			}
 		}
-		
+
 		public override bool ConsumeAmmo(Item item, Player player)
 		{
 			if(player.armor[0].type == mod.ItemType("HiddenShooterHood") && player.armor[1].type == mod.ItemType("HiddenShooterCoat") && player.armor[2].type == mod.ItemType("HiddenShooterPants"))
@@ -270,7 +264,7 @@ namespace ZoaklenMod.Items.Weapons
 				}
 			}
 			bool quiver = false;
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
 				if(player.armor[l].type == mod.ItemType("OddQuiver"))
 				{
@@ -284,7 +278,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return true;
 		}
-		
+
 		public override string IsArmorSet(Item head, Item body, Item legs)
 		{
 			if(head.type == ItemID.ObsidianHelm && body.type == ItemID.ObsidianShirt && legs.type == ItemID.ObsidianPants)
@@ -297,7 +291,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return "";
 		}
-		
+
 		public override void UpdateArmorSet(Player player, string set)
 		{
 			if(set == "Obsidian")
@@ -310,11 +304,11 @@ namespace ZoaklenMod.Items.Weapons
 				player.setBonus = "Javelins causes 15% more damage and reduces enemies speed";
 			}
 		}
-		
+
 		public override void GetWeaponDamage(Item item, Player player, ref int damage)
 		{
 			bool cardBonus = false;
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
 				if(player.armor[l].type == mod.ItemType("CardGlove"))
 				{
@@ -323,7 +317,7 @@ namespace ZoaklenMod.Items.Weapons
 				}
 			}
 			bool cardBonus2 = false;
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
 				if(player.armor[l].type == mod.ItemType("TeraCardGlove"))
 				{
@@ -353,11 +347,11 @@ namespace ZoaklenMod.Items.Weapons
 				damage = (int)(damage * 1.15f);
 			}
 		}
-		
+
 		private bool SuperBees(Player player)
 		{
 			bool have = false;
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
 				if(player.armor[l].type == mod.ItemType("BeeEnrager"))
 				{
@@ -367,7 +361,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return have;
 		}
-		
+
 		private bool BeeItem(Item item)
 		{
 			string t = item.name;
@@ -377,7 +371,7 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return false;
 		}
-		
+
 		public override void UpdateInventory(Item item, Player player)
 		{
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
@@ -393,7 +387,7 @@ namespace ZoaklenMod.Items.Weapons
 					item.name = "Master Bait";
 				}
 			}
-			
+
 			if((t.Contains("Card")))
 			{
 				if(modPlayer.activeMark == 4 && modPlayer.markActivated)
@@ -424,7 +418,7 @@ namespace ZoaklenMod.Items.Weapons
 				}
 			}
 		}
-		
+
 		public override void ModifyHitNPC(Item item, Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
 		{
 			if(SuperBees(player) && BeeItem(item))
@@ -449,7 +443,7 @@ namespace ZoaklenMod.Items.Weapons
 				damage = (int)(damage * 1.2f);
 			}
 		}
-		
+
 		public override bool AltFunctionUse(Item item, Player player)
 		{
 			if(item.type == ItemID.DaedalusStormbow)

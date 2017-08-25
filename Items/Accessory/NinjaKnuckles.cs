@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,7 +25,7 @@ namespace ZoaklenMod.Items.Accessory
 			AddTooltip2("'Punch them at the super sonic speed'");
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.armorPenetration += 5;
@@ -41,7 +39,7 @@ namespace ZoaklenMod.Items.Accessory
 			player.thrownDamage += 0.04f;
 			player.minionDamage += 0.04f;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

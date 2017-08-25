@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -20,7 +18,7 @@ namespace ZoaklenMod.Items.Others
 			AddTooltip("Indefinitely switch between day and night.");
 			item.value = 5000000;
 		}
-		
+
 		public override bool UseItem(Player player)
 		{
 			if(player.itemTime == 0 && player.itemAnimation > 0)
@@ -38,7 +36,7 @@ namespace ZoaklenMod.Items.Others
 			}
 			return false;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

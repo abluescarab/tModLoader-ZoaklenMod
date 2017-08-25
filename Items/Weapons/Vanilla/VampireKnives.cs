@@ -19,7 +19,7 @@ namespace ZoaklenMod.Items.Weapons.Vanilla
 			item.ranged = false;
 			item.thrown = true;
 		}
-		
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			Vector2 vector2 = player.RotatedRelativePoint(player.MountedCenter, true);
@@ -29,23 +29,23 @@ namespace ZoaklenMod.Items.Weapons.Vanilla
 			int num71 = item.shoot;
 			float num72 = item.shootSpeed;
 			int num146 = 4;
-			if (Main.rand.Next(2) == 0)
+			if(Main.rand.Next(2) == 0)
 			{
 				num146++;
 			}
-			if (Main.rand.Next(4) == 0)
+			if(Main.rand.Next(4) == 0)
 			{
 				num146++;
 			}
-			if (Main.rand.Next(8) == 0)
+			if(Main.rand.Next(8) == 0)
 			{
 				num146++;
 			}
-			if (Main.rand.Next(16) == 0)
+			if(Main.rand.Next(16) == 0)
 			{
 				num146++;
 			}
-			for (int num147 = 0; num147 < num146; num147++)
+			for(int num147 = 0; num147 < num146; num147++)
 			{
 				float num148 = num78;
 				float num149 = num79;
@@ -62,19 +62,19 @@ namespace ZoaklenMod.Items.Weapons.Vanilla
 			}
 			return true;
 		}
-		
+
 		public override bool CanRightClick()
 		{
 			return true;
 		}
-		
+
 		public override void RightClick(Player player)
 		{
 			int num = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, originalType, 1, false, 0, false, false);
 			Main.item[num].Prefix((int)item.prefix);
 			Main.item[num].newAndShiny = false;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

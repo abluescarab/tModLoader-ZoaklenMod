@@ -1,4 +1,3 @@
-using System;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -17,11 +16,11 @@ namespace ZoaklenMod.Buffs
 		public override void Update(Player player, ref int buffIndex)
 		{
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
-			if (player.ownedProjectileCounts[mod.ProjectileType("Creeper")] > 0)
+			if(player.ownedProjectileCounts[mod.ProjectileType("Creeper")] > 0)
 			{
 				modPlayer.creeperMinion = true;
 			}
-			if (!modPlayer.creeperMinion)
+			if(!modPlayer.creeperMinion)
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;

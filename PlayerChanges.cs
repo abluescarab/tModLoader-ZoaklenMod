@@ -1,27 +1,8 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
-using Terraria.DataStructures;
-using Terraria.GameContent;
-using Terraria.GameContent.Achievements;
-using Terraria.GameContent.Tile_Entities;
-using Terraria.Graphics.Capture;
-using Terraria.Graphics.Effects;
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
-using Terraria.IO;
-using Terraria.ObjectData;
-using Terraria.Social;
-using Terraria.UI;
-using Terraria.UI.Chat;
-using Terraria.Utilities;
-using Terraria.World.Generation;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod
@@ -34,9 +15,9 @@ namespace ZoaklenMod
 		public bool invaderMinion = false;
 		public bool pacMinion = false;
 		public bool practicalCube = false;
-		
+
 		public int damageType = -1;
-		
+
 		public bool markActivated = false;
 		public int markFrames = 0;
 		public int activeMark = -1;
@@ -44,13 +25,13 @@ namespace ZoaklenMod
 
 		public bool virus = false;
 		public int lastChange = 0;
-		
+
 		public bool blinkDashing = false;
 		public int blinkDashingCounter = 0;
-		
+
 		public int stockedTeleports = 0;
 		public float stTick = 0f;
-		
+
 		public bool chameleonMode = false;
 
 		public override void ResetEffects()
@@ -84,18 +65,18 @@ namespace ZoaklenMod
 				stockedTeleports = 0;
 			}
 		}
-		
+
 		public override void UpdateDead()
 		{
 			virus = false;
 			stockedTeleports = 0;
 		}
-		
+
 		public override void UpdateBadLifeRegen()
 		{
-			if (virus)
+			if(virus)
 			{
-				if (player.lifeRegen > 0)
+				if(player.lifeRegen > 0)
 				{
 					player.lifeRegen = 0;
 				}
@@ -103,12 +84,12 @@ namespace ZoaklenMod
 				player.lifeRegen -= 5;
 			}
 		}
-		
+
 		public override void PreUpdate()
 		{
 			if(blinkDashing)
 			{
-				for(int i = 0;i < 200;i++)
+				for(int i = 0; i < 200; i++)
 				{
 					NPC npc = Main.npc[i];
 					if(npc.active && !npc.friendly && player.Distance(npc.Center) < 100f)
@@ -118,7 +99,7 @@ namespace ZoaklenMod
 				}
 			}
 		}
-		
+
 		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref string deathText)
 		{
 			if(blinkDashing)
@@ -127,7 +108,7 @@ namespace ZoaklenMod
 			}
 			return true;
 		}
-		
+
 		public override void DrawEffects(PlayerDrawInfo drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright)
 		{
 			if(chameleonMode)
@@ -140,9 +121,9 @@ namespace ZoaklenMod
 					a = 180;
 				}
 			}
-			if (virus)
+			if(virus)
 			{
-				if (Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
+				if(Main.rand.Next(4) == 0 && drawInfo.shadow == 0f)
 				{
 					int dust = Dust.NewDust(drawInfo.position + new Vector2(Main.rand.Next(-6, 7), 10f), player.width + 4, player.height + 4, mod.DustType("Neon"), player.velocity.X, player.velocity.Y, 100, default(Color), 0.75f);
 					Main.dust[dust].velocity.Y += 3f;
@@ -150,7 +131,7 @@ namespace ZoaklenMod
 				}
 				fullBright = true;
 			}
-			if (stockedTeleports > 0)
+			if(stockedTeleports > 0)
 			{
 				stTick += 0.005f;
 				if(stTick > 1f)
@@ -174,7 +155,7 @@ namespace ZoaklenMod
 				fullBright = true;
 			}
 		}
-		
+
 		public override void PostUpdateEquips()
 		{
 			if(player.armor[0].type == mod.ItemType("HiddenShooterHood") && (player.inventory[player.selectedItem].ranged || player.inventory[player.selectedItem].thrown))
@@ -185,37 +166,37 @@ namespace ZoaklenMod
 			{
 				player.scope = true;
 			}
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
-				if (player.armor[l].type == mod.ItemType("FrozenShinyStone"))
+				if(player.armor[l].type == mod.ItemType("FrozenShinyStone"))
 				{
 					if((double)player.statLife <= (double)player.statLifeMax2 * 0.5)
 					{
 						player.AddBuff(62, 5, true);
 					}
 				}
-				if (player.armor[l].type == mod.ItemType("DivineShield"))
+				if(player.armor[l].type == mod.ItemType("DivineShield"))
 				{
 					if((double)player.statLife <= (double)player.statLifeMax2 * 0.5)
 					{
 						player.AddBuff(62, 5, true);
 					}
 					player.noKnockback = true;
-					if ((double)player.statLife > (double)player.statLifeMax2 * 0.25)
+					if((double)player.statLife > (double)player.statLifeMax2 * 0.25)
 					{
 						if(player.whoAmI == Main.myPlayer)
 						{
 							//player.paladinGive = true;
 						}
-						if (player.miscCounter % 5 == 0)
+						if(player.miscCounter % 5 == 0)
 						{
 							int myPlayer = Main.myPlayer;
-							if (Main.player[myPlayer].team == player.team && player.team != 0)
+							if(Main.player[myPlayer].team == player.team && player.team != 0)
 							{
 								float num3 = player.position.X - Main.player[myPlayer].position.X;
 								float num4 = player.position.Y - Main.player[myPlayer].position.Y;
 								float num5 = (float)Math.Sqrt((double)(num3 * num3 + num4 * num4));
-								if (num5 < 800f)
+								if(num5 < 800f)
 								{
 									Main.player[myPlayer].AddBuff(43, 10, true);
 								}
@@ -225,32 +206,32 @@ namespace ZoaklenMod
 				}
 			}
 		}
-		
+
 		public override void OnHitByNPC(NPC npc, int damage, bool crit)
 		{
-			for (int l = 3; l < 8 + player.extraAccessorySlots; l++)
+			for(int l = 3; l < 8 + player.extraAccessorySlots; l++)
 			{
-				if (!player.armor[l].expertOnly || Main.expertMode)
+				if(!player.armor[l].expertOnly || Main.expertMode)
 				{
-					if (player.armor[l].type == mod.ItemType("IchorSack"))
+					if(player.armor[l].type == mod.ItemType("IchorSack"))
 					{
 						npc.AddBuff(BuffID.Ichor, 420, false);
 					}
-					if (player.armor[l].type == mod.ItemType("CursedEye"))
+					if(player.armor[l].type == mod.ItemType("CursedEye"))
 					{
 						npc.AddBuff(BuffID.CursedInferno, 420, false);
 					}
 				}
 			}
 		}
-		
+
 		public override void UpdateBiomeVisuals()
 		{
 			bool haveSky = NPC.AnyNPCs(mod.NPCType("MagicalCube"));
 			int magicalCubeID = -1;
-			for (int i = 0; i < 200; i++)
+			for(int i = 0; i < 200; i++)
 			{
-				if (Main.npc[i].active && Main.npc[i].type == mod.NPCType("MagicalCube"))
+				if(Main.npc[i].active && Main.npc[i].type == mod.NPCType("MagicalCube"))
 				{
 					magicalCubeID = i;
 					break;
@@ -280,7 +261,7 @@ namespace ZoaklenMod
 				player.ManageSpecialBiomeVisuals("ZoaklenMod:NeonHigh", false, player.Center);
 			}
 		}
-		
+
 		private int GetStage(NPC npc)
 		{
 			int stage = 0;
@@ -301,12 +282,12 @@ namespace ZoaklenMod
 			}
 			return stage;
 		}
-		
+
 		/*public override Texture2D GetMapBackgroundImage()
 		{
 			return mod.GetTexture("NeonBackground");
 		}*/
-		
+
 		private bool StellarNinja(Player player)
 		{
 			bool have = false;

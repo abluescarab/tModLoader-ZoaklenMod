@@ -3,10 +3,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using Terraria.GameContent;
-using Terraria.GameContent.Achievements;
-using Terraria.Graphics.Shaders;
 
 namespace ZoaklenMod.Projectiles
 {
@@ -22,21 +18,21 @@ namespace ZoaklenMod.Projectiles
 		public override void Kill(int timeLeft)
 		{
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 10);
-			for (int num373 = 0; num373 < 10; num373++)
+			for(int num373 = 0; num373 < 10; num373++)
 			{
 				Dust.NewDust(projectile.position, projectile.width, projectile.height, 58, projectile.velocity.X * 0.1f, projectile.velocity.Y * 0.1f, 150, default(Color), 1.2f);
 			}
-			for (int num374 = 0; num374 < 3; num374++)
+			for(int num374 = 0; num374 < 3; num374++)
 			{
 				Gore.NewGore(projectile.position, new Vector2(projectile.velocity.X * 0.05f, projectile.velocity.Y * 0.05f), Main.rand.Next(16, 18), 1f);
 			}
-			if (projectile.type == 12 && projectile.damage < 500)
+			if(projectile.type == 12 && projectile.damage < 500)
 			{
-				for (int num375 = 0; num375 < 10; num375++)
+				for(int num375 = 0; num375 < 10; num375++)
 				{
 					Dust.NewDust(projectile.position, projectile.width, projectile.height, 57, projectile.velocity.X * 0.1f, projectile.velocity.Y * 0.1f, 150, default(Color), 1.2f);
 				}
-				for (int num376 = 0; num376 < 3; num376++)
+				for(int num376 = 0; num376 < 3; num376++)
 				{
 					Gore.NewGore(projectile.position, new Vector2(projectile.velocity.X * 0.05f, projectile.velocity.Y * 0.05f), Main.rand.Next(16, 18), 1f);
 				}
@@ -53,7 +49,7 @@ namespace ZoaklenMod.Projectiles
 			num378 *= num380;
 			int num381 = projectile.damage;
 			int num382 = Projectile.NewProjectile(x, y, num377, num378, 92, num381, projectile.knockBack, projectile.owner, 0f, 0f);
-			if (projectile.type == 91)
+			if(projectile.type == 91)
 			{
 				Main.projectile[num382].ai[1] = projectile.position.Y;
 				Main.projectile[num382].ai[0] = 1f;
@@ -63,10 +59,10 @@ namespace ZoaklenMod.Projectiles
 				Main.projectile[num382].ai[1] = projectile.position.Y;
 			}
 		}
-		
+
 		public override void AI()
 		{
-			if (projectile.ai[0] >= 20f)
+			if(projectile.ai[0] >= 20f)
 			{
 				projectile.ai[0] = 20f;
 				projectile.velocity.Y = projectile.velocity.Y + 0.07f;

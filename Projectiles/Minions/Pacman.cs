@@ -1,6 +1,5 @@
 using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +13,7 @@ namespace ZoaklenMod.Projectiles.Minions
 		internal int down = 1;
 		internal int left = 2;
 		internal int right = 3;
-		
+
 		public override void SetDefaults()
 		{
 			projectile.netImportant = true;
@@ -40,28 +39,28 @@ namespace ZoaklenMod.Projectiles.Minions
 			// Check conditions
 			Player player = Main.player[projectile.owner];
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
-			if (player.dead)
+			if(player.dead)
 			{
 				modPlayer.pacMinion = false;
 			}
-			if (modPlayer.pacMinion)
+			if(modPlayer.pacMinion)
 			{
 				projectile.timeLeft = 2;
 			}
-			
+
 			projectile.alpha = 0;
 			projectile.frameCounter++;
-			if (projectile.frameCounter >= 80)
+			if(projectile.frameCounter >= 80)
 			{
 				projectile.frameCounter = 0;
 				projectile.frame = (projectile.frame + 1) % 3;
 			}
-						
+
 			// Pre-definitions
 			int target = -1;
 			float minDistance = 9999f;
 			bool eyesAlive = false;
-			for(int i = 0;i < 200;i++)
+			for(int i = 0; i < 200; i++)
 			{
 				NPC npc = Main.npc[i];
 				if(npc.active && (npc.type == NPCID.MoonLordHead || npc.type == NPCID.MoonLordHand) && !npc.dontTakeDamage)
@@ -70,7 +69,7 @@ namespace ZoaklenMod.Projectiles.Minions
 					break;
 				}
 			}
-			for(int i = 0;i < 200;i++)
+			for(int i = 0; i < 200; i++)
 			{
 				NPC npc = Main.npc[i];
 				if(npc.active && !npc.friendly && projectile.Distance(npc.Center) < minDistance && projectile.Distance(npc.Center) < 600f && npc.lifeMax > 5 && !npc.dontTakeDamage)
@@ -83,9 +82,9 @@ namespace ZoaklenMod.Projectiles.Minions
 					minDistance = projectile.Distance(npc.Center);
 				}
 			}
-			
+
 			int thisId = 1;
-			for(int i = 0;i < 256;i++)
+			for(int i = 0; i < 256; i++)
 			{
 				Projectile proj = Main.projectile[i];
 				if(proj.active && proj.type == projectile.type)
@@ -105,7 +104,7 @@ namespace ZoaklenMod.Projectiles.Minions
 			projectile.velocity = Vector2.Zero;
 			if(target == -1 || projectile.Distance(player.Center) > 800f)
 			{
-				if(projectile.Distance(player.Center) > (float)(200f + ((thisId - 1)*30f)))
+				if(projectile.Distance(player.Center) > (float)(200f + ((thisId - 1) * 30f)))
 				{
 					float distanceX = Math.Abs(player.Center.X - projectile.Center.X);
 					float distanceY = Math.Abs(player.Center.Y - projectile.Center.Y);
@@ -127,13 +126,13 @@ namespace ZoaklenMod.Projectiles.Minions
 				}
 				if(projectile.velocity != Vector2.Zero)
 				{
-					projectile.rotation = projectile.DirectionTo(projectile.Center + projectile.velocity*10).ToRotation();
+					projectile.rotation = projectile.DirectionTo(projectile.Center + projectile.velocity * 10).ToRotation();
 				}
 			}
 			else
 			{
 				NPC npc = Main.npc[target];
-				if(projectile.Distance(npc.Center) > (float)(200f + ((thisId - 1)*30f)))
+				if(projectile.Distance(npc.Center) > (float)(200f + ((thisId - 1) * 30f)))
 				{
 					float distanceX = Math.Abs(npc.Center.X - projectile.Center.X);
 					float distanceY = Math.Abs(npc.Center.Y - projectile.Center.Y);
@@ -163,7 +162,7 @@ namespace ZoaklenMod.Projectiles.Minions
 				}
 			}
 		}
-		
+
 		private void GetRotation()
 		{
 			if(projectile.velocity != Vector2.Zero)
@@ -171,7 +170,7 @@ namespace ZoaklenMod.Projectiles.Minions
 				projectile.rotation = projectile.DirectionTo(projectile.Center - projectile.velocity).ToRotation();
 			}
 		}
-		
+
 		private void CheckX(Vector2 pos)
 		{
 			if(projectile.velocity == Vector2.Zero)
@@ -186,7 +185,7 @@ namespace ZoaklenMod.Projectiles.Minions
 				}
 			}
 		}
-		
+
 		private void CheckY(Vector2 pos)
 		{
 			if(projectile.velocity == Vector2.Zero)
@@ -201,7 +200,7 @@ namespace ZoaklenMod.Projectiles.Minions
 				}
 			}
 		}
-		
+
 		private void SetDirection(int newDir)
 		{
 			Vector2 newVel = Vector2.Zero;

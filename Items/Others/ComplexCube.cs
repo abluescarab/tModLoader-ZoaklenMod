@@ -1,4 +1,3 @@
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +25,7 @@ namespace ZoaklenMod.Items.Others
 		{
 			return !NPC.AnyNPCs(mod.NPCType("MagicalCube"));
 		}
-		
+
 		public override bool UseItem(Player player)
 		{
 			NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("MagicalCube"));
@@ -34,7 +33,7 @@ namespace ZoaklenMod.Items.Others
 			Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
 			return true;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

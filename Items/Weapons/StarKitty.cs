@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -27,12 +26,12 @@ namespace ZoaklenMod.Items.Weapons
 			item.shoot = mod.ProjectileType("StarKitty");
 			item.shootSpeed = 15;
 		}
-		
+
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
 		{
 			int randomX = Main.rand.Next(-300, 300);
 			int randomY = Main.rand.Next(-300, 300);
-			if (Main.rand.Next(2) == 0)
+			if(Main.rand.Next(2) == 0)
 			{
 				randomX -= Main.maxScreenW / 2 + randomX;
 			}
@@ -40,7 +39,7 @@ namespace ZoaklenMod.Items.Weapons
 			{
 				randomX += Main.maxScreenW / 2 - randomX;
 			}
-			if (Main.rand.Next(2) == 0)
+			if(Main.rand.Next(2) == 0)
 			{
 				randomY -= Main.maxScreenH / 2 + randomY;
 			}
@@ -57,12 +56,12 @@ namespace ZoaklenMod.Items.Weapons
 			Main.projectile[meow].tileCollide = false;
 			Main.projectile[meow].penetrate = 1;
 		}
-		
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			return true;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

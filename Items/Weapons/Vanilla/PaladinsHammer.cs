@@ -1,5 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,19 +17,19 @@ namespace ZoaklenMod.Items.Weapons.Vanilla
 			item.ranged = false;
 			item.thrown = true;
 		}
-		
+
 		public override bool CanRightClick()
 		{
 			return true;
 		}
-		
+
 		public override void RightClick(Player player)
 		{
 			int num = Item.NewItem((int)player.position.X, (int)player.position.Y, player.width, player.height, originalType, 1, false, 0, false, false);
 			Main.item[num].Prefix((int)item.prefix);
 			Main.item[num].newAndShiny = false;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

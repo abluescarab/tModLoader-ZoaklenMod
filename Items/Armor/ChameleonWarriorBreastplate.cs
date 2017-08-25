@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace ZoaklenMod.Items.Armor
 {
@@ -23,7 +22,7 @@ namespace ZoaklenMod.Items.Armor
 				color = biome.color;
 			}
 		}
-		
+
 		public override void ArmorArmGlowMask(Player drawPlayer, float shadow, ref int glowMask, ref Color color)
 		{
 			if(Main.gameMenu)
@@ -38,7 +37,7 @@ namespace ZoaklenMod.Items.Armor
 				color = biome.color;
 			}
 		}
-		
+
 		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
 		{
 			equips.Add(EquipType.Body);
@@ -54,13 +53,13 @@ namespace ZoaklenMod.Items.Armor
 			item.rare = 7;
 			item.defense = 17;
 		}
-		
+
 		public override void UpdateEquip(Player player)
 		{
 			player.thrownDamage += 0.06f;
 			player.thrownCrit += 8;
 		}
-		
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

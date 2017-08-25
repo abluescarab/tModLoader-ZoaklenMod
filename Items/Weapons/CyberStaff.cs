@@ -1,5 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -30,7 +28,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.buffType = mod.BuffType("Invader");
 			item.buffTime = 3600;
 		}
-		
+
 		public override bool AltFunctionUse(Player player)
 		{
 			return true;
@@ -38,7 +36,7 @@ namespace ZoaklenMod.Items.Weapons
 
 		public override bool CanUseItem(Player player)
 		{
-			if (player.altFunctionUse == 2)
+			if(player.altFunctionUse == 2)
 			{
 				item.shoot = mod.ProjectileType("Pacman");
 				item.buffType = mod.BuffType("Pacman");
@@ -50,6 +48,6 @@ namespace ZoaklenMod.Items.Weapons
 			}
 			return base.CanUseItem(player);
 		}
-		
+
 	}
 }

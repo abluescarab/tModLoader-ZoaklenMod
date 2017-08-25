@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
@@ -13,7 +12,7 @@ namespace ZoaklenMod.Dusts
 			dust.noLight = true;
 			dust.color = GetNeonColor();
 		}
-		
+
 		public override bool MidUpdate(Dust dust)
 		{
 			int oldAlpha = dust.alpha;
@@ -30,7 +29,7 @@ namespace ZoaklenMod.Dusts
 			}
 			return false;
 		}
-		
+
 		private Color GetNeonColor()
 		{
 			int r = 0, g = 0, b = 0;
@@ -44,7 +43,7 @@ namespace ZoaklenMod.Dusts
 				{
 					r = 0;
 				}
-				
+
 				if(Main.rand.Next(0, 2) == 0)
 				{
 					g = 255;
@@ -53,7 +52,7 @@ namespace ZoaklenMod.Dusts
 				{
 					g = 0;
 				}
-				
+
 				if(Main.rand.Next(0, 2) == 0)
 				{
 					b = 255;
@@ -63,7 +62,7 @@ namespace ZoaklenMod.Dusts
 					b = 0;
 				}
 			}
-			
+
 			Color neon = new Color(r, g, b);
 			return neon;
 		}
