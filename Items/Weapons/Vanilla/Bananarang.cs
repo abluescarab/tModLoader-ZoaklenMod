@@ -11,7 +11,7 @@ namespace ZoaklenMod.Items.Weapons.Vanilla
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Thrown " + item.Name);
+			DisplayName.SetDefault("Thrown Bananarang");
 			Tooltip.SetDefault("Right-click to change damage type");
 		}
 

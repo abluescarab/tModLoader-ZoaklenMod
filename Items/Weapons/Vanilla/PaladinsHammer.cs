@@ -10,7 +10,7 @@ namespace ZoaklenMod.Items.Weapons.Vanilla
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Thrown " + item.Name);
+			DisplayName.SetDefault("Thrown Paladin's Hammer");
 			Tooltip.SetDefault("Right-click to change damage type");
 		}
 
