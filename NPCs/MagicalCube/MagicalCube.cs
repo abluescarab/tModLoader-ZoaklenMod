@@ -308,7 +308,6 @@ namespace ZoaklenMod.NPCs.MagicalCube
 
 		private void BitLightning(Vector2 pos)
 		{
-			int fallSpeed = -10;
 			int damage = (int)(npc.damage);
 			if(Main.expertMode)
 			{

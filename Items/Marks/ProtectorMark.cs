@@ -6,7 +6,6 @@ namespace ZoaklenMod.Items.Marks
 {
 	public class ProtectorMark : MarkBase
 	{
-		int dusts = 5;
 		int cD;
 
 		public override void MarkStaticDefaults()

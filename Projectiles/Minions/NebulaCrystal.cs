@@ -69,8 +69,6 @@ namespace ZoaklenMod.Projectiles.Minions
 				Vector2 vector2 = new Vector2(projectile.Center.X + xAdd, projectile.Center.Y + yAdd);
 				int num73 = projectile.damage;
 				float num74 = projectile.knockBack;
-				float num117 = 0.314159274f;
-				int num118 = 1;
 
 				float num197 = (Main.rand.NextFloat() - 0.5f) * 0.7853982f * 0.7f;
 				int num198 = 0;

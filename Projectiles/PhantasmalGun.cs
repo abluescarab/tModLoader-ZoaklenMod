@@ -27,12 +27,6 @@ namespace ZoaklenMod.Projectiles
 		{
 			Player player = Main.player[projectile.owner];
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
-			float num;
-			num = 0f;
-			if(projectile.spriteDirection == -1)
-			{
-				num = 3.14159274f;
-			}
 			projectile.ai[0] += 1f;
 			int num33 = 0;
 			if(projectile.ai[0] >= 40f)
