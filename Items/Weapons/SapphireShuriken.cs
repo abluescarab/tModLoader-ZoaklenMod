@@ -5,17 +5,21 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class SapphireShuriken : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sapphire Shuriken");
+			Tooltip.SetDefault("'The sky is blue, sapphires are too'");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.Shuriken);
-			item.name = "Sapphire Shuriken";
 			item.width = 22;
 			item.height = 22;
 			item.rare = 2;
 			item.shootSpeed *= 1.1f;
 			item.damage = 17;
 			item.autoReuse = false;
-			item.toolTip = "'The sky is blue, sapphires are too'";
 			item.shoot = mod.ProjectileType("SapphireShuriken");
 			item.crit = 6;
 		}

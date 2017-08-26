@@ -1,11 +1,18 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Weapons
 {
 	public class TechSmite : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tech Smite");
+			Tooltip.SetDefault("'* Do you think even the worst person can change...?'");
+		}
+
 		public override void SetDefaults()
 		{
 			item.rare = 10;
@@ -13,10 +20,9 @@ namespace ZoaklenMod.Items.Weapons
 			item.channel = true;
 			item.damage = 500;
 			item.useStyle = 1;
-			item.name = "Tech Smite";
 			item.width = 26;
 			item.height = 24;
-			item.useSound = 20;
+			item.UseSound = SoundID.Item20;
 			item.useAnimation = 61;
 			item.noUseGraphic = true;
 			item.shoot = 1;
@@ -25,7 +31,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.useTime = 61;
 			item.noMelee = true;
 			item.knockBack = 6f;
-			item.toolTip = "'* Do you think even the worst person can change...?'";
 			item.value = 200000;
 			item.autoReuse = true;
 			item.magic = true;

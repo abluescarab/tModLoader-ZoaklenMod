@@ -6,22 +6,26 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class SunSword : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sun Sword");
+			Tooltip.SetDefault("'Even more hot.'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Sun Sword";
 			item.damage = 83;
 			item.melee = true;
 			item.width = 38;
 			item.height = 38;
 			item.scale = 1.2f;
-			item.toolTip = "'Even more hot.'";
 			item.useTime = 15;
 			item.useAnimation = 15;
 			item.useStyle = 1;
 			item.knockBack = 6;
 			item.value = Item.sellPrice(0, 5, 0, 0);
 			item.rare = 8;
-			item.useSound = 1;
+			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.shoot = mod.ProjectileType("Sun");
 			item.shootSpeed = 15f;

@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,10 +7,16 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class ElementalDagger : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Elemental Dagger");
+			Tooltip.SetDefault("'Its temperature changes everytime'");
+			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(10, 9));
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.MagicDagger);
-			item.name = "Elemental Dagger";
 			item.magic = false;
 			item.thrown = true;
 			item.width = 14;
@@ -20,7 +27,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.damage = 40;
 			item.autoReuse = true;
 			item.useTime = 12;
-			item.toolTip = "'Its temperature changes everytime'";
 			item.shoot = mod.ProjectileType("ElementalDagger");
 			item.crit = 6;
 		}
@@ -44,11 +50,6 @@ namespace ZoaklenMod.Items.Weapons
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-		}
-
-		public override DrawAnimation GetAnimation()
-		{
-			return new Terraria.DataStructures.DrawAnimationVertical(10, 9);
 		}
 	}
 }

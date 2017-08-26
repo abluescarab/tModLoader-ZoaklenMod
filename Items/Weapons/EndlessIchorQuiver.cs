@@ -5,10 +5,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class EndlessIchorQuiver : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Endless Ichor Quiver");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.IchorArrow);
-			item.name = "Endless Ichor Quiver";
 			item.maxStack = 1;
 			item.consumable = false;
 		}

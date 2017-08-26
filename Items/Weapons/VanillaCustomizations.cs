@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,80 +7,30 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class VanillaCustomizations : GlobalItem
 	{
-		public override void SetDefaults(Item item)
+		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			if(item.type == ItemID.Bananarang)
+			if(item.type == ItemID.Bananarang ||
+				item.type == ItemID.BloodyMachete ||
+				item.type == ItemID.DayBreak ||
+				item.type == ItemID.EnchantedBoomerang ||
+				item.type == ItemID.Flamarang ||
+				item.type == ItemID.FruitcakeChakram ||
+				item.type == ItemID.IceBoomerang ||
+				item.type == ItemID.LightDisc ||
+				item.type == ItemID.MagicDagger ||
+				item.type == ItemID.PossessedHatchet ||
+				item.type == ItemID.ScourgeoftheCorruptor ||
+				item.type == ItemID.ThornChakram ||
+				item.type == ItemID.VampireKnives ||
+				item.type == ItemID.WoodenBoomerang ||
+				item.type == ItemID.PaladinsHammer ||
+				item.type == ItemID.ShadowFlameKnife ||
+				item.type == ItemID.ToxicFlask ||
+				item.type == ItemID.FlyingKnife)
 			{
-				item.toolTip2 = "Right-click to change damage type";
+				tooltips.Add(new TooltipLine(mod, "RightClickDamageTypeChange", "Right-click to change damage type"));
 			}
-			if(item.type == ItemID.BloodyMachete)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.DayBreak)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.EnchantedBoomerang)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.Flamarang)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.FruitcakeChakram)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.IceBoomerang)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.LightDisc)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.MagicDagger)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.PossessedHatchet)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.ScourgeoftheCorruptor)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.ThornChakram)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.VampireKnives)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.WoodenBoomerang)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.PaladinsHammer)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.ShadowFlameKnife)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.ToxicFlask)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
-			if(item.type == ItemID.FlyingKnife)
-			{
-				item.toolTip2 = "Right-click to change damage type";
-			}
+
 			if(item.type == ItemID.Cannonball)
 			{
 				item.ammo = 162;
@@ -89,44 +40,44 @@ namespace ZoaklenMod.Items.Weapons
 			{
 				item.defense = 5;
 				item.rare = 3;
-				item.toolTip = "20% increased throwing critical strike chance";
+				tooltips.Add(new TooltipLine(mod, "ZoaklenMod", "20% increased throwing critical strike chance"));
 			}
 			if(item.type == ItemID.GladiatorBreastplate)
 			{
 				item.defense = 9;
 				item.rare = 3;
-				item.toolTip = "20% increased throwing damage";
+				tooltips.Add(new TooltipLine(mod, "ZoaklenMod", "20% increased throwing damage"));
 			}
 			if(item.type == ItemID.GladiatorLeggings)
 			{
 				item.defense = 4;
 				item.rare = 3;
-				item.toolTip = "10% increased movement speed";
+				tooltips.Add(new TooltipLine(mod, "ZoaklenMod", "10% increased movement speed"));
 			}
 			if(item.type == ItemID.MagicDagger)
 			{
 				item.damage = 35;
 				item.autoReuse = true;
-				item.toolTip2 = "Does not consume on use";
+				tooltips.Add(new TooltipLine(mod, "ZoaklenMod", "Does not consume on use"));
 			}
 
 			if(item.type == ItemID.ObsidianHelm)
 			{
 				item.defense = 6;
 				item.rare = 3;
-				item.toolTip = "15% increased throwing velocity";
+				tooltips.Add(new TooltipLine(mod, "ZoaklenMod", "15% increased throwing velocity"));
 			}
 			if(item.type == ItemID.ObsidianShirt)
 			{
 				item.defense = 10;
 				item.rare = 3;
-				item.toolTip = "15% increased throwing damage";
+				tooltips.Add(new TooltipLine(mod, "ZoaklenMod", "15% increased throwing damage"));
 			}
 			if(item.type == ItemID.ObsidianPants)
 			{
 				item.defense = 4;
 				item.rare = 3;
-				item.toolTip = "25% increased throwing critical strike chance";
+				tooltips.Add(new TooltipLine(mod, "ZoaklenMod", "25 % increased throwing critical strike chance"));
 			}
 		}
 
@@ -325,11 +276,11 @@ namespace ZoaklenMod.Items.Weapons
 					break;
 				}
 			}
-			if(cardBonus && player.inventory[player.selectedItem].name.Contains("Card"))
+			if(cardBonus && player.inventory[player.selectedItem].Name.Contains("Card"))
 			{
 				damage = (int)(damage * 1.1f);
 			}
-			if(cardBonus2 && player.inventory[player.selectedItem].name.Contains("Card"))
+			if(cardBonus2 && player.inventory[player.selectedItem].Name.Contains("Card"))
 			{
 				damage = (int)(damage * 1.2f);
 			}
@@ -364,7 +315,7 @@ namespace ZoaklenMod.Items.Weapons
 
 		private bool BeeItem(Item item)
 		{
-			string t = item.name;
+			string t = item.Name;
 			if(t.Contains("Bee") || t.Contains("Wasp") || t.Contains("Hornet"))
 			{
 				return true;
@@ -375,16 +326,16 @@ namespace ZoaklenMod.Items.Weapons
 		public override void UpdateInventory(Item item, Player player)
 		{
 			PlayerChanges modPlayer = (PlayerChanges)player.GetModPlayer(mod, "PlayerChanges");
-			string t = item.name;
+			string t = item.Name;
 			if(item.type == ItemID.MasterBait)
 			{
 				if(Main.rand.Next(10) == 0)
 				{
-					item.name = "Marina Joyce";
+					item.SetNameOverride("Marina Joyce");
 				}
 				else
 				{
-					item.name = "Master Bait";
+					item.SetNameOverride("Master Bait");
 				}
 			}
 
@@ -438,7 +389,7 @@ namespace ZoaklenMod.Items.Weapons
 			{
 				target.AddBuff(BuffID.Slow, 300, true);
 			}
-			if(target.HasBuff(mod.BuffType("Virus")) > 0)
+			if(target.FindBuffIndex(mod.BuffType("Virus")) != -1)
 			{
 				damage = (int)(damage * 1.2f);
 			}

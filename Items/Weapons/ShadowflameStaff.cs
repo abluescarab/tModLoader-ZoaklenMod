@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Weapons
@@ -6,15 +7,19 @@ namespace ZoaklenMod.Items.Weapons
 	//imported from my tAPI mod because I'm lazy
 	public class ShadowflameStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shadowflame Staff");
+			Tooltip.SetDefault("Summons a shadowflame apparition to fight for you.");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Shadowflame Staff";
 			item.damage = 50;
 			item.summon = true;
 			item.mana = 10;
 			item.width = 26;
 			item.height = 28;
-			item.toolTip = "Summons a shadowflame apparition to fight for you.";
 			item.useTime = 36;
 			item.useAnimation = 36;
 			item.useStyle = 1;
@@ -22,7 +27,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.knockBack = 3;
 			item.value = Item.buyPrice(0, 30, 0, 0);
 			item.rare = 9;
-			item.useSound = 44;
+			item.UseSound = SoundID.Item44;
 			item.shoot = mod.ProjectileType("ShadowflameApparition");
 			item.shootSpeed = 10f;
 			item.buffType = mod.BuffType("ShadowflameApparition");

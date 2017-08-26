@@ -6,10 +6,15 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class SkyBreaker : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sky Breaker");
+			Tooltip.SetDefault("'Drop it like a bass'");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.DayBreak);
-			item.name = "Sky Breaker";
 			item.rare = 10;
 			item.width = 30;
 			item.height = 30;
@@ -17,7 +22,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.damage = 100;
 			item.autoReuse = true;
 			item.useTime = 20;
-			item.toolTip = "'Drop it like a bass'";
 			item.shoot = mod.ProjectileType("SkyBreakerSpear");
 			item.crit = 10;
 			item.value = Item.sellPrice(0, 50, 0, 0);

@@ -6,9 +6,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class StylishStalker : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stylish Stalker");
+			Tooltip.SetDefault("'Boom, deadshot.'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Stylish Stalker";
 			item.width = 60;
 			item.height = 22;
 			item.shoot = 162;
@@ -16,7 +21,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.useAnimation = 60;
 			item.autoReuse = true;
 			item.useAmmo = 162;
-			item.useSound = 11;
+			item.UseSound = SoundID.Item11;
 			item.useStyle = 5;
 			item.damage = 300;
 			item.shootSpeed = 30f;
@@ -25,7 +30,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.knockBack = 10f;
 			item.rare = 9;
 			item.ranged = true;
-			AddTooltip("'Boom, deadshot.'");
 		}
 
 		public override Vector2? HoldoutOffset()

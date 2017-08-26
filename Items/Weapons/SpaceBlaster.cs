@@ -7,9 +7,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class SpaceBlaster : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Space Blaster");
+			Tooltip.SetDefault("'Headshots the Brain of Cthulhu'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Space Blaster";
 			item.crit += 25;
 			item.width = 70;
 			item.height = 26;
@@ -17,13 +22,12 @@ namespace ZoaklenMod.Items.Weapons
 			item.useTime = 60;
 			item.useAnimation = 60;
 			item.useAmmo = 14;
-			item.useSound = 40;
+			item.UseSound = SoundID.Item40;
 			item.useStyle = 5;
 			item.damage = 185;
 			item.shootSpeed = 30f;
 			item.noMelee = true;
 			item.value = 200000;
-			item.toolTip = "'Headshots the Brain of Cthulhu'";
 			item.knockBack = 8f;
 			item.rare = 10;
 			item.ranged = true;

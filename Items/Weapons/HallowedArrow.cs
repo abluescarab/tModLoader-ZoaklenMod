@@ -5,9 +5,13 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class HallowedArrow : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Hallowed Arrow");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Hallowed Arrow";
 			item.shootSpeed = 0.5f;
 			item.shoot = mod.ProjectileType("HallowedArrow");
 			item.damage = 12;

@@ -7,16 +7,20 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class SunFlower : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sun Flower");
+			Tooltip.SetDefault("'This is like extremely hot'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Sun Flower";
 			item.damage = 71;
 			item.magic = true;
 			item.scale = 1.1f;
 			item.mana = 12;
 			item.width = 36;
 			item.height = 38;
-			item.toolTip = "'This is like extremely hot'";
 			item.useTime = 25;
 			item.useAnimation = 25;
 			item.useStyle = 5;
@@ -25,7 +29,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.knockBack = 5;
 			item.value = 50000;
 			item.rare = 8;
-			item.useSound = 20;
+			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 		}
 

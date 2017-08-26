@@ -5,10 +5,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class EndlessChlorophyteQuiver : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Endless Chlorophyte Quiver");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.ChlorophyteArrow);
-			item.name = "Endless Chlorophyte Quiver";
 			item.maxStack = 1;
 			item.consumable = false;
 		}

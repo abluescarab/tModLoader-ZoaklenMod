@@ -5,10 +5,15 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class DiamondShuriken : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Diamond Shuriken");
+			Tooltip.SetDefault("'Shine bright like a diamond'");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.Shuriken);
-			item.name = "Diamond Shuriken";
 			item.width = 22;
 			item.height = 22;
 			item.rare = 2;
@@ -16,7 +21,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.damage = 25;
 			item.useTime -= 1;
 			item.autoReuse = false;
-			item.toolTip = "'Shine bright like a diamond'";
 			item.shoot = mod.ProjectileType("DiamondShuriken");
 			item.crit = 8;
 		}

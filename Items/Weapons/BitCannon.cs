@@ -1,14 +1,20 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Weapons
 {
 	public class BitCannon : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bit Cannon");
+			Tooltip.SetDefault("'Let me hurt you a bit'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Bit Cannon";
 			item.crit += 25;
 			item.width = 38;
 			item.height = 20;
@@ -16,13 +22,12 @@ namespace ZoaklenMod.Items.Weapons
 			item.useTime = 2;
 			item.useAnimation = 8;
 			item.useAmmo = 14;
-			item.useSound = 42;
+			item.UseSound = SoundID.Item42;
 			item.useStyle = 5;
 			item.damage = 100;
 			item.shootSpeed = 30f;
 			item.noMelee = true;
 			item.value = 200000;
-			item.toolTip = "'Let me hurt you a bit'";
 			item.knockBack = 8f;
 			item.rare = 10;
 			item.ranged = true;

@@ -7,18 +7,22 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class MagicSword : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Magic Skyblade");
+			Tooltip.SetDefault("'A holy aura comes from this sword'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Magic Skyblade";
 			item.rare = 7;
-			item.useSound = 1;
+			item.UseSound = SoundID.Item1;
 			item.useStyle = 1;
 			item.useAnimation = 12;
 			item.useTime = 12;
 			item.knockBack = 3.5f;
 			item.value = Item.sellPrice(0, 5, 0, 0);
 			item.scale = 1.1f;
-			item.toolTip = "'A holy aura comes from this sword'";
 			item.width = 38;
 			item.height = 38;
 			item.damage = 50;

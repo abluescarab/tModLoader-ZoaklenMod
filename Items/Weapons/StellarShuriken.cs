@@ -5,10 +5,15 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class StellarShuriken : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stellar Shuriken");
+			Tooltip.SetDefault("Soul-imbued weapon");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.Shuriken);
-			item.name = "Stellar Shuriken";
 			item.width = 36;
 			item.height = 36;
 			item.rare = 10;
@@ -22,7 +27,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.damage = 80;
 			item.useTime = 10;
 			item.autoReuse = true;
-			item.toolTip = "Soul-imbued weapon";
 			item.crit = 25;
 		}
 

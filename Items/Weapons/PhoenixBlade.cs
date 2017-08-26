@@ -7,20 +7,24 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class PhoenixBlade : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Phoenix Blade");
+			Tooltip.SetDefault("'Imagine all the people reviving'");
+		}
+
 		public override void SetDefaults()
 		{
 			item.rare = 6;
-			item.useSound = 1;
+			item.UseSound = SoundID.Item1;
 			item.useStyle = 1;
 			item.useAnimation = 16;
 			item.useTime = 16;
 			item.knockBack = 6.5f;
 			item.value = Item.sellPrice(0, 5, 0, 0);
-			item.name = "Phoenix Blade";
 			item.scale = 1.05f;
 			item.width = 50;
 			item.height = 58;
-			item.toolTip = "'Imagine all the people reviving'";
 			item.damage = 60;
 			item.melee = true;
 			item.autoReuse = true;
@@ -42,7 +46,7 @@ namespace ZoaklenMod.Items.Weapons
 		public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
 		{
 			target.AddBuff(BuffID.OnFire, 300, true);
-			int cursedId = target.HasBuff(BuffID.CursedInferno);
+			int cursedId = target.FindBuffIndex(BuffID.CursedInferno);
 			if(cursedId >= 0)
 			{
 				damage = (int)(damage * 2f);

@@ -5,10 +5,15 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class SunDagger : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sun Dagger");
+			Tooltip.SetDefault("'Super hot, super hot'");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.Shuriken);
-			item.name = "Sun Dagger";
 			item.width = 30;
 			item.height = 30;
 			item.rare = 8;
@@ -17,7 +22,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.autoReuse = true;
 			item.useTime = 9;
 			item.useAnimation = 9;
-			item.toolTip = "'Super hot, super hot'";
 			item.shoot = mod.ProjectileType("SunDagger");
 			item.crit = 10;
 		}

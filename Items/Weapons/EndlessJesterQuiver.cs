@@ -5,10 +5,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class EndlessJesterQuiver : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Endless Jester Quiver");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.JestersArrow);
-			item.name = "Endless Jester Quiver";
 			item.maxStack = 1;
 			item.consumable = false;
 		}

@@ -5,17 +5,21 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class TopazShuriken : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Topaz Shuriken");
+			Tooltip.SetDefault("'You told me it was diamonds'");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.Shuriken);
-			item.name = "Topaz Shuriken";
 			item.width = 22;
 			item.height = 22;
 			item.rare = 2;
 			item.shootSpeed *= 1.05f;
 			item.damage = 15;
 			item.autoReuse = false;
-			item.toolTip = "'You told me it was diamonds'";
 			item.shoot = mod.ProjectileType("TopazShuriken");
 			item.crit = 4;
 		}

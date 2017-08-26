@@ -7,9 +7,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class StarKitty : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Star Kitty");
+			Tooltip.SetDefault("'Cat lovers only'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Star Kitty";
 			item.damage = 160;
 			item.melee = true;
 			item.width = 52;
@@ -20,9 +25,8 @@ namespace ZoaklenMod.Items.Weapons
 			item.knockBack = 6;
 			item.value = Item.sellPrice(0, 50, 0, 0);
 			item.rare = 10;
-			item.useSound = 1;
+			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
-			item.toolTip = "'Cat lovers only'";
 			item.shoot = mod.ProjectileType("StarKitty");
 			item.shootSpeed = 15;
 		}

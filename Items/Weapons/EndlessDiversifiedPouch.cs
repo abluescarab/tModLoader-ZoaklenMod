@@ -6,11 +6,15 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class EndlessDiversifiedPouch : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Endless Diversified Pouch");
+			Tooltip.SetDefault("Shoots random types of bullets");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.ChlorophyteBullet);
-			item.name = "Endless Diversified Pouch";
-			item.toolTip = "Shoots random types of bullets";
 			item.damage = 20;
 			item.maxStack = 1;
 			item.consumable = false;

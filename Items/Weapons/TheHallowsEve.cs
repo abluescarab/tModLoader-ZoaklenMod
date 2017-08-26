@@ -7,18 +7,23 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class TheHallowsEve : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("The Hallow's Eve");
+			Tooltip.SetDefault("'The rude arrowstorm'\n" +
+				"33% chance to not consume ammo");
+		}
+
 		public override void SetDefaults()
 		{
 			item.useStyle = 5;
 			item.autoReuse = true;
 			item.useAnimation = 18;
 			item.useTime = 6;
-			item.name = "The Hallow's Eve";
-			item.toolTip = "'The rude arrowstorm'";
 			item.width = 10;
 			item.height = 40;
 			item.useAmmo = 1;
-			item.useSound = 5;
+			item.UseSound = SoundID.Item5;
 			item.shoot = 1;
 			item.damage = 40;
 			item.shootSpeed = 12.5f;
@@ -28,7 +33,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.ranged = true;
 			item.rare = 7;
 			item.knockBack = 1.5f;
-			AddTooltip("33% chance to not consume ammo");
 		}
 
 		public override bool ConsumeAmmo(Player player)

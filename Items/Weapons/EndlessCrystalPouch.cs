@@ -5,10 +5,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class EndlessCrystalPouch : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Endless Crystal Pouch");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.CrystalBullet);
-			item.name = "Endless Crystal Pouch";
 			item.maxStack = 1;
 			item.consumable = false;
 		}

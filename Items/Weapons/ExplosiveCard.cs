@@ -7,9 +7,15 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class ExplosiveCard : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Explosive Card");
+			Tooltip.SetDefault("'Suspicious looking card'");
+			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(30, 2));
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Explosive Card";
 			item.useStyle = 3;
 			item.width = 13;
 			item.height = 20;
@@ -17,7 +23,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.maxStack = 999;
 			item.consumable = true;
 			item.shootSpeed = 10.0f;
-			item.useSound = 1;
+			item.UseSound = SoundID.Item1;
 			item.useAnimation = 15;
 			item.useTime = 15;
 			item.noUseGraphic = true;
@@ -26,7 +32,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.damage = 34;
 			item.thrown = true;
 			item.autoReuse = true;
-			item.toolTip = "'Suspicious looking card'";
 			item.shoot = mod.ProjectileType("ExplosiveCard");
 			item.crit = 6;
 		}
@@ -60,11 +65,6 @@ namespace ZoaklenMod.Items.Weapons
 				return false;
 			}
 			return true;
-		}
-
-		public override DrawAnimation GetAnimation()
-		{
-			return new Terraria.DataStructures.DrawAnimationVertical(30, 2);
 		}
 
 		public override void AddRecipes()

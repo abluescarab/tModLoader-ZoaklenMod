@@ -5,10 +5,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class EndlessIchorPouch : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Endless Ichor Pouch");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.IchorBullet);
-			item.name = "Endless Ichor Pouch";
 			item.maxStack = 1;
 			item.consumable = false;
 		}

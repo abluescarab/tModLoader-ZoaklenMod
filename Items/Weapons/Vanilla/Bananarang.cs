@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,17 +8,22 @@ namespace ZoaklenMod.Items.Weapons.Vanilla
 	public class Bananarang : ModItem
 	{
 		int originalType = ItemID.Bananarang;
+
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Thrown " + item.Name);
+			Tooltip.SetDefault("Right-click to change damage type");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(originalType);
-			item.name = "Thrown " + item.name;
-			item.toolTip2 = "Right-click to change damage type";
 			item.melee = false;
 			item.magic = false;
 			item.ranged = false;
 			item.thrown = true;
 		}
-
+		
 		public override bool CanRightClick()
 		{
 			return true;

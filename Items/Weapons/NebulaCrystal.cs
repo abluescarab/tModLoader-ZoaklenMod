@@ -7,15 +7,19 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class NebulaCrystal : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Nebula Crystal Staff");
+			Tooltip.SetDefault("Summons a nebula crystal to fight for you.");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Nebula Crystal Staff";
 			item.damage = 100;
 			item.summon = true;
 			item.mana = 10;
 			item.width = 26;
 			item.height = 28;
-			item.toolTip = "Summons a nebula crystal to fight for you.";
 			item.useTime = 36;
 			item.useAnimation = 36;
 			item.useStyle = 1;
@@ -23,7 +27,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.knockBack = 3;
 			item.value = Item.buyPrice(0, 30, 0, 0);
 			item.rare = 10;
-			item.useSound = 44;
+			item.UseSound = SoundID.Item44;
 			item.shoot = mod.ProjectileType("NebulaCrystal");
 			item.shootSpeed = 10f;
 		}

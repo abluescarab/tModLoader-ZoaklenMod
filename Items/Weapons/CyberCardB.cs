@@ -1,20 +1,26 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Weapons
 {
 	public class CyberCardB : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cyber Card (Sharp)");
+			Tooltip.SetDefault("Passive: Infinite penetration");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Cyber Card (Sharp)";
 			item.useStyle = 3;
 			item.width = 13;
 			item.height = 20;
 			item.rare = 10;
 			item.consumable = false;
 			item.shootSpeed = 10.0f;
-			item.useSound = 1;
+			item.UseSound = SoundID.Item1;
 			item.useAnimation = 15;
 			item.useTime = 15;
 			item.noUseGraphic = true;
@@ -23,7 +29,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.damage = 200;
 			item.thrown = true;
 			item.autoReuse = true;
-			item.toolTip = "Passive: Infinite penetration";
 			item.shoot = mod.ProjectileType("CyberCardB");
 			item.crit = 6;
 		}

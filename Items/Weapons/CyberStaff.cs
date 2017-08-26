@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Weapons
@@ -6,15 +7,19 @@ namespace ZoaklenMod.Items.Weapons
 	//imported from my tAPI mod because I'm lazy
 	public class CyberStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Arcade Staff");
+			Tooltip.SetDefault("'Press left click to insert a coin'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Arcade Staff";
 			item.damage = 80;
 			item.summon = true;
 			item.mana = 10;
 			item.width = 26;
 			item.height = 28;
-			item.toolTip = "'Press left click to insert a coin'";
 			item.useTime = 36;
 			item.useAnimation = 36;
 			item.useStyle = 1;
@@ -22,7 +27,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.knockBack = 3;
 			item.value = Item.buyPrice(0, 30, 0, 0);
 			item.rare = 10;
-			item.useSound = 44;
+			item.UseSound = SoundID.Item44;
 			item.shoot = mod.ProjectileType("Invader");
 			item.shootSpeed = 0f;
 			item.buffType = mod.BuffType("Invader");

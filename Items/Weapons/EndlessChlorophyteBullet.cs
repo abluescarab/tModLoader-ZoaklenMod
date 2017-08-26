@@ -5,10 +5,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class EndlessChlorophytePouch : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Endless Chlorophyte Pouch");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.ChlorophyteBullet);
-			item.name = "Endless Chlorophyte Pouch";
 			item.maxStack = 1;
 			item.consumable = false;
 		}

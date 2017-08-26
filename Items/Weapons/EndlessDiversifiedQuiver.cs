@@ -6,11 +6,15 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class EndlessDiversifiedQuiver : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Endless Diversified Quiver");
+			Tooltip.SetDefault("Shoots random types of arrows");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.HolyArrow);
-			item.name = "Endless Diversified Quiver";
-			item.toolTip = "Shoots random types of arrows";
 			item.damage = 20;
 			item.maxStack = 1;
 			item.consumable = false;

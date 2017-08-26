@@ -5,10 +5,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class EndlessHolyQuiver : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Endless Holy Quiver");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.HolyArrow);
-			item.name = "Endless Holy Quiver";
 			item.maxStack = 1;
 			item.consumable = false;
 		}

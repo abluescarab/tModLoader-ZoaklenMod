@@ -9,11 +9,16 @@ namespace ZoaklenMod.Items.Weapons.Vanilla
 	public class VampireKnives : ModItem
 	{
 		int originalType = ItemID.VampireKnives;
+
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Thrown " + item.Name);
+			Tooltip.SetDefault("Right-click to change damage type");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(originalType);
-			item.name = "Thrown " + item.name;
-			item.toolTip2 = "Right-click to change damage type";
 			item.melee = false;
 			item.magic = false;
 			item.ranged = false;

@@ -1,20 +1,26 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Weapons
 {
 	public class CyberCardA : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cyber Card (Agile)");
+			Tooltip.SetDefault("Passive: Very fast move speed");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Cyber Card (Agile)";
 			item.useStyle = 3;
 			item.width = 13;
 			item.height = 20;
 			item.rare = 10;
 			item.consumable = false;
 			item.shootSpeed = 40.0f;
-			item.useSound = 1;
+			item.UseSound = SoundID.Item1;
 			item.useAnimation = 12;
 			item.useTime = 12;
 			item.noUseGraphic = true;
@@ -23,7 +29,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.damage = 200;
 			item.thrown = true;
 			item.autoReuse = true;
-			item.toolTip = "Passive: Very fast move speed";
 			item.shoot = mod.ProjectileType("CyberCardA");
 			item.crit = 6;
 		}

@@ -5,9 +5,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class Kunai : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Kunai");
+			Tooltip.SetDefault("'Death from above'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Kunai";
 			item.useStyle = 1;
 			item.width = 26;
 			item.height = 26;
@@ -15,7 +20,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.maxStack = 999;
 			item.consumable = true;
 			item.shootSpeed = 15.0f;
-			item.useSound = 1;
+			item.UseSound = SoundID.Item1;
 			item.useAnimation = 15;
 			item.useTime = 15;
 			item.noUseGraphic = true;
@@ -24,7 +29,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.damage = 27;
 			item.thrown = true;
 			item.autoReuse = true;
-			item.toolTip = "'Death from above'";
 			item.shoot = mod.ProjectileType("Kunai");
 			item.crit = 10;
 		}

@@ -7,9 +7,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class BlinkSword : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Blink Blade");
+			Tooltip.SetDefault("'The closer you are, the less you see'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Blink Blade";
 			item.damage = 340;
 			item.melee = true;
 			item.width = 34;
@@ -22,11 +27,10 @@ namespace ZoaklenMod.Items.Weapons
 			item.rare = 10;
 			item.crit = 10;
 			item.holdStyle = 1;
-			item.useSound = 1;
+			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.shootSpeed = 5f;
 			item.noMelee = true;
-			item.toolTip = "'The closer you are, the less you see'";
 			item.shoot = mod.ProjectileType("CyberCut");
 		}
 
@@ -126,7 +130,7 @@ namespace ZoaklenMod.Items.Weapons
 					if((Main.tile[num245, num246].wall != 87 || (double)num246 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector14, player.width, player.height))
 					{
 						player.Teleport(vector14, 1, 0);
-						NetMessage.SendData(65, -1, -1, "", 0, (float)player.whoAmI, vector14.X, vector14.Y, 1, 0, 0);
+						NetMessage.SendData(65, -1, -1, null, 0, (float)player.whoAmI, vector14.X, vector14.Y, 1, 0, 0);
 					}
 				}
 			}

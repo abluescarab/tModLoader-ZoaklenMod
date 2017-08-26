@@ -6,9 +6,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class CursedCard : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cursed Card");
+			Tooltip.SetDefault("'It hurts? Yes, of curse'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Cursed Card";
 			item.useStyle = 3;
 			item.width = 13;
 			item.height = 20;
@@ -16,7 +21,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.maxStack = 999;
 			item.consumable = true;
 			item.shootSpeed = 10.0f;
-			item.useSound = 1;
+			item.UseSound = SoundID.Item1;
 			item.useAnimation = 15;
 			item.useTime = 15;
 			item.noUseGraphic = true;
@@ -25,7 +30,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.damage = 30;
 			item.thrown = true;
 			item.autoReuse = true;
-			item.toolTip = "'It hurts? Yes, of curse'";
 			item.shoot = mod.ProjectileType("CursedCard");
 			item.crit = 6;
 		}

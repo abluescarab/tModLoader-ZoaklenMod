@@ -7,14 +7,18 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class PhantasmalCelebration : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Phantasm Buster");
+			Tooltip.SetDefault("'There is a secret cannon on it'");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.Phantasm);
-			item.name = "Phantasm Buster";
 			item.damage = 30;
 			item.rare = 10;
 			item.noUseGraphic = false;
-			item.toolTip = "'There is a secret cannon on it'";
 			item.shoot = mod.ProjectileType("PhantasmalCelebration");
 			item.value = Item.sellPrice(0, 50, 0, 0);
 		}

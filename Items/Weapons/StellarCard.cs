@@ -6,9 +6,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class StellarCard : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stellar Card");
+			Tooltip.SetDefault("'Even more indiscreet'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Stellar Card";
 			item.useStyle = 3;
 			item.width = 13;
 			item.height = 20;
@@ -16,7 +21,7 @@ namespace ZoaklenMod.Items.Weapons
 			item.maxStack = 999;
 			item.consumable = true;
 			item.shootSpeed = 15.0f;
-			item.useSound = 1;
+			item.UseSound = SoundID.Item1;
 			item.useAnimation = 15;
 			item.useTime = 15;
 			item.noUseGraphic = true;
@@ -25,7 +30,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.damage = 85;
 			item.thrown = true;
 			item.autoReuse = true;
-			item.toolTip = "'Even more indiscreet'";
 			item.shoot = mod.ProjectileType("StellarCard");
 			item.crit = 6;
 		}

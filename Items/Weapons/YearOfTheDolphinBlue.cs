@@ -7,10 +7,16 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class YearOfTheDolphinBlue : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Year Of The Dolphin (Blue)");
+			Tooltip.SetDefault("'Let's grove tonight'\n +" +
+				"66% chance to not consume ammo");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.SDMG);
-			item.name = "Year Of The Dolphin (Blue)";
 			item.rare = 10;
 			item.shootSpeed *= 1.1f;
 			item.damage = 80;
@@ -18,8 +24,6 @@ namespace ZoaklenMod.Items.Weapons
 			item.autoReuse = true;
 			item.useAmmo = 14;
 			item.channel = true;
-			item.toolTip = "'Let's grove tonight'";
-			item.toolTip2 = "66% chance to not consume ammo";
 			item.value = Item.sellPrice(0, 50, 0, 0);
 		}
 

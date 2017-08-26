@@ -5,10 +5,14 @@ namespace ZoaklenMod.Items.Weapons
 {
 	public class EndlessLuminiteQuiver : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Endless Luminite Quiver");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.MoonlordArrow);
-			item.name = "Endless Luminite Quiver";
 			item.maxStack = 1;
 			item.consumable = false;
 		}
