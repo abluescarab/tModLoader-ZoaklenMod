@@ -1,6 +1,7 @@
 using System.IO;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -78,10 +79,13 @@ namespace ZoaklenMod.NPCs.MagicalCube
 		private int stage;
 		private int[] receivedDamage = new int[5];
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Magical Cube");
+		}
+
 		public override void SetDefaults()
 		{
-			npc.name = "Magical Cube";
-			npc.displayName = "Magical Cube";
 			npc.aiStyle = -1;
 			npc.lifeMax = 200000;
 			npc.damage = 125;
@@ -96,8 +100,8 @@ namespace ZoaklenMod.NPCs.MagicalCube
 			npc.lavaImmune = false;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
-			npc.soundHit = 1;
-			npc.soundKilled = 1;
+			npc.HitSound = SoundID.NPCHit1;
+			npc.DeathSound = SoundID.NPCDeath1;
 			npc.buffImmune[24] = true;
 			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/SmartDrag");
 			bossBag = mod.ItemType("MagicalCubeTreasureBag");
@@ -179,7 +183,8 @@ namespace ZoaklenMod.NPCs.MagicalCube
 				Main.NewText("Cheating will not help.", 255, 32, 32);
 				player.statDefense = 0;
 				player.endurance = 0;
-				player.Hurt(9999, -player.direction, false, false, " was judged", true, -1);
+				player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " was judged"), 9999, -player.direction,
+					false, false, true, -1);
 				BitLightning(player.Center);
 			}
 
@@ -552,7 +557,7 @@ namespace ZoaklenMod.NPCs.MagicalCube
 
 		public override void BossLoot(ref string name, ref int potionType)
 		{
-			name = "The " + npc.displayName;
+			name = "The " + npc.TypeName;
 			potionType = ItemID.SuperHealingPotion;
 		}
 
@@ -594,14 +599,15 @@ namespace ZoaklenMod.NPCs.MagicalCube
 				Main.NewText("Cheating will not help.", 255, 32, 32);
 				player.statDefense = 0;
 				player.endurance = 0;
-				player.Hurt(9999, -player.direction, false, false, " was judged", true, -1);
+				player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " was judged"), 9999, -player.direction,
+					false, false, true, -1);
 				BitLightning(player.Center);
 				mult = 0f;
 			}
 			damage = (int)(damage * mult);
 		}
 
-		public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit)
+		public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
 			Player player = Main.player[projectile.owner];
 			float mult = 1f;
@@ -635,7 +641,8 @@ namespace ZoaklenMod.NPCs.MagicalCube
 				Main.NewText("Cheating will not help.", 255, 32, 32);
 				player.statDefense = 0;
 				player.endurance = 0;
-				player.Hurt(9999, -player.direction, false, false, " was judged", true, -1);
+				player.Hurt(PlayerDeathReason.ByCustomReason(player.name + " was judged"), 9999, -player.direction,
+					false, false, true, -1);
 				BitLightning(player.Center);
 				mult = 0f;
 			}
@@ -647,7 +654,7 @@ namespace ZoaklenMod.NPCs.MagicalCube
 			if(currentlyImmune)
 			{
 				damage *= 0.1f;
-				Main.PlaySound(3, (int)npc.position.X, (int)npc.position.Y, npc.soundHit);
+				Main.PlaySound(3, (int)npc.position.X, (int)npc.position.Y, npc.HitSound.SoundId);
 				return false;
 			}
 			if(stage == 0)

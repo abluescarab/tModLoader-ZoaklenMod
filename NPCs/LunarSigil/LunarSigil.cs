@@ -16,10 +16,14 @@ namespace ZoaklenMod.NPCs.LunarSigil
 		public int stage;
 		public int attackProgress;
 		public int stageCounter;
+
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Lunar Sigil");
+		}
+
 		public override void SetDefaults()
 		{
-			npc.name = "LunarSigil";
-			npc.displayName = "Lunar Sigil";
 			npc.aiStyle = -1;
 			npc.lifeMax = 10;
 			npc.damage = 0;
@@ -34,8 +38,8 @@ namespace ZoaklenMod.NPCs.LunarSigil
 			npc.lavaImmune = true;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
-			npc.soundHit = 1;
-			npc.soundKilled = 0;
+			npc.HitSound = SoundID.NPCHit1;
+			npc.DeathSound = SoundID.NPCDeath1;
 			npc.alpha = 0;
 			for(int k = 0; k < npc.buffImmune.Length; k++)
 			{
@@ -589,7 +593,7 @@ namespace ZoaklenMod.NPCs.LunarSigil
 
 		public override void BossLoot(ref string name, ref int potionType)
 		{
-			name = "The " + npc.displayName;
+			name = "The " + npc.TypeName;
 			potionType = ItemID.SuperHealingPotion;
 		}
 
@@ -613,7 +617,7 @@ namespace ZoaklenMod.NPCs.LunarSigil
 			return CanBeHitByPlayer(Main.player[projectile.owner]);
 		}
 
-		public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit)
+		public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
 			ModifyHit(ref damage);
 		}

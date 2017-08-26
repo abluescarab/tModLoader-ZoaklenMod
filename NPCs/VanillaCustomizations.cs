@@ -7,14 +7,16 @@ namespace ZoaklenMod.NPCs
 {
 	public class VanillaCustomizations : GlobalNPC
 	{
+		public bool virus = false;
+
 		public override void ResetEffects(NPC npc)
 		{
-			npc.GetModInfo<NPCChanges>(mod).virus = false;
+			virus = false;
 		}
 
 		public override void UpdateLifeRegen(NPC npc, ref int damage)
 		{
-			if(npc.GetModInfo<NPCChanges>(mod).virus)
+			if(virus)
 			{
 				if(npc.lifeRegen > 0)
 				{
@@ -30,7 +32,7 @@ namespace ZoaklenMod.NPCs
 
 		public override void DrawEffects(NPC npc, ref Color drawColor)
 		{
-			if(npc.GetModInfo<NPCChanges>(mod).virus)
+			if(virus)
 			{
 				int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, mod.DustType("Neon"), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default(Color), 1f);
 				Main.dust[dust].velocity *= 1.8f;
