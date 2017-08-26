@@ -7,8 +7,8 @@ namespace ZoaklenMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Creeper";
-			Main.buffTip[Type] = "The creeper will fight for you";
+			DisplayName.SetDefault("Creeper");
+			Description.SetDefault("The creeper will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

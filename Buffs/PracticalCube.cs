@@ -7,8 +7,8 @@ namespace ZoaklenMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Practical Cube";
-			Main.buffTip[Type] = "'Still evil, but it is cute, so you pet it'";
+			DisplayName.SetDefault("Practical Cube");
+			Description.SetDefault("'Still evil, but it is cute, so you pet it'");
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.vanityPet[Type] = true;
 		}

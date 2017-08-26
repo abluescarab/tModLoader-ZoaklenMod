@@ -7,8 +7,8 @@ namespace ZoaklenMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Pacman";
-			Main.buffTip[Type] = "The eater of bits will fight for you";
+			DisplayName.SetDefault("Pacman");
+			Description.SetDefault("The eater of bits will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

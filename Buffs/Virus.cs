@@ -1,6 +1,5 @@
 using Terraria;
 using Terraria.ModLoader;
-using ZoaklenMod.NPCs;
 
 namespace ZoaklenMod.Buffs
 {
@@ -8,8 +7,8 @@ namespace ZoaklenMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Virus!";
-			Main.buffTip[Type] = "The antivirus is killing you";
+			DisplayName.SetDefault("Virus!");
+			Description.SetDefault("The antivirus is killing you");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;
@@ -23,7 +22,7 @@ namespace ZoaklenMod.Buffs
 
 		public override void Update(NPC npc, ref int buffIndex)
 		{
-			npc.GetModInfo<NPCChanges>(mod).virus = true;
+			npc.GetGlobalNPC<NPCs.VanillaCustomizations>(mod).virus = true;
 		}
 	}
 }

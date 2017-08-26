@@ -7,8 +7,8 @@ namespace ZoaklenMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Shadow Orb";
-			Main.buffTip[Type] = "The shadow orb will fight for you";
+			DisplayName.SetDefault("Shadow Orb");
+			Description.SetDefault("The shadow orb will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

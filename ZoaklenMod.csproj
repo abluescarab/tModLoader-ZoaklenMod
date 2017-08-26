@@ -224,7 +224,6 @@
     <Compile Include="NeonMediumSky.cs" />
     <Compile Include="NPCs\LunarSigil\LunarSigil.cs" />
     <Compile Include="NPCs\MagicalCube\MagicalCube.cs" />
-    <Compile Include="NPCs\NPCChanges.cs" />
     <Compile Include="NPCs\VanillaCustomizations.cs" />
     <Compile Include="PlayerChanges.cs" />
     <Compile Include="Projectiles\AmberShuriken.cs" />

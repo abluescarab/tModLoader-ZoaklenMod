@@ -7,8 +7,8 @@ namespace ZoaklenMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Shadowflame Apparition";
-			Main.buffTip[Type] = "The shadowflame apparition will fight for you";
+			DisplayName.SetDefault("Shadowflame Apparition");
+			Description.SetDefault("The shadowflame apparition will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

@@ -8,7 +8,7 @@ namespace ZoaklenMod.Buffs
 	{
 		public override void Update(int type, Player player, ref int buffIndex)
 		{
-			if(NPC.AnyNPCs(mod.NPCType("MagicalCube")) && Main.buffName[type].Contains("Mount"))
+			if(NPC.AnyNPCs(mod.NPCType("MagicalCube")) && player.mount != null)
 			{
 				player.mount.Reset();
 				player.ClearBuff(type);

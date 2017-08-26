@@ -7,8 +7,8 @@ namespace ZoaklenMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Invader";
-			Main.buffTip[Type] = "The invader will fight for you";
+			DisplayName.SetDefault("Invader");
+			Description.SetDefault("The invader will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
