@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,13 +7,18 @@ namespace ZoaklenMod.Items.Ingredients
 {
 	public class FireEssence : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fire Core");
+			Tooltip.SetDefault("'A red smoke comes out of this stone'");
+			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3, 11));
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Fire Core";
 			item.width = 20;
 			item.height = 27;
 			item.maxStack = 99;
-			AddTooltip("'A red smoke comes out of this stone'");
 			item.value = 100000;
 			item.rare = 5;
 		}
@@ -96,11 +102,6 @@ namespace ZoaklenMod.Items.Ingredients
 			recipe.AddTile(TileID.CrystalBall);
 			recipe.SetResult(this, 3);
 			recipe.AddRecipe();
-		}
-
-		public override DrawAnimation GetAnimation()
-		{
-			return new Terraria.DataStructures.DrawAnimationVertical(3, 11);
 		}
 	}
 }

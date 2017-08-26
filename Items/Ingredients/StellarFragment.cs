@@ -9,13 +9,17 @@ namespace ZoaklenMod.Items.Ingredients
 {
 	public class StellarFragment : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stellar Fragment");
+			Tooltip.SetDefault("'It is pulsing out'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Stellar Fragment";
 			item.width = 16;
 			item.height = 14;
 			item.maxStack = 999;
-			AddTooltip("'It is pulsing out'");
 			item.value = 100;
 			item.rare = 9;
 			item.scale = 1f;
@@ -52,7 +56,7 @@ namespace ZoaklenMod.Items.Ingredients
 			recipe.AddRecipe();
 		}
 
-		public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale)
+		public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
 		{
 			item.scale -= 0.02f;
 			if(item.scale <= 0.5f)
