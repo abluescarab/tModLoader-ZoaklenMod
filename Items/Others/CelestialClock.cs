@@ -6,16 +6,20 @@ namespace ZoaklenMod.Items.Others
 {
 	public class CelestialClock : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Celestial Clock");
+			Tooltip.SetDefault("Indefinitely switch between day and night");
+		}
+
 		public override void SetDefaults()
 		{
 			item.useStyle = 4;
 			item.useAnimation = 45;
 			item.useTime = 45;
 			item.rare = 8;
-			item.name = "Celestial Clock";
 			item.width = 32;
 			item.height = 32;
-			AddTooltip("Indefinitely switch between day and night.");
 			item.value = 5000000;
 		}
 

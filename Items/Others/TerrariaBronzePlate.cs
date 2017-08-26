@@ -7,17 +7,21 @@ namespace ZoaklenMod.Items.Others
 {
 	public class TerrariaBronzePlate : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Terraria Bronze Plate");
+			Tooltip.SetDefault("'Thanks for downloading ZoaklenMod'");
+		}
+
 		public override void SetDefaults()
 		{
 			item.useStyle = 4;
 			item.useAnimation = 45;
 			item.useTime = 45;
 			item.rare = 3;
-			item.name = "Terraria Bronze Plate";
 			item.width = 18;
 			item.height = 28;
 			item.autoReuse = true;
-			AddTooltip("'Thanks for downloading ZoaklenMod'");
 			item.value = 420;
 		}
 

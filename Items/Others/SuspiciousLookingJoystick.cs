@@ -6,12 +6,16 @@ namespace ZoaklenMod.Items.Others
 {
 	public class SuspiciousLookingJoystick : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Suspicious Looking Joystick");
+			Tooltip.SetDefault("'Reward for defeating the techno doom'");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.CompanionCube);
-			item.name = "Suspicious Looking Joystick";
 			item.rare = 10;
-			item.toolTip = "'Reward for defeating the techno doom'";
 			item.shoot = mod.ProjectileType("PracticalCube");
 			item.buffType = mod.BuffType("PracticalCube");
 		}

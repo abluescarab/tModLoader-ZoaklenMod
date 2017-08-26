@@ -5,14 +5,18 @@ namespace ZoaklenMod.Items.Others
 {
 	public class MagicalCubeTreasureBag : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Treasure Bag");
+			Tooltip.SetDefault("Right Click to open");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Treasure Bag";
 			item.maxStack = 999;
 			item.consumable = true;
 			item.width = 24;
 			item.height = 24;
-			item.toolTip = "Right Click to open";
 			item.expert = true;
 			item.rare = 10;
 			bossBagNPC = mod.NPCType("MagicalCube");
@@ -42,7 +46,8 @@ namespace ZoaklenMod.Items.Others
 			{
 				weapType = "throwing";
 			}
-			item.toolTip2 = "Currently holding a " + weapType + " item type";
+			Tooltip.SetDefault("Right Click to open\n" +
+				"Currently holding a " + weapType + " item type");
 		}
 
 		public override bool CanRightClick()

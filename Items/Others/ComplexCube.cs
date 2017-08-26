@@ -6,13 +6,17 @@ namespace ZoaklenMod.Items.Others
 {
 	public class ComplexCube : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Complex Cube");
+			Tooltip.SetDefault("Summons the techno doom");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Complex Cube";
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 20;
-			item.toolTip = "Summons the techno doom";
 			item.value = 100;
 			item.rare = 11;
 			item.useAnimation = 30;
