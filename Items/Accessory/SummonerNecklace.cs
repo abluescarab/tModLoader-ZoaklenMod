@@ -6,15 +6,19 @@ namespace ZoaklenMod.Items.Accessory
 {
 	public class SummonerNecklace : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Invoker Emblem");
+			Tooltip.SetDefault("Increases your max number of minions by 3\n" +
+				"30% increased minion damage\n" +
+				"Permanent summoning buffs\n" +
+				"'If the pygmies know what you did'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Invoker Emblem";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("Increases your max number of minions by 3");
-			AddTooltip("30% increased minion damage");
-			AddTooltip("Permanent summoning buffs");
-			AddTooltip("'If the pygmies know what you did'");
 			item.value = 100000;
 			item.rare = 6;
 			item.accessory = true;

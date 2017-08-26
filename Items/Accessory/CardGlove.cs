@@ -11,13 +11,17 @@ namespace ZoaklenMod.Items.Accessory
 			return true;
 		}*/
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Card Glove");
+			Tooltip.SetDefault("10% increased cards damage\n" +
+				"33% chance to not consume thrown cards");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Card Glove";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("10% increased cards damage");
-			AddTooltip("33% chance to not consume thrown cards");
 			item.value = 1000;
 			item.rare = 4;
 			item.accessory = true;

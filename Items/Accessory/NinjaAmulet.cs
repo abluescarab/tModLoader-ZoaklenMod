@@ -12,16 +12,20 @@ namespace ZoaklenMod.Items.Accessory
 			return true;
 		}*/
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ninja Amulet");
+			Tooltip.SetDefault("Allows player to dash into an enemy\n" +
+				"Double tap into a direction\n" +
+				"May confuse nearby enemies after being struck\n" +
+				"Increases length of invincibility after taking damage\n" +
+				"'You see your future in its pendant'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Ninja Amulet";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("Allows player to dash into an enemy");
-			AddTooltip("Double tap into a direction");
-			AddTooltip("May confuse nearby enemies after being struck");
-			AddTooltip("Increases length of invincibility after taking damage");
-			AddTooltip2("'You see your future in its pendant'");
 			item.value = 100000;
 			item.rare = 6;
 			item.knockBack = 9f;

@@ -7,17 +7,22 @@ namespace ZoaklenMod.Items.Accessory
 {
 	public class NinjaSkills : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Stellar Ninja Soul");
+			Tooltip.SetDefault("15% increased throwing damage, velocity and critical strike chance\n" +
+				"Increases armor penetration by 5\n" +
+				"Allows player ability to dash\n" +
+				"Double tap into a direction\n" +
+				"May confuse nearby enemies after being struck\n" +
+				"Increases length of invincibility after taking damage");
+			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 19));
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Stellar Ninja Soul";
 			item.width = 24;
 			item.height = 28;
-			AddTooltip("15% increased throwing damage, velocity and critical strike chance");
-			AddTooltip("Increases armor penetration by 5");
-			AddTooltip("Allows player ability to dash");
-			AddTooltip("Double tap into a direction");
-			AddTooltip("May confuse nearby enemies after being struck");
-			AddTooltip("Increases length of invincibility after taking damage");
 			item.value = 10000;
 			item.rare = 10;
 			item.defense = 8;
@@ -47,11 +52,6 @@ namespace ZoaklenMod.Items.Accessory
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-		}
-
-		public override DrawAnimation GetAnimation()
-		{
-			return new Terraria.DataStructures.DrawAnimationVertical(5, 19);
 		}
 	}
 }

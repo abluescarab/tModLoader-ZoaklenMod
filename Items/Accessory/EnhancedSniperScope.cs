@@ -6,14 +6,18 @@ namespace ZoaklenMod.Items.Accessory
 {
 	public class EnhancedSniperScope : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Enhanced Sniper Scope");
+			Tooltip.SetDefault("Increases view range for guns (right click to zoom out)\n" +
+				"10% increased range damage and critical strike chance\n" +
+				"Permanent arrow buffs");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Enhanced Sniper Scope";
 			item.width = 24;
 			item.height = 28;
-			AddTooltip("Increases view range for guns (right click to zoom out)");
-			AddTooltip("10% increased ranged damage and critical strike chance");
-			AddTooltip("Permanent arrow buffs");
 			item.value = 100000;
 			item.rare = 9;
 			item.accessory = true;

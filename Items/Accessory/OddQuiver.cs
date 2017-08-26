@@ -6,13 +6,17 @@ namespace ZoaklenMod.Items.Accessory
 {
 	public class OddQuiver : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Odd Quiver");
+			Tooltip.SetDefault("Increases arrow damage by 5%\n" +
+				"10% chance to not consume arrow");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Odd Quiver";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("Increases arrow damage by 5%");
-			AddTooltip("10% chance to not consume arrow");
 			item.value = 10000;
 			item.rare = 9;
 			item.accessory = true;

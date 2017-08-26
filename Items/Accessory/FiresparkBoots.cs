@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Graphics.Shaders;
@@ -8,26 +7,25 @@ using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Accessory
 {
+	[AutoloadEquip(EquipType.Shoes)]
 	public class FiresparkBoots : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Shoes);
-			return true;
+			DisplayName.SetDefault("Firespark Boots");
+			Tooltip.SetDefault("Allows flight, hyper fast running and extra mobility on ice\n" +
+				"Grants immunity to Chilled and Frozen debuffs\n" +
+				"Grants 5 seconds of immunity to lava\n" +
+				"Increases movement speed after being struck\n" +
+				"Provides the ability to walk over liquids\n" +
+				"Permanent Swiftness buff\n" +
+				"'Moonwalking would be a terrible idea'");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Firespark Boots";
 			item.width = 24;
 			item.height = 28;
-			AddTooltip("Allows flight, hyper fast running and extra mobility on ice");
-			AddTooltip("Grants immunity to Chilled and Frozen debuffs");
-			AddTooltip("Grants 5 seconds of immunity to lava");
-			AddTooltip("Increases movement speed after being struck");
-			AddTooltip("Provides the ability to walk over liquids");
-			AddTooltip("Permanent Swiftness buff");
-			AddTooltip2("'Moonwalking would be a terrible idea'");
 			item.value = 100000;
 			item.rare = 8;
 			item.accessory = true;

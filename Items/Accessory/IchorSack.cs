@@ -5,14 +5,18 @@ namespace ZoaklenMod.Items.Accessory
 {
 	public class IchorSack : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ichor Sack");
+			Tooltip.SetDefault("Grants immunity to Ichor debuff\n" +
+				"Inflicts Ichor debuff for 7 seconds to enemies who damages you\n" +
+				"'Its hole spits on you when you are not seeing'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Ichor Sack";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("Grants immunity to Ichor debuff");
-			AddTooltip("Inflicts Ichor debuff for 7 seconds to enemies who damages you");
-			AddTooltip2("'Its hole spits on you when you are not seeing'");
 			item.value = 100000;
 			item.rare = 4;
 			item.accessory = true;

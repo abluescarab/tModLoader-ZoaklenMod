@@ -12,12 +12,16 @@ namespace ZoaklenMod.Items.Accessory
 			return true;
 		}*/
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Nebula Emblem");
+			Tooltip.SetDefault("25% increased magic damage");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Nebula Emblem";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("25% increased magic damage");
 			item.value = 100000;
 			item.rare = 10;
 			item.accessory = true;

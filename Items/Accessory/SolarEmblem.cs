@@ -12,12 +12,16 @@ namespace ZoaklenMod.Items.Accessory
 			return true;
 		}*/
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Solar Emblem");
+			Tooltip.SetDefault("25% increase melee damage");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Solar Emblem";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("25% increased melee damage");
 			item.value = 100000;
 			item.rare = 10;
 			item.accessory = true;

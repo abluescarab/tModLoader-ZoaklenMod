@@ -12,17 +12,21 @@ namespace ZoaklenMod.Items.Accessory
 			return true;
 		}*/
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ninja Knuckles");
+			Tooltip.SetDefault("Increases armor penetration by 5\n" +
+				"4% increased damage and critical strike chance\n" +
+				"'Punch them at the super sonic speed'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Ninja Knuckles";
 			item.width = 24;
 			item.height = 24;
 			item.value = 100000;
 			item.defense = 6;
 			item.rare = 8;
-			AddTooltip("Increases armor penetration by 5");
-			AddTooltip("4% increased damage and critical strike chance");
-			AddTooltip2("'Punch them at the super sonic speed'");
 			item.accessory = true;
 		}
 

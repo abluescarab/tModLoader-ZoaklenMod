@@ -1,29 +1,28 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Accessory
 {
+	[AutoloadEquip(EquipType.Shield)]
 	public class DivineShield : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Shield);
-			return true;
+			DisplayName.SetDefault("Divine Shield");
+			Tooltip.SetDefault("Absorbs 25% of damage done to players on your team\n" +
+				"Only active above 25% life\n" +
+				"Grants immunity to knockback and fire blocks\n" +
+				"Grants immunity to most debuffs\n" +
+				"Puts a shell around the owner when below 50% life that reduces damage\n" +
+				"'Also grants immunity to myopia'");
+
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Divine Shield";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("Absorbs 25% of damage done to players on your team");
-			AddTooltip("Only active above 25% life");
-			AddTooltip("Grants immunity to knockback and fire blocks");
-			AddTooltip("Grants immunity to most debuffs");
-			AddTooltip("Puts a shell around the owner when below 50% life that reduces damage");
-			AddTooltip2("'Also grants immunity to myopia'");
 			item.value = 100000;
 			item.rare = 9;
 			item.defense = 10;

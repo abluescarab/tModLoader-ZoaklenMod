@@ -11,12 +11,16 @@ namespace ZoaklenMod.Items.Accessory
 			return true;
 		}*/
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ninja Emblem");
+			Tooltip.SetDefault("15% increased throwing damage");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Ninja Emblem";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("15% increased throwing damage");
 			item.value = 100000;
 			item.rare = 4;
 			item.accessory = true;

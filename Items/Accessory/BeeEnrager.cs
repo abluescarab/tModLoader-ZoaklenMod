@@ -7,12 +7,17 @@ namespace ZoaklenMod.Items.Accessory
 {
 	public class BeeEnrager : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Rotten Beehive");
+			Tooltip.SetDefault("Enrages your bees");
+			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(30, 4));
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Rotten Beehive";
 			item.width = 26;
 			item.height = 26;
-			AddTooltip("Enrages your bees");
 			item.value = 100000;
 			item.rare = 6;
 			item.accessory = true;
@@ -21,11 +26,6 @@ namespace ZoaklenMod.Items.Accessory
 		public override void UpdateEquip(Player player)
 		{
 			player.strongBees = true;
-		}
-
-		public override DrawAnimation GetAnimation()
-		{
-			return new Terraria.DataStructures.DrawAnimationVertical(30, 4);
 		}
 
 		public override void AddRecipes()

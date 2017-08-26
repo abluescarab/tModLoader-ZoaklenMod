@@ -7,16 +7,19 @@ namespace ZoaklenMod.Items.Accessory
 {
 	public class FrozenShinyStone : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Frozen Shiny Stone");
+			Tooltip.SetDefault("Greatly increases health regen when not moving\n" +
+				"Puts a shell around the owner when below 50% life that reduces damage\n" +
+				"Provides life regeneration and reduces the cooldown of healing potions\n" +
+				"Summons spores over time that will damage enemies");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Frozen Shiny Stone";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("Greatly increases health regen when not moving");
-			AddTooltip("Puts a shell around the owner when below 50% life that reduces damage");
-			AddTooltip("Provides life regeneration and reduces the cooldown of healing potions");
-			AddTooltip("Reduces damage taken by 10%");
-			AddTooltip("Summons spores over time that will damage enemies");
 			item.damage = 40;
 			item.summon = true;
 			item.value = 100000;

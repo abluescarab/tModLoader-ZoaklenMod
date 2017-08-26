@@ -1,30 +1,28 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Accessory
 {
+	[AutoloadEquip(EquipType.Back)]
 	public class NightQuiver : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Back);
-			return true;
+			DisplayName.SetDefault("Night Quiver");
+			Tooltip.SetDefault("Increases movement speed after being struck\n" +
+				"Allows the ability to climb and dash\n" +
+				"Gives a chance to dodge attacks\n" +
+				"Increases arrow damage by 20% and greatly increases arrow speed\n" +
+				"10% increased ranged critical strike chance\n" +
+				"20% chance to not consume arrows\n" +
+				"Permanent arrow buffs");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Night Quiver";
 			item.width = 24;
 			item.height = 28;
-			AddTooltip("Increases movement speed after being struck");
-			AddTooltip("Allows the ability to climb and dash");
-			AddTooltip("Gives a chance to dodge attacks");
-			AddTooltip("Increases arrow damage by 20% and greatly increases arrow speed");
-			AddTooltip("10% increased ranged critical strike chance");
-			AddTooltip("20% chance to not consume arrows");
-			AddTooltip("Permanent arrow buffs");
 			item.value = 100000;
 			item.rare = 9;
 			item.accessory = true;

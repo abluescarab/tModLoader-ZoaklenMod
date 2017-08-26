@@ -11,14 +11,18 @@ namespace ZoaklenMod.Items.Accessory
 			return true;
 		}*/
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Tera Card Glove");
+			Tooltip.SetDefault("20% increased cards damage\n" +
+				"50% chance to not consume thrown cards\n" +
+				"Hidden critical strike chance with cards");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Tera Card Glove";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("20% increased cards damage");
-			AddTooltip("50% chance to not consume thrown cards");
-			AddTooltip("Hidden critical strike chance with cards");
 			item.value = 1000;
 			item.rare = 4;
 			item.accessory = true;

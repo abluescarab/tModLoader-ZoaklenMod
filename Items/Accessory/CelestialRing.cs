@@ -1,28 +1,26 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Accessory
 {
+	[AutoloadEquip(EquipType.HandsOn)]
 	public class CelestialRing : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.HandsOn);
-			return true;
+			DisplayName.SetDefault("Celestial Ring");
+			Tooltip.SetDefault("Increases pickup range for mana stars\n" +
+				"Restores mana when damaged\n" +
+				"15% increased magic damage\n" +
+				"Minor increase to several stats\n" +
+				"'It have a moon engraved'");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Celestial Ring";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("Increases pickup range for mana stars");
-			AddTooltip("Restores mana when damaged");
-			AddTooltip("15% increased magic damage");
-			AddTooltip("Minor increase to several stats");
-			AddTooltip2("'It have a moon engraved'");
 			item.value = 100000;
 			item.rare = 9;
 			item.accessory = true;

@@ -6,20 +6,24 @@ namespace ZoaklenMod.Items.Accessory
 {
 	public class ManaTear : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Mana Tear");
+			Tooltip.SetDefault("Increases maximum mana by 60\n" +
+				"Increases mana regeneration rate\n" +
+				"10% reduced mana usage\n" +
+				"Automatically uses mana potion when needed\n" +
+				"15% increased magic damage\n" +
+				"Increases pickup range for mana stars\n" +
+				"Restores mana when damaged\n" +
+				"Permanent magic buffs\n" +
+				"'You secretly stealed the Dryad's tear'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Mana Tear";
 			item.width = 24;
 			item.height = 24;
-			AddTooltip("Increases maximum mana by 60");
-			AddTooltip("Increases mana regeneration rate");
-			AddTooltip("10% reduced mana usage");
-			AddTooltip("Automatically uses mana potion when needed");
-			AddTooltip("15% increased magic damage");
-			AddTooltip("Increases pickup range for mana stars");
-			AddTooltip("Restores mana when damaged");
-			AddTooltip("Permanent magic buffs");
-			AddTooltip("'You secretly stealed the Dryad's tear'");
 			item.value = 100000;
 			item.rare = 4;
 			item.accessory = true;
