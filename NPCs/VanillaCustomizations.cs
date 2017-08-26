@@ -7,6 +7,8 @@ namespace ZoaklenMod.NPCs
 {
 	public class VanillaCustomizations : GlobalNPC
 	{
+		public override bool InstancePerEntity { get { return true; } }
+
 		public bool virus = false;
 
 		public override void ResetEffects(NPC npc)
