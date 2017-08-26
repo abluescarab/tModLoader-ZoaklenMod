@@ -6,13 +6,18 @@ namespace ZoaklenMod.Items.Marks
 {
 	public class BullseyeMark : MarkBase
 	{
+		public override void MarkStaticDefaults()
+		{
+			DisplayName.SetDefault("Bullseye Mark");
+			Tooltip.SetDefault("Doubles critical hit damage\n" +
+				"Reduces critical strike chance by 20%");
+			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(10, 6));
+		}
+
 		public override void MarkDefaults()
 		{
-			item.name = "Bullseye Mark";
 			item.width = 20;
 			item.height = 20;
-			AddTooltip("Doubles critical hit damage");
-			AddTooltip("Reduces critical strike chance by 20%");
 			item.value = 5000000;
 			item.rare = -11;
 			markId = 2;
@@ -96,11 +101,6 @@ namespace ZoaklenMod.Items.Marks
 					}
 				}
 			}
-		}
-
-		public override DrawAnimation GetAnimation()
-		{
-			return new Terraria.DataStructures.DrawAnimationVertical(10, 6);
 		}
 	}
 }

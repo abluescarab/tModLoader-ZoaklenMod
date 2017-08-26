@@ -8,12 +8,18 @@ namespace ZoaklenMod.Items.Marks
 	{
 		int dusts = 5;
 		int cD;
+
+		public override void MarkStaticDefaults()
+		{
+			DisplayName.SetDefault("Protector Mark");
+			Tooltip.SetDefault("Greatly increases your defense");
+			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3, 4));
+		}
+
 		public override void MarkDefaults()
 		{
-			item.name = "Protector Mark";
 			item.width = 18;
 			item.height = 34;
-			AddTooltip("Greatly increases your defense");
 			item.value = 5000000;
 			item.rare = -11;
 			markId = 3;
@@ -77,11 +83,6 @@ namespace ZoaklenMod.Items.Marks
 				Main.dust[dust1].velocity.X = (float)Main.rand.Next(-16, 17);
 				Main.dust[dust1].velocity.Y = (float)Main.rand.Next(-16, 17);
 			}*/
-		}
-
-		public override DrawAnimation GetAnimation()
-		{
-			return new Terraria.DataStructures.DrawAnimationVertical(3, 4);
 		}
 	}
 }

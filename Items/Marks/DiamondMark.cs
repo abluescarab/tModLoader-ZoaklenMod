@@ -6,14 +6,19 @@ namespace ZoaklenMod.Items.Marks
 {
 	public class DiamondMark : MarkBase
 	{
+		public override void MarkStaticDefaults()
+		{
+			DisplayName.SetDefault("Diamonds Mark");
+			Tooltip.SetDefault("Increases cards damage by 30%\n" +
+				"Increases cards critical strike chance by 20%\n" +
+				"Card attack speed increased by 15%");
+			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3, 11));
+		}
+
 		public override void MarkDefaults()
 		{
-			item.name = "Diamonds Mark";
 			item.width = 30;
 			item.height = 30;
-			AddTooltip("Increases cards damage by 30%");
-			AddTooltip("Increases cards critical strike chance by 20%");
-			AddTooltip("Card attack speed increased by 15%");
 			item.value = 2000000;
 			item.rare = -11;
 			markId = 4;
@@ -21,7 +26,7 @@ namespace ZoaklenMod.Items.Marks
 
 		public override void MarkEffect(Player player)
 		{
-			string t = player.inventory[player.selectedItem].name;
+			string t = player.inventory[player.selectedItem].Name;
 			if(t.Contains("Card"))
 			{
 				player.thrownCrit += 20;
@@ -59,11 +64,6 @@ namespace ZoaklenMod.Items.Marks
 					Main.dust[dust].noGravity = true;
 				}
 			}
-		}
-
-		public override DrawAnimation GetAnimation()
-		{
-			return new Terraria.DataStructures.DrawAnimationVertical(3, 11);
 		}
 	}
 }

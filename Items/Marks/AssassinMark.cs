@@ -6,12 +6,17 @@ namespace ZoaklenMod.Items.Marks
 {
 	public class AssassinMark : MarkBase
 	{
+		public override void MarkStaticDefaults()
+		{
+			DisplayName.SetDefault("Assassin Mark");
+			Tooltip.SetDefault("Increases damage by 50%");
+			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 10));
+		}
+
 		public override void MarkDefaults()
 		{
-			item.name = "Assassin Mark";
 			item.width = 18;
 			item.height = 34;
-			AddTooltip("Increases damage by 50%");
 			item.value = 5000000;
 			item.rare = -11;
 			markId = 1;
@@ -37,11 +42,6 @@ namespace ZoaklenMod.Items.Marks
 			Vector2 pos = new Vector2(posX, posY);
 			int dust = Dust.NewDust(pos, 8, 8, 59, (player.velocity.X) + (player.direction * -32), 0f, 5, default(Color), 2.5f);
 			Main.dust[dust].noGravity = true;
-		}
-
-		public override DrawAnimation GetAnimation()
-		{
-			return new Terraria.DataStructures.DrawAnimationVertical(6, 10);
 		}
 	}
 }

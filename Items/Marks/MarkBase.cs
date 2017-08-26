@@ -9,9 +9,16 @@ namespace ZoaklenMod.Items.Marks
 		public bool activated;
 		public int itemDuration = 300;
 
+		public override void SetStaticDefaults()
+		{
+			MarkStaticDefaults();
+			Tooltip.SetDefault(Tooltip.GetDefault() + "\n" +
+				"Right-click to activate\n" +
+				"'Worths like a trove'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.toolTip2 = "Right-click to activate\n'Worths like a trove'";
 			MarkDefaults();
 		}
 
@@ -33,7 +40,7 @@ namespace ZoaklenMod.Items.Marks
 			{
 				modPlayer.activeMark = markId;
 				modPlayer.markDuration = itemDuration;
-				Main.NewText("<" + player.name + "> just set it mark to " + item.name + ".", 255, 0, 255);
+				Main.NewText("<" + player.name + "> just set it mark to " + DisplayName.GetDefault() + ".", 255, 0, 255);
 			}
 		}
 
@@ -61,6 +68,8 @@ namespace ZoaklenMod.Items.Marks
 		}
 
 		public abstract void MarkEffect(Player player);
+
+		public abstract void MarkStaticDefaults();
 
 		public abstract void MarkDefaults();
 	}
