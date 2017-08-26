@@ -1,24 +1,22 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Legs)]
 	public class ShadowNinjaLeggings : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Legs);
-			return true;
+			DisplayName.SetDefault("Shadow Ninja Leggings");
+			Tooltip.SetDefault("20% increased throwing critical strike chance");
 		}
 
 		public override void SetDefaults()
 		{
 			item.width = 18;
 			item.height = 18;
-			item.name = "Shadow Ninja Leggings";
-			AddTooltip("20% increased throwing critical strike chance");
 			item.value = 10000;
 			item.rare = 5;
 			item.defense = 13;

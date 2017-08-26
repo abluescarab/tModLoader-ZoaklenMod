@@ -1,20 +1,18 @@
-using System.Collections.Generic;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Body)]
 	public class ZoaklenCoat : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Body);
-			return true;
+			DisplayName.SetDefault("Zoaklen's Coat");
+			Tooltip.SetDefault("'Made in Brazil'");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Zoaklen's Coat";
-			AddTooltip("'Made in Brazil'");
 			item.width = 34;
 			item.height = 26;
 			item.vanity = true;

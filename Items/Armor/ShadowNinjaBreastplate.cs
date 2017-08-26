@@ -1,22 +1,20 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Body)]
 	public class ShadowNinjaBreastplate : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Body);
-			return true;
+			DisplayName.SetDefault("Shadow Ninja Breastplate");
+			Tooltip.SetDefault("20% increased throwing damage");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Shadow Ninja Breastplate";
-			AddTooltip("20% increased throwing damage");
 			item.value = 10000;
 			item.rare = 5;
 			item.defense = 15;

@@ -1,22 +1,20 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Head)]
 	public class PaladinHelmet : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Head);
-			return true;
+			DisplayName.SetDefault("Paladin Helmet");
+			Tooltip.SetDefault("15% increased throwing velocity");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Paladin Helmet";
-			AddTooltip("15% increased throwing velocity");
 			item.value = 10000;
 			item.rare = 9;
 			item.defense = 17;

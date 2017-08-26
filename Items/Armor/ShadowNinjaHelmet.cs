@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,18 +6,17 @@ using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Head)]
 	public class ShadowNinjaHelmet : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Head);
-			return true;
+			DisplayName.SetDefault("Shadow Ninja Helmet");
+			Tooltip.SetDefault("20% increased throwing velocity");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Shadow Ninja Helmet";
-			AddTooltip("20% increased throwing velocity");
 			item.value = 10000;
 			item.rare = 5;
 			item.defense = 12;
@@ -169,9 +167,9 @@ namespace ZoaklenMod.Items.Armor
 			player.setBonus = bonus;
 		}
 
-		public override void ArmorSetShadows(Player player, ref bool longTrail, ref bool smallPulse, ref bool largePulse, ref bool shortTrail)
+		public override void ArmorSetShadows(Player player)
 		{
-			longTrail = true;
+			player.armorEffectDrawShadow = true;
 		}
 
 		public override void AddRecipes()

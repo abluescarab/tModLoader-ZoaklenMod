@@ -1,23 +1,21 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Body)]
 	public class StellarNinjaBreastplate : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Body);
-			return true;
+			DisplayName.SetDefault("Stellar Ninja Breastplate");
+			Tooltip.SetDefault("30% increased throwing damage\n" +
+				"You are now resistant as a ninja.");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Stellar Ninja Breastplate";
-			AddTooltip("30% increased throwing damage");
-			AddTooltip("You are now resistant as a ninja.");
 			item.value = 10000;
 			item.rare = -11;
 			item.defense = 22;
@@ -34,7 +32,7 @@ namespace ZoaklenMod.Items.Armor
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient("Luminite Bar", 16);
+			recipe.AddIngredient(ItemID.LunarBar, 16);
 			recipe.AddIngredient(null, "StellarFragment", 20);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);

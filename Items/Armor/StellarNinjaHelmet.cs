@@ -1,23 +1,21 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Head)]
 	public class StellarNinjaHelmet : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Head);
-			return true;
+			DisplayName.SetDefault("Stellar Ninja Helmet");
+			Tooltip.SetDefault("50% chance to not consume thrown item\n" +
+				"You are now smart as a ninja.");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Stellar Ninja Helmet";
-			AddTooltip("50% chance to not consume thrown item");
-			AddTooltip("You are now smart as a ninja.");
 			item.value = 10000;
 			item.rare = -11;
 			item.defense = 19;
@@ -74,15 +72,15 @@ namespace ZoaklenMod.Items.Armor
 			player.setBonus = bonus;
 		}
 
-		public override void ArmorSetShadows(Player player, ref bool longTrail, ref bool smallPulse, ref bool largePulse, ref bool shortTrail)
+		public override void ArmorSetShadows(Player player)
 		{
-			longTrail = true;
+			player.armorEffectDrawShadow = true;
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient("Luminite Bar", 8);
+			recipe.AddIngredient(ItemID.LunarBar, 8);
 			recipe.AddIngredient(null, "StellarFragment", 10);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);

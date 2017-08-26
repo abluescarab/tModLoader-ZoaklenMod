@@ -1,23 +1,21 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Head)]
 	public class HiddenShooterHood : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Head);
-			return true;
+			DisplayName.SetDefault("Hidden Shooter Hood");
+			Tooltip.SetDefault("15% increased throwing and ranged critical strike chance\n" +
+				"Enables zoom out (right click) with throwing and ranged weapons");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Hidden Shooter Hood";
-			AddTooltip("15% increased throwing and ranged critical strike chance");
-			AddTooltip("Enables zoom out (right click) with throwing and ranged weapons");
 			item.value = 10000;
 			item.rare = 6;
 			item.defense = 6;

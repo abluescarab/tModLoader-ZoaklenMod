@@ -6,15 +6,10 @@ using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Head)]
 	public class ChameleonWarriorHelmet : ModItem
 	{
 		BiomeInformations biome = new BiomeInformations();
-
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-		{
-			equips.Add(EquipType.Head);
-			return true;
-		}
 
 		public override void DrawArmorColor(Player drawPlayer, float shadow, ref Color color, ref int glowMask, ref Color glowMaskColor)
 		{
@@ -30,10 +25,14 @@ namespace ZoaklenMod.Items.Armor
 			}
 		}
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chameleon Warrior Helmet");
+			Tooltip.SetDefault("16% increased throwing damage");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Chameleon Warrior Helmet";
-			AddTooltip("16% increased throwing damage");
 			item.value = 300000;
 			item.rare = 7;
 			item.defense = 9;

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -7,24 +6,23 @@ using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Head)]
 	public class Earbuds : ModItem
 	{
 		int frameCounter = 0;
 
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Head);
-			return true;
+			DisplayName.SetDefault("Earbuds");
+			Tooltip.SetDefault("'TF2 represent!'");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Earbuds";
 			item.width = 20;
 			item.height = 20;
 			item.rare = 8;
 			item.vanity = true;
-			AddTooltip("\"TF2 represent!\"");
 		}
 
 		public override void DrawHair(ref bool drawHair, ref bool drawAltHair)

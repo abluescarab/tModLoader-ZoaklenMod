@@ -1,22 +1,20 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Body)]
 	public class PaladinBreastplate : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Body);
-			return true;
+			DisplayName.SetDefault("Paladin Breastplate");
+			Tooltip.SetDefault("15% increased throwing damage");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Paladin Breastplate";
-			AddTooltip("15% increased throwing damage");
 			item.value = 10000;
 			item.rare = 9;
 			item.defense = 21;

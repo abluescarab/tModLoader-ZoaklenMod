@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -6,14 +5,9 @@ using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Legs)]
 	public class ChameleonWarriorLeggings : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
-		{
-			equips.Add(EquipType.Legs);
-			return true;
-		}
-
 		public override void DrawArmorColor(Player drawPlayer, float shadow, ref Color color, ref int glowMask, ref Color glowMaskColor)
 		{
 			if(Main.gameMenu || !((PlayerChanges)drawPlayer.GetModPlayer(mod, "PlayerChanges")).chameleonMode)
@@ -29,13 +23,17 @@ namespace ZoaklenMod.Items.Armor
 			}
 		}
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Chameleon Warrior Leggings");
+			Tooltip.SetDefault("10% increased throwing critical strike chance\n" +
+				"7% increased movement speed");
+		}
+
 		public override void SetDefaults()
 		{
 			item.width = 18;
 			item.height = 18;
-			item.name = "Chameleon Warrior Leggings";
-			AddTooltip("10% increased throwing critical strike chance");
-			AddTooltip("7% increased movement speed");
 			item.value = 180000;
 			item.rare = 7;
 			item.defense = 12;

@@ -1,24 +1,22 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Legs)]
 	public class HiddenShooterPants : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Legs);
-			return true;
+			DisplayName.SetDefault("Hidden Shooter Pants");
+			Tooltip.SetDefault("50% chance to not consume thrown or ranged ammo");
 		}
 
 		public override void SetDefaults()
 		{
 			item.width = 18;
 			item.height = 18;
-			item.name = "Hidden Shooter Pants";
-			AddTooltip("50% chance to not consume thrown or ranged ammo");
 			item.value = 10000;
 			item.rare = 6;
 			item.defense = 9;

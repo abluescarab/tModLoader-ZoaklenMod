@@ -1,23 +1,21 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ZoaklenMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Body)]
 	public class HiddenShooterCoat : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Body);
-			return true;
+			DisplayName.SetDefault("Hidden Shooter Coat");
+			Tooltip.SetDefault("15% increased throwing and ranged damage\n" +
+				"Enemies will focus other person if possible");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Hidden Shooter Coat";
-			AddTooltip("15% increased throwing and ranged damage");
-			AddTooltip("Enemies will focus other person if possible");
 			item.value = 10000;
 			item.rare = 6;
 			item.defense = 12;
