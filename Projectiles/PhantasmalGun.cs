@@ -7,10 +7,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class PhantasmalGun : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Phantasmal Missile");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.VortexBeater);
-			projectile.name = "Phantasmal Missile";
 		}
 
 		public override bool PreKill(int timeLeft)

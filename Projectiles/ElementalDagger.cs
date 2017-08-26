@@ -7,10 +7,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class ElementalDagger : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Elemental Dagger");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.MagicDagger);
-			projectile.name = "ElementalDagger";
 			projectile.penetrate = 1;
 			projectile.width = 14;
 			projectile.height = 28;

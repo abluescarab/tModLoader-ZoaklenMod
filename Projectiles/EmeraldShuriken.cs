@@ -6,10 +6,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class EmeraldShuriken : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Emerald Shuriken");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Shuriken);
-			projectile.name = "Emerald Shuriken";
 			projectile.penetrate = 2;
 			projectile.width = 22;
 			projectile.height = 22;

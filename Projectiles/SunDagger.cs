@@ -7,10 +7,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class SunDagger : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sun Dagger");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Shuriken);
-			projectile.name = "Sun Dagger";
 			projectile.penetrate = 1;
 			projectile.width = 30;
 			projectile.height = 30;
@@ -20,7 +24,7 @@ namespace ZoaklenMod.Projectiles
 			projectile.thrown = true;
 		}
 
-		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
+		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
 			target.AddBuff(BuffID.CursedInferno, 300, true);
 		}

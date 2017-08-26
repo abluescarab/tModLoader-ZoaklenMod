@@ -5,11 +5,15 @@ namespace ZoaklenMod.Projectiles.Minions
 {
 	public class NebulaCrystal : Minion
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Nebula Crystal");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(643);
 			projectile.netImportant = true;
-			projectile.name = "Nebula Crystal";
 			Main.projFrames[projectile.type] = 8;
 			Main.projPet[projectile.type] = true;
 		}

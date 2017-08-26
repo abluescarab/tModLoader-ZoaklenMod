@@ -6,9 +6,13 @@ namespace ZoaklenMod.Projectiles
 {
 	public class Kunai : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Kunai");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Kunai";
 			projectile.penetrate = 3;
 			projectile.aiStyle = 1;
 			projectile.width = 26;
@@ -20,7 +24,7 @@ namespace ZoaklenMod.Projectiles
 			projectile.thrown = true;
 		}
 
-		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
+		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
 			Player player = Main.player[projectile.owner];
 			if(Main.rand.Next(0, 101) < GetWeaponCrit(player))

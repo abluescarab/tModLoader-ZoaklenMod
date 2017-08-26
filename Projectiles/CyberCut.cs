@@ -6,9 +6,13 @@ namespace ZoaklenMod.Projectiles
 {
 	public class CyberCut : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cyber Cut");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Cyber Cut";
 			projectile.penetrate = -1;
 			projectile.aiStyle = 1;
 			projectile.width = 8;
@@ -24,7 +28,7 @@ namespace ZoaklenMod.Projectiles
 			projectile.extraUpdates = 100;
 		}
 
-		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
+		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
 			Player player = Main.player[projectile.owner];
 			if(Main.rand.Next(0, 101) < GetWeaponCrit(player))

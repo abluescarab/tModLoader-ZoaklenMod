@@ -5,9 +5,13 @@ namespace ZoaklenMod.Projectiles
 {
 	public class PacPellets : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pac Pellets");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Pac Pellets";
 			projectile.penetrate = -1;
 			projectile.aiStyle = 1;
 			projectile.width = 10;

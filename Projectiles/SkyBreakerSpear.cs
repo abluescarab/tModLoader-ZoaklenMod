@@ -8,10 +8,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class SkyBreakerSpear : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sky Breaker");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Daybreak);
-			projectile.name = "Sky Breaker";
 			projectile.aiStyle = 1;
 			projectile.alpha = 0;
 			projectile.thrown = true;

@@ -6,10 +6,14 @@ namespace ZoaklenMod.Projectiles.Pets
 {
 	public class PracticalCube : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Practical Cube");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.CompanionCube);
-			projectile.name = "Practical Cube";
 			aiType = ProjectileID.CompanionCube;
 			Main.projFrames[projectile.type] = 1;
 			Main.projPet[projectile.type] = true;

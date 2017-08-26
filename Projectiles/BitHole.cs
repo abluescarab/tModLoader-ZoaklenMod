@@ -6,9 +6,13 @@ namespace ZoaklenMod.Projectiles
 {
 	public class BitHole : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bit Hole");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Bit Hole";
 			projectile.penetrate = -1;
 			projectile.width = 60;
 			projectile.height = 60;

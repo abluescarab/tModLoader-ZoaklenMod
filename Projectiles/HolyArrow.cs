@@ -8,10 +8,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class HolyArrow : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Holy Arrow");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.HolyArrow);
-			projectile.name = "Holy Arrow";
 			projectile.noDropItem = true;
 		}
 

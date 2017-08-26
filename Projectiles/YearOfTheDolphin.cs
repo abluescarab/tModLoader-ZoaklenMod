@@ -8,11 +8,15 @@ namespace ZoaklenMod.Projectiles
 {
 	public class YearOfTheDolphin : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Year Of The Dolphin");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Phantasm);
 			Main.projFrames[projectile.type] = 6;
-			projectile.name = "Year Of The Dolphin";
 		}
 
 		public override bool PreKill(int timeLeft)

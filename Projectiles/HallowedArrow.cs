@@ -6,10 +6,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class HallowedArrow : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Hallowed Arrow");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.arrow = true;
-			projectile.name = "Hallowed Arrow";
 			projectile.width = 14;
 			projectile.height = 32;
 			projectile.aiStyle = 1;

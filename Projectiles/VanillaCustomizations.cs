@@ -19,7 +19,7 @@ namespace ZoaklenMod.Projectiles
 		public override bool PreAI(Projectile projectile)
 		{
 			Player player = Main.player[Main.myPlayer];
-			if(player.inventory[player.selectedItem].name.Contains("Thrown") && !projectile.minion)
+			if(player.inventory[player.selectedItem].Name.Contains("Thrown") && !projectile.minion)
 			{
 				projectile.thrown = true;
 				projectile.magic = false;
@@ -49,7 +49,7 @@ namespace ZoaklenMod.Projectiles
 			{
 				return false;
 			}
-			string t = projectile.name;
+			string t = projectile.Name;
 			if(!t.Contains("Bee") && !t.Contains("Wasp") && !t.Contains("Hornet"))
 			{
 				return false;
@@ -57,7 +57,7 @@ namespace ZoaklenMod.Projectiles
 			return true;
 		}
 
-		public override void ModifyHitNPC(Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit)
+		public override void ModifyHitNPC(Projectile projectile, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
 			if((projectile.type >= 184 && projectile.type <= 188) || projectile.type == 654)
 				return;
@@ -71,7 +71,7 @@ namespace ZoaklenMod.Projectiles
 			{
 				damage = (int)(damage * 1.5f);
 			}
-			if(target.HasBuff(mod.BuffType("Virus")) > 0)
+			if(target.FindBuffIndex(mod.BuffType("Virus")) != -1)
 			{
 				damage = (int)(damage * 1.2f);
 			}
@@ -96,7 +96,7 @@ namespace ZoaklenMod.Projectiles
 					break;
 				}
 			}
-			if(cardBonus2 && projectile.name.Contains("Card"))
+			if(cardBonus2 && projectile.Name.Contains("Card"))
 			{
 				if(Main.rand.Next(3) == 0)
 				{

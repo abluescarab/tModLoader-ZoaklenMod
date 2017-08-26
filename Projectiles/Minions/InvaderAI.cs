@@ -7,10 +7,14 @@ namespace ZoaklenMod.Projectiles.Minions
 {
 	public abstract class InvaderAI : Minion
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Invader");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.netImportant = true;
-			projectile.name = "Invader";
 			projectile.width = 16;
 			projectile.height = 16;
 			Main.projFrames[projectile.type] = 2;
@@ -91,7 +95,7 @@ namespace ZoaklenMod.Projectiles.Minions
 			for(int i = 0; i < 256; i++)
 			{
 				Projectile proj = Main.projectile[i];
-				if(proj.active && proj.name.Contains("Invader"))
+				if(proj.active && proj.Name.Contains("Invader"))
 				{
 					if(proj.identity != projectile.identity)
 					{

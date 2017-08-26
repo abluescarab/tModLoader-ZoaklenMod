@@ -4,9 +4,13 @@ namespace ZoaklenMod.Projectiles
 {
 	public class DummyProjectile : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dummy Projectile");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Dummy Projectile";
 			projectile.penetrate = 0;
 			projectile.width = 1;
 			projectile.height = 1;

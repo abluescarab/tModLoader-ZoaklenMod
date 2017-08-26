@@ -6,10 +6,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class RubyShuriken : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ruby Shuriken");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Shuriken);
-			projectile.name = "Ruby Shuriken";
 			projectile.penetrate = 2;
 			projectile.width = 22;
 			projectile.height = 22;

@@ -8,9 +8,13 @@ namespace ZoaklenMod.Projectiles
 {
 	public class CyberCardC : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cyber Card");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Cyber Card";
 			projectile.penetrate = 1;
 			projectile.thrown = true;
 			projectile.aiStyle = 1;
@@ -24,7 +28,7 @@ namespace ZoaklenMod.Projectiles
 			aiType = ProjectileID.Bullet;
 		}
 
-		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
+		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
 			Player player = Main.player[projectile.owner];
 			if(Main.rand.Next(0, 101) < GetWeaponCrit(player))

@@ -8,10 +8,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class PhantasmalCelebration : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Phantasm Buster");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Phantasm);
-			projectile.name = "Phantasm Buster";
 			projectile.width = 66;
 			projectile.height = 32;
 		}

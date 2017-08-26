@@ -6,10 +6,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class TopazShuriken : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Topaz Shuriken");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Shuriken);
-			projectile.name = "Topaz Shuriken";
 			projectile.penetrate = 1;
 			projectile.width = 22;
 			projectile.height = 22;

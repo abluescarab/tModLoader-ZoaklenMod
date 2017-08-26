@@ -7,9 +7,13 @@ namespace ZoaklenMod.Projectiles
 {
 	public class LastSoul : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Last Soul");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Last Soul";
 			projectile.width = 10;
 			projectile.height = 10;
 			projectile.aiStyle = 9;

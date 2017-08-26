@@ -6,11 +6,15 @@ namespace ZoaklenMod.Projectiles.Minions
 	//ported from my tAPI mod because I'm lazy
 	public class Creeper : Minion
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Creeper");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(317);
 			projectile.netImportant = true;
-			projectile.name = "Creeper";
 			projectile.width = 24;
 			projectile.height = 32;
 			Main.projFrames[projectile.type] = 1;

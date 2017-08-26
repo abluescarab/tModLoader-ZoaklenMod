@@ -7,10 +7,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class SkyBreakerFlakes : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Solar Excalibur");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.NorthPoleSnowflake);
-			projectile.name = "Solar Excalibur";
 			projectile.width = 20;
 			projectile.height = 48;
 		}

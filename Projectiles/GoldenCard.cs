@@ -7,9 +7,13 @@ namespace ZoaklenMod.Projectiles
 {
 	public class GoldenCard : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Golden Card");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Golden Card";
 			projectile.penetrate = 5;
 			projectile.aiStyle = 1;
 			projectile.width = 22;
@@ -23,7 +27,7 @@ namespace ZoaklenMod.Projectiles
 			aiType = ProjectileID.Bullet;
 		}
 
-		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
+		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
 			Player player = Main.player[projectile.owner];
 			if(Main.rand.Next(0, 101) < GetWeaponCrit(player))

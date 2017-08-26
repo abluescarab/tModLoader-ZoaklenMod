@@ -6,10 +6,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class PhantasmalArrow : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Phantasm Buster Arrow");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(631);
-			projectile.name = "Phantasm Buster Arrow";
 		}
 
 		public override void AI()

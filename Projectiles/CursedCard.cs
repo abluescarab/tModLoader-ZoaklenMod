@@ -7,9 +7,13 @@ namespace ZoaklenMod.Projectiles
 {
 	public class CursedCard : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cursed Card");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Cursed Card";
 			projectile.penetrate = 1;
 			projectile.aiStyle = 1;
 			projectile.width = 22;
@@ -23,7 +27,7 @@ namespace ZoaklenMod.Projectiles
 			aiType = ProjectileID.Bullet;
 		}
 
-		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit)
+		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
 		{
 			Player player = Main.player[projectile.owner];
 			target.AddBuff(BuffID.CursedInferno, 300, true);

@@ -14,10 +14,14 @@ namespace ZoaklenMod.Projectiles.Minions
 		internal int left = 2;
 		internal int right = 3;
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Pacman");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.netImportant = true;
-			projectile.name = "Pacman";
 			projectile.width = 26;
 			projectile.height = 26;
 			Main.projFrames[projectile.type] = 3;

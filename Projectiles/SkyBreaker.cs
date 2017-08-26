@@ -7,10 +7,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class SkyBreaker : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sky Breaker");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.NorthPoleWeapon);
-			projectile.name = "Sky Breaker";
 			projectile.penetrate = -1;
 			projectile.light = 8;
 			projectile.width = 30;

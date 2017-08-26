@@ -7,10 +7,14 @@ namespace ZoaklenMod.Projectiles
 {
 	public class StarKitty : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Star Kitty");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.StarWrath);
-			projectile.name = "Star Kitty";
 			projectile.damage = 300;
 			projectile.penetrate = 1;
 			aiType = ProjectileID.StarWrath;
