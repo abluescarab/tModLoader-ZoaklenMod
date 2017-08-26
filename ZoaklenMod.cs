@@ -172,7 +172,7 @@ namespace ZoaklenMod
 								player.rocketDelay = 0;
 								player.rocketFrame = false;
 								player.Teleport(vector14, 1, 0);
-								NetMessage.SendData(65, -1, -1, "", 0, (float)player.whoAmI, vector14.X, vector14.Y, 1, 0, 0);
+								NetMessage.SendData(65, -1, -1, null, 0, (float)player.whoAmI, vector14.X, vector14.Y, 1, 0, 0);
 								for(int num648 = 0; num648 < 20; num648++)
 								{
 									int num649 = Dust.NewDust(new Vector2(player.position.X, player.position.Y), player.width, player.height, 31, 0f, 0f, 100, default(Color), 1.5f);
